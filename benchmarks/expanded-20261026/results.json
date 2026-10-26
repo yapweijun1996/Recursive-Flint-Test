@@ -1,0 +1,3924 @@
+{
+  "metadata": {
+    "started_utc": "2026-10-26T01:43:22.135912+00:00",
+    "pi_version": "1.4.0",
+    "provider": "openrouter",
+    "profiles": [
+      {
+        "name": "luna-high",
+        "model": "openai/gpt-6-luna",
+        "thinking": "high"
+      },
+      {
+        "name": "luna-medium",
+        "model": "openai/gpt-6-luna",
+        "thinking": "medium"
+      },
+      {
+        "name": "flint",
+        "model": "recursive/flint-v1.0:free",
+        "thinking": "high"
+      }
+    ],
+    "tool_trials_per_profile": 10,
+    "expected_calls": 59,
+    "context_policy": "No context files, skills, extensions, MCP, or persistent sessions.",
+    "reasoning_policy": "Luna uses requested high or medium; Flint reasons autonomously.",
+    "tasks_sha256": "b31a703c7dbd5d767de51612d966a1658523138d5e0649c18b5d9a6a3b64d491",
+    "verification_policy": "Trusted Python behavior checks in a separate five-second process with AST/import checks and restricted builtins; no model shell execution.",
+    "baseline_sha256": "bf6d065c9599c9fa27546dd4f28b17fed5b132124e095eca2b5b890a4a012832",
+    "finished_utc": "2026-10-26T01:49:15.359442+00:00"
+  },
+  "baseline": {
+    "merge_intervals": {
+      "buggy": {
+        "passed": false,
+        "checks": 37,
+        "passed_checks": 8,
+        "failures": [
+          {
+            "name": "fixed-2",
+            "passed": false,
+            "error": "AssertionError: Expected [[1, 8]], got [[1, 4], [4, 8]]"
+          },
+          {
+            "name": "fixed-4",
+            "passed": false,
+            "error": "AssertionError: Expected [[1, 10]], got [[1, 9], [9, 10]]"
+          },
+          {
+            "name": "fixed-5",
+            "passed": false,
+            "error": "AssertionError: Expected [[-2, 0]], got [[-2, 0], [0, 0], [0, 0]]"
+          },
+          {
+            "name": "input-and-output-aliasing",
+            "passed": false,
+            "error": "AssertionError: Expected [[4, 6], [1, 5]], got [[1, 6], [4, 6]]"
+          },
+          {
+            "name": "generated-0",
+            "passed": false,
+            "error": "AssertionError: Expected [[2, 5], [-9, -7], [6, 9], [2, 4], [5, 7], [8, 9], [6, 7], [-1, 0], [-7, -3], [-2, 2], [9, 10], [-1, -1], [-8, -3]], got [[-9, -3], [-8, -3], [-7, -3], [-2, 2], [-1, -1], [-1, 0], [2, 5], [2, 5], [5, 9], [6, 7], [6, 9], [8, 9], [9,"
+          },
+          {
+            "name": "generated-1",
+            "passed": false,
+            "error": "AssertionError: Expected [[8, 8], [-2, -2]], got [[-2, -2], [8, 8]]"
+          },
+          {
+            "name": "generated-2",
+            "passed": false,
+            "error": "AssertionError: Expected [[-9, -9], [-8, -6], [-5, 0], [-1, 1], [9, 10], [9, 9], [8, 13], [-5, -2], [10, 13], [6, 8], [7, 10], [6, 8], [-9, -9]], got [[-9, -9], [-9, -9], [-8, -6], [-5, 1], [-5, 0], [-1, 1], [6, 13], [6, 8], [7, 10], [8, 13], [9, 9], [9, 1"
+          },
+          {
+            "name": "generated-3",
+            "passed": false,
+            "error": "AssertionError: Expected [[8, 12], [-6, -4], [9, 12]], got [[-6, -4], [8, 12], [9, 12]]"
+          },
+          {
+            "name": "generated-4",
+            "passed": false,
+            "error": "AssertionError: Expected [[-1, -1], [2, 5], [-6, -6]], got [[-6, -6], [-1, -1], [2, 5]]"
+          },
+          {
+            "name": "generated-5",
+            "passed": false,
+            "error": "AssertionError: Expected [[-2, 3], [1, 6], [10, 14], [-10, -7], [-3, 2], [-9, -8], [-7, -5], [5, 6], [2, 6]], got [[-10, -7], [-9, -8], [-7, -5], [-3, 6], [-2, 3], [1, 6], [2, 6], [5, 6], [10, 14]]"
+          },
+          {
+            "name": "generated-6",
+            "passed": false,
+            "error": "AssertionError: Expected [[8, 8], [5, 7], [-9, -9], [-6, -1], [8, 11], [1, 3], [-10, -8], [5, 6], [3, 7], [7, 12], [-7, -6], [8, 12]], got [[-10, -8], [-9, -9], [-7, -6], [-6, -1], [1, 3], [3, 7], [5, 6], [5, 7], [7, 12], [8, 8], [8, 11], [8, 12]]"
+          },
+          {
+            "name": "generated-7",
+            "passed": false,
+            "error": "AssertionError: Expected [[-6, -3], [10, 10], [-8, -4], [-7, -5], [8, 8]], got [[-8, -3], [-7, -5], [-6, -3], [8, 8], [10, 10]]"
+          },
+          {
+            "name": "generated-8",
+            "passed": false,
+            "error": "AssertionError: Expected [[1, 4], [-6, -5], [-9, -9]], got [[-9, -9], [-6, -5], [1, 4]]"
+          },
+          {
+            "name": "generated-9",
+            "passed": false,
+            "error": "AssertionError: Expected [[9, 11], [-2, -1], [-5, 0], [-10, -8], [6, 9], [9, 9], [0, 4]], got [[-10, -8], [-5, 0], [-2, -1], [0, 4], [6, 9], [9, 9], [9, 11]]"
+          },
+          {
+            "name": "generated-10",
+            "passed": false,
+            "error": "AssertionError: Expected [[-9, -6], [5, 9], [-10, -9], [4, 7], [-2, 3], [-5, -5], [6, 9], [0, 0], [-3, 2]], got [[-10, -9], [-9, -6], [-5, -5], [-3, 3], [-2, 3], [0, 0], [4, 9], [5, 9], [6, 9]]"
+          },
+          {
+            "name": "generated-11",
+            "passed": false,
+            "error": "AssertionError: Expected [[7, 10], [4, 8], [8, 9], [-5, -1], [5, 10], [9, 10], [-7, -4]], got [[-7, -1], [-5, -1], [4, 10], [5, 10], [7, 10], [8, 9], [9, 10]]"
+          },
+          {
+            "name": "generated-12",
+            "passed": false,
+            "error": "AssertionError: Expected [[-2, 3], [6, 11], [1, 2], [2, 2], [1, 4], [-2, 3], [4, 9]], got [[-2, 4], [-2, 3], [1, 2], [1, 4], [2, 2], [4, 11], [6, 11]]"
+          },
+          {
+            "name": "generated-13",
+            "passed": false,
+            "error": "AssertionError: Expected [[-1, 4], [-5, 0], [-3, 2], [-6, -5]], got [[-6, -5], [-5, 4], [-3, 2], [-1, 4]]"
+          },
+          {
+            "name": "generated-16",
+            "passed": false,
+            "error": "AssertionError: Expected [[5, 8], [-1, 2], [-3, 0], [-10, -7], [-2, -1]], got [[-10, -7], [-3, 2], [-2, -1], [-1, 2], [5, 8]]"
+          },
+          {
+            "name": "generated-17",
+            "passed": false,
+            "error": "AssertionError: Expected [[3, 5], [1, 3], [-5, 0], [7, 12], [-2, -2], [-10, -9], [2, 7], [3, 5]], got [[-10, -9], [-5, 0], [-2, -2], [1, 7], [2, 7], [3, 5], [3, 5], [7, 12]]"
+          },
+          {
+            "name": "generated-19",
+            "passed": false,
+            "error": "AssertionError: Expected [[-9, -5], [-7, -3], [-4, -1], [1, 5], [-1, 3], [-6, -2], [-2, -2], [-2, 1], [0, 2], [-7, -5]], got [[-9, 5], [-7, -5], [-7, -3], [-6, -2], [-4, -1], [-2, -2], [-2, 1], [-1, 3], [0, 2], [1, 5]]"
+          },
+          {
+            "name": "generated-20",
+            "passed": false,
+            "error": "AssertionError: Expected [[-6, -4], [10, 10], [0, 4], [-5, -5], [3, 6], [-8, -8], [-6, -4], [5, 9], [4, 7], [-4, -3], [0, 5], [0, 2], [3, 3], [10, 14]], got [[-8, -8], [-6, -4], [-6, -4], [-5, -5], [-4, -3], [0, 9], [0, 4], [0, 5], [3, 3], [3, 6], [4, 7], "
+          },
+          {
+            "name": "generated-22",
+            "passed": false,
+            "error": "AssertionError: Expected [[-6, -5], [-10, -6], [4, 5], [-7, -2], [10, 12], [-8, -7], [-2, -2], [0, 4], [-5, -1], [3, 8], [-9, -5], [-10, -6], [-2, 0], [3, 4]], got [[-10, 0], [-10, -6], [-9, -5], [-8, -7], [-7, -2], [-6, -5], [-5, -1], [-2, -2], [-2, 0], ["
+          },
+          {
+            "name": "generated-23",
+            "passed": false,
+            "error": "AssertionError: Expected [[-1, -1], [-10, -6], [-1, 2], [2, 6], [1, 2], [-4, -2], [4, 4], [-3, 1], [4, 4], [-7, -7], [5, 8], [-10, -6], [10, 15], [3, 5]], got [[-10, -6], [-10, -6], [-7, -7], [-4, 2], [-3, 1], [-1, -1], [-1, 2], [1, 2], [2, 8], [3, 5], [4,"
+          },
+          {
+            "name": "generated-24",
+            "passed": false,
+            "error": "AssertionError: Expected [[2, 6], [-5, -4], [-5, -4], [-5, 0], [-8, -3], [-6, -1], [-1, 4], [-10, -7], [4, 9], [10, 10], [-10, -6]], got [[-10, 9], [-10, -6], [-8, -3], [-6, -1], [-5, -4], [-5, -4], [-5, 0], [-1, 4], [2, 6], [4, 9], [10, 10]]"
+          },
+          {
+            "name": "generated-25",
+            "passed": false,
+            "error": "AssertionError: Expected [[-10, -9], [-1, 4], [5, 5], [-2, -2], [-1, 3], [3, 3]], got [[-10, -9], [-2, -2], [-1, 4], [-1, 4], [3, 3], [5, 5]]"
+          },
+          {
+            "name": "generated-26",
+            "passed": false,
+            "error": "AssertionError: Expected [[-4, 1], [-4, -1], [9, 13], [-9, -8], [5, 5], [9, 13], [-5, 0], [3, 4], [3, 8], [-4, 1], [-10, -5]], got [[-10, -5], [-9, -8], [-5, 1], [-4, -1], [-4, 1], [-4, 1], [3, 8], [3, 8], [5, 5], [9, 13], [9, 13]]"
+          },
+          {
+            "name": "generated-27",
+            "passed": false,
+            "error": "AssertionError: Expected [[5, 10], [-2, 0], [-4, -4], [-8, -6], [7, 9], [-2, 0], [2, 3], [-3, -2], [5, 5], [10, 14]], got [[-8, -6], [-4, -4], [-3, -2], [-2, 0], [-2, 0], [2, 3], [5, 5], [5, 10], [7, 9], [10, 14]]"
+          },
+          {
+            "name": "generated-29",
+            "passed": false,
+            "error": "AssertionError: Expected [[-8, -6], [9, 13], [-1, -1], [6, 8], [2, 5], [-10, -10], [-7, -4], [10, 11]], got [[-10, -10], [-8, -4], [-7, -4], [-1, -1], [2, 5], [6, 8], [9, 13], [10, 11]]"
+          }
+        ],
+        "seconds": 0.049
+      },
+      "reference": {
+        "passed": true,
+        "checks": 37,
+        "passed_checks": 37,
+        "failures": [],
+        "seconds": 0.048
+      }
+    },
+    "pagination": {
+      "buggy": {
+        "passed": false,
+        "checks": 104,
+        "passed_checks": 34,
+        "failures": [
+          {
+            "name": "page-1-1-1",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [0], 'page': 1, 'size': 1, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 1, 'size': 1, 'total': 1, 'pages': 1, 'has_next': True}"
+          },
+          {
+            "name": "page-1-2-1",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [0], 'page': 1, 'size': 2, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 1, 'size': 2, 'total': 1, 'pages': 0, 'has_next': False}"
+          },
+          {
+            "name": "page-1-2-2",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 2, 'size': 2, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 2, 'size': 2, 'total': 1, 'pages': 0, 'has_next': False}"
+          },
+          {
+            "name": "page-1-2-4",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 4, 'size': 2, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 4, 'size': 2, 'total': 1, 'pages': 0, 'has_next': False}"
+          },
+          {
+            "name": "page-1-2-20",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 20, 'size': 2, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 20, 'size': 2, 'total': 1, 'pages': 0, 'has_next': False}"
+          },
+          {
+            "name": "page-1-4-1",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [0], 'page': 1, 'size': 4, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 1, 'size': 4, 'total': 1, 'pages': 0, 'has_next': False}"
+          },
+          {
+            "name": "page-1-4-2",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 2, 'size': 4, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 2, 'size': 4, 'total': 1, 'pages': 0, 'has_next': False}"
+          },
+          {
+            "name": "page-1-4-4",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 4, 'size': 4, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 4, 'size': 4, 'total': 1, 'pages': 0, 'has_next': False}"
+          },
+          {
+            "name": "page-1-4-20",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 20, 'size': 4, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 20, 'size': 4, 'total': 1, 'pages': 0, 'has_next': False}"
+          },
+          {
+            "name": "page-1-10-1",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [0], 'page': 1, 'size': 10, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 1, 'size': 10, 'total': 1, 'pages': 0, 'has_next': False}"
+          },
+          {
+            "name": "page-1-10-2",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 2, 'size': 10, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 2, 'size': 10, 'total': 1, 'pages': 0, 'has_next': False}"
+          },
+          {
+            "name": "page-1-10-4",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 4, 'size': 10, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 4, 'size': 10, 'total': 1, 'pages': 0, 'has_next': False}"
+          },
+          {
+            "name": "page-1-10-20",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 20, 'size': 10, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 20, 'size': 10, 'total': 1, 'pages': 0, 'has_next': False}"
+          },
+          {
+            "name": "page-2-1-1",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [0], 'page': 1, 'size': 1, 'total': 2, 'pages': 2, 'has_next': True}, got {'items': [1], 'page': 1, 'size': 1, 'total': 2, 'pages': 2, 'has_next': True}"
+          },
+          {
+            "name": "page-2-1-2",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [1], 'page': 2, 'size': 1, 'total': 2, 'pages': 2, 'has_next': False}, got {'items': [], 'page': 2, 'size': 1, 'total': 2, 'pages': 2, 'has_next': True}"
+          },
+          {
+            "name": "page-2-2-1",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [0, 1], 'page': 1, 'size': 2, 'total': 2, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 1, 'size': 2, 'total': 2, 'pages': 1, 'has_next': True}"
+          },
+          {
+            "name": "page-2-4-1",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [0, 1], 'page': 1, 'size': 4, 'total': 2, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 1, 'size': 4, 'total': 2, 'pages': 0, 'has_next': False}"
+          },
+          {
+            "name": "page-2-4-2",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 2, 'size': 4, 'total': 2, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 2, 'size': 4, 'total': 2, 'pages': 0, 'has_next': False}"
+          },
+          {
+            "name": "page-2-4-4",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 4, 'size': 4, 'total': 2, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 4, 'size': 4, 'total': 2, 'pages': 0, 'has_next': False}"
+          },
+          {
+            "name": "page-2-4-20",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 20, 'size': 4, 'total': 2, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 20, 'size': 4, 'total': 2, 'pages': 0, 'has_next': False}"
+          },
+          {
+            "name": "page-2-10-1",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [0, 1], 'page': 1, 'size': 10, 'total': 2, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 1, 'size': 10, 'total': 2, 'pages': 0, 'has_next': False}"
+          },
+          {
+            "name": "page-2-10-2",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 2, 'size': 10, 'total': 2, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 2, 'size': 10, 'total': 2, 'pages': 0, 'has_next': False}"
+          },
+          {
+            "name": "page-2-10-4",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 4, 'size': 10, 'total': 2, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 4, 'size': 10, 'total': 2, 'pages': 0, 'has_next': False}"
+          },
+          {
+            "name": "page-2-10-20",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 20, 'size': 10, 'total': 2, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 20, 'size': 10, 'total': 2, 'pages': 0, 'has_next': False}"
+          },
+          {
+            "name": "page-7-1-1",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [0], 'page': 1, 'size': 1, 'total': 7, 'pages': 7, 'has_next': True}, got {'items': [1], 'page': 1, 'size': 1, 'total': 7, 'pages': 7, 'has_next': True}"
+          },
+          {
+            "name": "page-7-1-2",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [1], 'page': 2, 'size': 1, 'total': 7, 'pages': 7, 'has_next': True}, got {'items': [2], 'page': 2, 'size': 1, 'total': 7, 'pages': 7, 'has_next': True}"
+          },
+          {
+            "name": "page-7-1-4",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [3], 'page': 4, 'size': 1, 'total': 7, 'pages': 7, 'has_next': True}, got {'items': [4], 'page': 4, 'size': 1, 'total': 7, 'pages': 7, 'has_next': True}"
+          },
+          {
+            "name": "page-7-2-1",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [0, 1], 'page': 1, 'size': 2, 'total': 7, 'pages': 4, 'has_next': True}, got {'items': [2, 3], 'page': 1, 'size': 2, 'total': 7, 'pages': 3, 'has_next': True}"
+          },
+          {
+            "name": "page-7-2-2",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [2, 3], 'page': 2, 'size': 2, 'total': 7, 'pages': 4, 'has_next': True}, got {'items': [4, 5], 'page': 2, 'size': 2, 'total': 7, 'pages': 3, 'has_next': True}"
+          },
+          {
+            "name": "page-7-2-4",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [6], 'page': 4, 'size': 2, 'total': 7, 'pages': 4, 'has_next': False}, got {'items': [], 'page': 4, 'size': 2, 'total': 7, 'pages': 3, 'has_next': False}"
+          },
+          {
+            "name": "page-7-2-20",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 20, 'size': 2, 'total': 7, 'pages': 4, 'has_next': False}, got {'items': [], 'page': 20, 'size': 2, 'total': 7, 'pages': 3, 'has_next': False}"
+          },
+          {
+            "name": "page-7-4-1",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [0, 1, 2, 3], 'page': 1, 'size': 4, 'total': 7, 'pages': 2, 'has_next': True}, got {'items': [4, 5, 6], 'page': 1, 'size': 4, 'total': 7, 'pages': 1, 'has_next': True}"
+          },
+          {
+            "name": "page-7-4-2",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [4, 5, 6], 'page': 2, 'size': 4, 'total': 7, 'pages': 2, 'has_next': False}, got {'items': [], 'page': 2, 'size': 4, 'total': 7, 'pages': 1, 'has_next': False}"
+          },
+          {
+            "name": "page-7-4-4",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 4, 'size': 4, 'total': 7, 'pages': 2, 'has_next': False}, got {'items': [], 'page': 4, 'size': 4, 'total': 7, 'pages': 1, 'has_next': False}"
+          },
+          {
+            "name": "page-7-4-20",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 20, 'size': 4, 'total': 7, 'pages': 2, 'has_next': False}, got {'items': [], 'page': 20, 'size': 4, 'total': 7, 'pages': 1, 'has_next': False}"
+          },
+          {
+            "name": "page-7-10-1",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [0, 1, 2, 3, 4, 5, 6], 'page': 1, 'size': 10, 'total': 7, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 1, 'size': 10, 'total': 7, 'pages': 0, 'has_next': False}"
+          },
+          {
+            "name": "page-7-10-2",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 2, 'size': 10, 'total': 7, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 2, 'size': 10, 'total': 7, 'pages': 0, 'has_next': False}"
+          },
+          {
+            "name": "page-7-10-4",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 4, 'size': 10, 'total': 7, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 4, 'size': 10, 'total': 7, 'pages': 0, 'has_next': False}"
+          },
+          {
+            "name": "page-7-10-20",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 20, 'size': 10, 'total': 7, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 20, 'size': 10, 'total': 7, 'pages': 0, 'has_next': False}"
+          },
+          {
+            "name": "page-10-1-1",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [0], 'page': 1, 'size': 1, 'total': 10, 'pages': 10, 'has_next': True}, got {'items': [1], 'page': 1, 'size': 1, 'total': 10, 'pages': 10, 'has_next': True}"
+          },
+          {
+            "name": "page-10-1-2",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [1], 'page': 2, 'size': 1, 'total': 10, 'pages': 10, 'has_next': True}, got {'items': [2], 'page': 2, 'size': 1, 'total': 10, 'pages': 10, 'has_next': True}"
+          },
+          {
+            "name": "page-10-1-4",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [3], 'page': 4, 'size': 1, 'total': 10, 'pages': 10, 'has_next': True}, got {'items': [4], 'page': 4, 'size': 1, 'total': 10, 'pages': 10, 'has_next': True}"
+          },
+          {
+            "name": "page-10-2-1",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [0, 1], 'page': 1, 'size': 2, 'total': 10, 'pages': 5, 'has_next': True}, got {'items': [2, 3], 'page': 1, 'size': 2, 'total': 10, 'pages': 5, 'has_next': True}"
+          },
+          {
+            "name": "page-10-2-2",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [2, 3], 'page': 2, 'size': 2, 'total': 10, 'pages': 5, 'has_next': True}, got {'items': [4, 5], 'page': 2, 'size': 2, 'total': 10, 'pages': 5, 'has_next': True}"
+          },
+          {
+            "name": "page-10-2-4",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [6, 7], 'page': 4, 'size': 2, 'total': 10, 'pages': 5, 'has_next': True}, got {'items': [8, 9], 'page': 4, 'size': 2, 'total': 10, 'pages': 5, 'has_next': True}"
+          },
+          {
+            "name": "page-10-4-1",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [0, 1, 2, 3], 'page': 1, 'size': 4, 'total': 10, 'pages': 3, 'has_next': True}, got {'items': [4, 5, 6, 7], 'page': 1, 'size': 4, 'total': 10, 'pages': 2, 'has_next': True}"
+          },
+          {
+            "name": "page-10-4-2",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [4, 5, 6, 7], 'page': 2, 'size': 4, 'total': 10, 'pages': 3, 'has_next': True}, got {'items': [8, 9], 'page': 2, 'size': 4, 'total': 10, 'pages': 2, 'has_next': True}"
+          },
+          {
+            "name": "page-10-4-4",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 4, 'size': 4, 'total': 10, 'pages': 3, 'has_next': False}, got {'items': [], 'page': 4, 'size': 4, 'total': 10, 'pages': 2, 'has_next': False}"
+          },
+          {
+            "name": "page-10-4-20",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 20, 'size': 4, 'total': 10, 'pages': 3, 'has_next': False}, got {'items': [], 'page': 20, 'size': 4, 'total': 10, 'pages': 2, 'has_next': False}"
+          },
+          {
+            "name": "page-10-10-1",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 'page': 1, 'size': 10, 'total': 10, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 1, 'size': 10, 'total': 10, 'pages': 1, 'has_next': True}"
+          },
+          {
+            "name": "page-11-1-1",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [0], 'page': 1, 'size': 1, 'total': 11, 'pages': 11, 'has_next': True}, got {'items': [1], 'page': 1, 'size': 1, 'total': 11, 'pages': 11, 'has_next': True}"
+          },
+          {
+            "name": "page-11-1-2",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [1], 'page': 2, 'size': 1, 'total': 11, 'pages': 11, 'has_next': True}, got {'items': [2], 'page': 2, 'size': 1, 'total': 11, 'pages': 11, 'has_next': True}"
+          },
+          {
+            "name": "page-11-1-4",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [3], 'page': 4, 'size': 1, 'total': 11, 'pages': 11, 'has_next': True}, got {'items': [4], 'page': 4, 'size': 1, 'total': 11, 'pages': 11, 'has_next': True}"
+          },
+          {
+            "name": "page-11-2-1",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [0, 1], 'page': 1, 'size': 2, 'total': 11, 'pages': 6, 'has_next': True}, got {'items': [2, 3], 'page': 1, 'size': 2, 'total': 11, 'pages': 5, 'has_next': True}"
+          },
+          {
+            "name": "page-11-2-2",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [2, 3], 'page': 2, 'size': 2, 'total': 11, 'pages': 6, 'has_next': True}, got {'items': [4, 5], 'page': 2, 'size': 2, 'total': 11, 'pages': 5, 'has_next': True}"
+          },
+          {
+            "name": "page-11-2-4",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [6, 7], 'page': 4, 'size': 2, 'total': 11, 'pages': 6, 'has_next': True}, got {'items': [8, 9], 'page': 4, 'size': 2, 'total': 11, 'pages': 5, 'has_next': True}"
+          },
+          {
+            "name": "page-11-2-20",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 20, 'size': 2, 'total': 11, 'pages': 6, 'has_next': False}, got {'items': [], 'page': 20, 'size': 2, 'total': 11, 'pages': 5, 'has_next': False}"
+          },
+          {
+            "name": "page-11-4-1",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [0, 1, 2, 3], 'page': 1, 'size': 4, 'total': 11, 'pages': 3, 'has_next': True}, got {'items': [4, 5, 6, 7], 'page': 1, 'size': 4, 'total': 11, 'pages': 2, 'has_next': True}"
+          },
+          {
+            "name": "page-11-4-2",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [4, 5, 6, 7], 'page': 2, 'size': 4, 'total': 11, 'pages': 3, 'has_next': True}, got {'items': [8, 9, 10], 'page': 2, 'size': 4, 'total': 11, 'pages': 2, 'has_next': True}"
+          },
+          {
+            "name": "page-11-4-4",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 4, 'size': 4, 'total': 11, 'pages': 3, 'has_next': False}, got {'items': [], 'page': 4, 'size': 4, 'total': 11, 'pages': 2, 'has_next': False}"
+          },
+          {
+            "name": "page-11-4-20",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 20, 'size': 4, 'total': 11, 'pages': 3, 'has_next': False}, got {'items': [], 'page': 20, 'size': 4, 'total': 11, 'pages': 2, 'has_next': False}"
+          },
+          {
+            "name": "page-11-10-1",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 'page': 1, 'size': 10, 'total': 11, 'pages': 2, 'has_next': True}, got {'items': [10], 'page': 1, 'size': 10, 'total': 11, 'pages': 1, 'has_next': True}"
+          },
+          {
+            "name": "page-11-10-2",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [10], 'page': 2, 'size': 10, 'total': 11, 'pages': 2, 'has_next': False}, got {'items': [], 'page': 2, 'size': 10, 'total': 11, 'pages': 1, 'has_next': False}"
+          },
+          {
+            "name": "page-11-10-4",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 4, 'size': 10, 'total': 11, 'pages': 2, 'has_next': False}, got {'items': [], 'page': 4, 'size': 10, 'total': 11, 'pages': 1, 'has_next': False}"
+          },
+          {
+            "name": "page-11-10-20",
+            "passed": false,
+            "error": "AssertionError: Expected {'items': [], 'page': 20, 'size': 10, 'total': 11, 'pages': 2, 'has_next': False}, got {'items': [], 'page': 20, 'size': 10, 'total': 11, 'pages': 1, 'has_next': False}"
+          },
+          {
+            "name": "invalid-True-2",
+            "passed": false,
+            "error": "AssertionError: Required validation exception was not raised"
+          },
+          {
+            "name": "invalid-1-False",
+            "passed": false,
+            "error": "ZeroDivisionError: integer division or modulo by zero"
+          },
+          {
+            "name": "invalid-0-2",
+            "passed": false,
+            "error": "AssertionError: Required validation exception was not raised"
+          },
+          {
+            "name": "invalid--1-2",
+            "passed": false,
+            "error": "AssertionError: Required validation exception was not raised"
+          },
+          {
+            "name": "invalid-1-0",
+            "passed": false,
+            "error": "ZeroDivisionError: integer division or modulo by zero"
+          }
+        ],
+        "seconds": 0.046
+      },
+      "reference": {
+        "passed": true,
+        "checks": 104,
+        "passed_checks": 104,
+        "failures": [],
+        "seconds": 0.046
+      }
+    },
+    "ttl_lru": {
+      "buggy": {
+        "passed": false,
+        "checks": 19,
+        "passed_checks": 1,
+        "failures": [
+          {
+            "name": "expiry-boundary",
+            "passed": false,
+            "error": "AssertionError: Expected 'missing', got 7"
+          },
+          {
+            "name": "live-hit-refreshes-lru",
+            "passed": false,
+            "error": "AssertionError: Expected None, got 2"
+          },
+          {
+            "name": "purge-expired-before-eviction",
+            "passed": false,
+            "error": "AssertionError: Expected 1, got None"
+          },
+          {
+            "name": "nonpositive-ttl-deletes",
+            "passed": false,
+            "error": "AssertionError: Expected None, got 2"
+          },
+          {
+            "name": "stateful-0",
+            "passed": false,
+            "error": "AssertionError: Expected 43, got 'missing'"
+          },
+          {
+            "name": "stateful-1",
+            "passed": false,
+            "error": "AssertionError: Expected 'missing', got 21"
+          },
+          {
+            "name": "stateful-2",
+            "passed": false,
+            "error": "AssertionError: Expected 'missing', got 77"
+          },
+          {
+            "name": "stateful-3",
+            "passed": false,
+            "error": "AssertionError: Expected 'missing', got 44"
+          },
+          {
+            "name": "stateful-5",
+            "passed": false,
+            "error": "AssertionError: Expected 'missing', got 31"
+          },
+          {
+            "name": "stateful-6",
+            "passed": false,
+            "error": "AssertionError: Expected 4, got 'missing'"
+          },
+          {
+            "name": "stateful-7",
+            "passed": false,
+            "error": "AssertionError: Expected 'missing', got 7"
+          },
+          {
+            "name": "stateful-8",
+            "passed": false,
+            "error": "AssertionError: Expected 48, got 'missing'"
+          },
+          {
+            "name": "stateful-9",
+            "passed": false,
+            "error": "AssertionError: Expected 'missing', got 76"
+          },
+          {
+            "name": "stateful-10",
+            "passed": false,
+            "error": "AssertionError: Expected 'missing', got 87"
+          },
+          {
+            "name": "stateful-11",
+            "passed": false,
+            "error": "AssertionError: Expected 'missing', got 17"
+          },
+          {
+            "name": "stateful-12",
+            "passed": false,
+            "error": "AssertionError: Expected 'missing', got 24"
+          },
+          {
+            "name": "stateful-13",
+            "passed": false,
+            "error": "AssertionError: Expected 'missing', got 85"
+          },
+          {
+            "name": "stateful-14",
+            "passed": false,
+            "error": "AssertionError: Expected 'missing', got 16"
+          }
+        ],
+        "seconds": 0.047
+      },
+      "reference": {
+        "passed": true,
+        "checks": 19,
+        "passed_checks": 19,
+        "failures": [],
+        "seconds": 0.057
+      }
+    }
+  },
+  "results": [
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"code\":\"def merge_intervals(intervals):\\n    ordered = sorted((start, end) for start, end in intervals)\\n    merged = []\\n\\n    for start, end in ordered:\\n        if merged and start <= merged[-1][1]:\\n            merged[-1][1] = max(merged[-1][1], end)\\n        else:\\n            merged.append([start, end])\\n\\n    return merged\\n\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "C:/Users/tno/Documents/GitHub/Recursive-Flint-Test/benchmarks/expanded-20261026/fixtures/merge_intervals.py",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "def merge_intervals(intervals):\r\n    intervals.sort()\r\n    merged = []\r\n    for interval in intervals:\r\n        if merged and interval[0] < merged[-1][1]:\r\n            merged[-1][1] = max(merged[-1][1], interval[1])\r\n        else:\r\n            merged.append(interval)\r\n    return merged\r\n"
+              }
+            ],
+            "structuredContent": "def merge_intervals(intervals):\r\n    intervals.sort()\r\n    merged = []\r\n    for interval in intervals:\r\n        if merged and interval[0] < merged[-1][1]:\r\n            merged[-1][1] = max(merged[-1][1], interval[1])\r\n        else:\r\n            merged.append(interval)\r\n    return merged\r\n"
+          }
+        }
+      ],
+      "wall_seconds": 7.777,
+      "usage": {
+        "input": 1752,
+        "output": 318,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 160,
+        "totalTokens": 2070
+      },
+      "reported_cost_usd": 0.0003342,
+      "thinking_characters": 492,
+      "parsed": {
+        "code": "def merge_intervals(intervals):\n    ordered = sorted((start, end) for start, end in intervals)\n    merged = []\n\n    for start, end in ordered:\n        if merged and start <= merged[-1][1]:\n            merged[-1][1] = max(merged[-1][1], end)\n        else:\n            merged.append([start, end])\n\n    return merged\n"
+      },
+      "response_ok": true,
+      "suite": "A",
+      "task": "merge_intervals",
+      "trial": 1,
+      "profile": "luna-high",
+      "prompt": "Read merge_intervals.py using the read tool before proposing a repair. Read only that file. Do not use any other tools. Return the complete corrected Python module in exactly one JSON object with a code string: {\"code\":\"...\"}. No markdown. The evaluator applies your replacement and runs independent regression tests. Use only builtins or collections, math, typing; no IO or dynamic execution. Required contract: Implement merge_intervals(intervals). Input is a list of valid closed intervals [start,end] on the real number line, with integer endpoints and start<=end. Merge exactly when next_start<=current_end; touching means a shared endpoint, not adjacent integers. For example [[1,2],[2,4]] becomes [[1,4]], but [[1,2],[3,4]] stays separate. Return sorted fresh lists and never mutate the input. Empty input returns [].",
+      "read_ok": true,
+      "candidate": "repairs\\luna-high\\merge_intervals.py",
+      "verification": {
+        "passed": true,
+        "checks": 37,
+        "passed_checks": 37,
+        "failures": [],
+        "seconds": 0.05
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"code\":\"def merge_intervals(intervals):\\n    ordered = sorted((start, end) for start, end in intervals)\\n    merged = []\\n\\n    for start, end in ordered:\\n        if merged and start <= merged[-1][1]:\\n            merged[-1][1] = max(merged[-1][1], end)\\n        else:\\n            merged.append([start, end])\\n\\n    return merged\\n\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "C:/Users/tno/Documents/GitHub/Recursive-Flint-Test/benchmarks/expanded-20261026/fixtures/merge_intervals.py",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "def merge_intervals(intervals):\r\n    intervals.sort()\r\n    merged = []\r\n    for interval in intervals:\r\n        if merged and interval[0] < merged[-1][1]:\r\n            merged[-1][1] = max(merged[-1][1], interval[1])\r\n        else:\r\n            merged.append(interval)\r\n    return merged\r\n"
+              }
+            ],
+            "structuredContent": "def merge_intervals(intervals):\r\n    intervals.sort()\r\n    merged = []\r\n    for interval in intervals:\r\n        if merged and interval[0] < merged[-1][1]:\r\n            merged[-1][1] = max(merged[-1][1], interval[1])\r\n        else:\r\n            merged.append(interval)\r\n    return merged\r\n"
+          }
+        }
+      ],
+      "wall_seconds": 5.156,
+      "usage": {
+        "input": 1752,
+        "output": 235,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 77,
+        "totalTokens": 1987
+      },
+      "reported_cost_usd": 0.0002927,
+      "thinking_characters": 0,
+      "parsed": {
+        "code": "def merge_intervals(intervals):\n    ordered = sorted((start, end) for start, end in intervals)\n    merged = []\n\n    for start, end in ordered:\n        if merged and start <= merged[-1][1]:\n            merged[-1][1] = max(merged[-1][1], end)\n        else:\n            merged.append([start, end])\n\n    return merged\n"
+      },
+      "response_ok": true,
+      "suite": "A",
+      "task": "merge_intervals",
+      "trial": 1,
+      "profile": "luna-medium",
+      "prompt": "Read merge_intervals.py using the read tool before proposing a repair. Read only that file. Do not use any other tools. Return the complete corrected Python module in exactly one JSON object with a code string: {\"code\":\"...\"}. No markdown. The evaluator applies your replacement and runs independent regression tests. Use only builtins or collections, math, typing; no IO or dynamic execution. Required contract: Implement merge_intervals(intervals). Input is a list of valid closed intervals [start,end] on the real number line, with integer endpoints and start<=end. Merge exactly when next_start<=current_end; touching means a shared endpoint, not adjacent integers. For example [[1,2],[2,4]] becomes [[1,4]], but [[1,2],[3,4]] stays separate. Return sorted fresh lists and never mutate the input. Empty input returns [].",
+      "read_ok": true,
+      "candidate": "repairs\\luna-medium\\merge_intervals.py",
+      "verification": {
+        "passed": true,
+        "checks": 37,
+        "passed_checks": 37,
+        "failures": [],
+        "seconds": 0.051
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"code\":\"def merge_intervals(intervals):\\n    merged = []\\n    for interval in sorted(intervals, key=lambda x: (x[0], x[1])):\\n        start, end = interval[0], interval[1]\\n        if merged and start <= merged[-1][1]:\\n            merged[-1][1] = max(merged[-1][1], end)\\n        else:\\n            merged.append([start, end])\\n    return merged\\n\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "merge_intervals.py",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "def merge_intervals(intervals):\r\n    intervals.sort()\r\n    merged = []\r\n    for interval in intervals:\r\n        if merged and interval[0] < merged[-1][1]:\r\n            merged[-1][1] = max(merged[-1][1], interval[1])\r\n        else:\r\n            merged.append(interval)\r\n    return merged\r\n"
+              }
+            ],
+            "structuredContent": "def merge_intervals(intervals):\r\n    intervals.sort()\r\n    merged = []\r\n    for interval in intervals:\r\n        if merged and interval[0] < merged[-1][1]:\r\n            merged[-1][1] = max(merged[-1][1], interval[1])\r\n        else:\r\n            merged.append(interval)\r\n    return merged\r\n"
+          }
+        }
+      ],
+      "wall_seconds": 2.881,
+      "usage": {
+        "input": 1939,
+        "output": 308,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 182,
+        "totalTokens": 2247
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 713,
+      "parsed": {
+        "code": "def merge_intervals(intervals):\n    merged = []\n    for interval in sorted(intervals, key=lambda x: (x[0], x[1])):\n        start, end = interval[0], interval[1]\n        if merged and start <= merged[-1][1]:\n            merged[-1][1] = max(merged[-1][1], end)\n        else:\n            merged.append([start, end])\n    return merged\n"
+      },
+      "response_ok": true,
+      "suite": "A",
+      "task": "merge_intervals",
+      "trial": 1,
+      "profile": "flint",
+      "prompt": "Read merge_intervals.py using the read tool before proposing a repair. Read only that file. Do not use any other tools. Return the complete corrected Python module in exactly one JSON object with a code string: {\"code\":\"...\"}. No markdown. The evaluator applies your replacement and runs independent regression tests. Use only builtins or collections, math, typing; no IO or dynamic execution. Required contract: Implement merge_intervals(intervals). Input is a list of valid closed intervals [start,end] on the real number line, with integer endpoints and start<=end. Merge exactly when next_start<=current_end; touching means a shared endpoint, not adjacent integers. For example [[1,2],[2,4]] becomes [[1,4]], but [[1,2],[3,4]] stays separate. Return sorted fresh lists and never mutate the input. Empty input returns [].",
+      "read_ok": true,
+      "candidate": "repairs\\flint\\merge_intervals.py",
+      "verification": {
+        "passed": true,
+        "checks": 37,
+        "passed_checks": 37,
+        "failures": [],
+        "seconds": 0.052
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"code\":\"def paginate(items, page, size):\\n    if isinstance(page, bool) or not isinstance(page, int):\\n        raise TypeError(\\\"page must be an integer\\\")\\n    if isinstance(size, bool) or not isinstance(size, int):\\n        raise TypeError(\\\"size must be an integer\\\")\\n    if page < 1:\\n        raise ValueError(\\\"page must be at least 1\\\")\\n    if size < 1:\\n        raise ValueError(\\\"size must be at least 1\\\")\\n\\n    total = len(items)\\n    pages = (total + size - 1) // size\\n    start = (page - 1) * size\\n    return {\\n        \\\"items\\\": items[start:start + size],\\n        \\\"page\\\": page,\\n        \\\"size\\\": size,\\n        \\\"total\\\": total,\\n        \\\"pages\\\": pages,\\n        \\\"has_next\\\": page < pages,\\n    }\\n\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "pagination.py",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "def paginate(items, page, size):\r\n    start = page * size\r\n    total = len(items)\r\n    return {\"items\": items[start:start + size], \"page\": page,\r\n            \"size\": size, \"total\": total, \"pages\": total // size,\r\n            \"has_next\": page <= total // size}\r\n"
+              }
+            ],
+            "structuredContent": "def paginate(items, page, size):\r\n    start = page * size\r\n    total = len(items)\r\n    return {\"items\": items[start:start + size], \"page\": page,\r\n            \"size\": size, \"total\": total, \"pages\": total // size,\r\n            \"has_next\": page <= total // size}\r\n"
+          }
+        }
+      ],
+      "wall_seconds": 6.392,
+      "usage": {
+        "input": 1712,
+        "output": 428,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 187,
+        "totalTokens": 2140
+      },
+      "reported_cost_usd": 0.0003852,
+      "thinking_characters": 0,
+      "parsed": {
+        "code": "def paginate(items, page, size):\n    if isinstance(page, bool) or not isinstance(page, int):\n        raise TypeError(\"page must be an integer\")\n    if isinstance(size, bool) or not isinstance(size, int):\n        raise TypeError(\"size must be an integer\")\n    if page < 1:\n        raise ValueError(\"page must be at least 1\")\n    if size < 1:\n        raise ValueError(\"size must be at least 1\")\n\n    total = len(items)\n    pages = (total + size - 1) // size\n    start = (page - 1) * size\n    return {\n        \"items\": items[start:start + size],\n        \"page\": page,\n        \"size\": size,\n        \"total\": total,\n        \"pages\": pages,\n        \"has_next\": page < pages,\n    }\n"
+      },
+      "response_ok": true,
+      "suite": "A",
+      "task": "pagination",
+      "trial": 1,
+      "profile": "luna-medium",
+      "prompt": "Read pagination.py using the read tool before proposing a repair. Read only that file. Do not use any other tools. Return the complete corrected Python module in exactly one JSON object with a code string: {\"code\":\"...\"}. No markdown. The evaluator applies your replacement and runs independent regression tests. Use only builtins or collections, math, typing; no IO or dynamic execution. Required contract: Implement paginate(items,page,size). page and size must be integers (booleans are invalid), both >=1. Invalid types raise TypeError; nonpositive integers raise ValueError. Return a dict with keys items,page,size,total,pages,has_next. Pages are 1-based; pages is ceil(total/size), including zero for empty input. Pages beyond the end return items=[],has_next=False. Do not mutate items. Retain all existing return keys.",
+      "read_ok": true,
+      "candidate": "repairs\\luna-medium\\pagination.py",
+      "verification": {
+        "passed": true,
+        "checks": 104,
+        "passed_checks": 104,
+        "failures": [],
+        "seconds": 0.053
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"code\":\"def paginate(items, page, size):\\n    if isinstance(page, bool) or not isinstance(page, int) or isinstance(size, bool) or not isinstance(size, int):\\n        raise TypeError(\\\"page and size must be integers\\\")\\n    if page < 1 or size < 1:\\n        raise ValueError(\\\"page and size must be positive integers\\\")\\n    total = len(items)\\n    pages = (total + size - 1) // size\\n    start = (page - 1) * size\\n    end = start + size\\n    return {\\n        \\\"items\\\": items[start:end],\\n        \\\"page\\\": page,\\n        \\\"size\\\": size,\\n        \\\"total\\\": total,\\n        \\\"pages\\\": pages,\\n        \\\"has_next\\\": page < pages,\\n    }\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "pagination.py",
+            "offset": 0,
+            "limit": 100
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "def paginate(items, page, size):\r\n    start = page * size\r\n    total = len(items)\r\n    return {\"items\": items[start:start + size], \"page\": page,\r\n            \"size\": size, \"total\": total, \"pages\": total // size,\r\n            \"has_next\": page <= total // size}\r\n"
+              }
+            ],
+            "structuredContent": "def paginate(items, page, size):\r\n    start = page * size\r\n    total = len(items)\r\n    return {\"items\": items[start:start + size], \"page\": page,\r\n            \"size\": size, \"total\": total, \"pages\": total // size,\r\n            \"has_next\": page <= total // size}\r\n"
+          }
+        }
+      ],
+      "wall_seconds": 19.155,
+      "usage": {
+        "input": 1934,
+        "output": 2111,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 1766,
+        "totalTokens": 4045
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 6872,
+      "parsed": {
+        "code": "def paginate(items, page, size):\n    if isinstance(page, bool) or not isinstance(page, int) or isinstance(size, bool) or not isinstance(size, int):\n        raise TypeError(\"page and size must be integers\")\n    if page < 1 or size < 1:\n        raise ValueError(\"page and size must be positive integers\")\n    total = len(items)\n    pages = (total + size - 1) // size\n    start = (page - 1) * size\n    end = start + size\n    return {\n        \"items\": items[start:end],\n        \"page\": page,\n        \"size\": size,\n        \"total\": total,\n        \"pages\": pages,\n        \"has_next\": page < pages,\n    }"
+      },
+      "response_ok": true,
+      "suite": "A",
+      "task": "pagination",
+      "trial": 1,
+      "profile": "flint",
+      "prompt": "Read pagination.py using the read tool before proposing a repair. Read only that file. Do not use any other tools. Return the complete corrected Python module in exactly one JSON object with a code string: {\"code\":\"...\"}. No markdown. The evaluator applies your replacement and runs independent regression tests. Use only builtins or collections, math, typing; no IO or dynamic execution. Required contract: Implement paginate(items,page,size). page and size must be integers (booleans are invalid), both >=1. Invalid types raise TypeError; nonpositive integers raise ValueError. Return a dict with keys items,page,size,total,pages,has_next. Pages are 1-based; pages is ceil(total/size), including zero for empty input. Pages beyond the end return items=[],has_next=False. Do not mutate items. Retain all existing return keys.",
+      "read_ok": true,
+      "candidate": "repairs\\flint\\pagination.py",
+      "verification": {
+        "passed": true,
+        "checks": 104,
+        "passed_checks": 104,
+        "failures": [],
+        "seconds": 0.049
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"code\":\"def paginate(items, page, size):\\n    if isinstance(page, bool) or not isinstance(page, int):\\n        raise TypeError(\\\"page must be an integer\\\")\\n    if isinstance(size, bool) or not isinstance(size, int):\\n        raise TypeError(\\\"size must be an integer\\\")\\n    if page < 1:\\n        raise ValueError(\\\"page must be at least 1\\\")\\n    if size < 1:\\n        raise ValueError(\\\"size must be at least 1\\\")\\n\\n    total = len(items)\\n    pages = (total + size - 1) // size\\n    start = (page - 1) * size\\n    return {\\n        \\\"items\\\": items[start:start + size],\\n        \\\"page\\\": page,\\n        \\\"size\\\": size,\\n        \\\"total\\\": total,\\n        \\\"pages\\\": pages,\\n        \\\"has_next\\\": page < pages,\\n    }\\n\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "C:/Users/tno/Documents/GitHub/Recursive-Flint-Test/benchmarks/expanded-20261026/fixtures/pagination.py",
+            "offset": 1,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "def paginate(items, page, size):\r\n    start = page * size\r\n    total = len(items)\r\n    return {\"items\": items[start:start + size], \"page\": page,\r\n            \"size\": size, \"total\": total, \"pages\": total // size,\r\n            \"has_next\": page <= total // size}\r\n"
+              }
+            ],
+            "structuredContent": "def paginate(items, page, size):\r\n    start = page * size\r\n    total = len(items)\r\n    return {\"items\": items[start:start + size], \"page\": page,\r\n            \"size\": size, \"total\": total, \"pages\": total // size,\r\n            \"has_next\": page <= total // size}\r\n"
+          }
+        }
+      ],
+      "wall_seconds": 7.205,
+      "usage": {
+        "input": 1738,
+        "output": 395,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 128,
+        "totalTokens": 2133
+      },
+      "reported_cost_usd": 0.00037129999999999997,
+      "thinking_characters": 0,
+      "parsed": {
+        "code": "def paginate(items, page, size):\n    if isinstance(page, bool) or not isinstance(page, int):\n        raise TypeError(\"page must be an integer\")\n    if isinstance(size, bool) or not isinstance(size, int):\n        raise TypeError(\"size must be an integer\")\n    if page < 1:\n        raise ValueError(\"page must be at least 1\")\n    if size < 1:\n        raise ValueError(\"size must be at least 1\")\n\n    total = len(items)\n    pages = (total + size - 1) // size\n    start = (page - 1) * size\n    return {\n        \"items\": items[start:start + size],\n        \"page\": page,\n        \"size\": size,\n        \"total\": total,\n        \"pages\": pages,\n        \"has_next\": page < pages,\n    }\n"
+      },
+      "response_ok": true,
+      "suite": "A",
+      "task": "pagination",
+      "trial": 1,
+      "profile": "luna-high",
+      "prompt": "Read pagination.py using the read tool before proposing a repair. Read only that file. Do not use any other tools. Return the complete corrected Python module in exactly one JSON object with a code string: {\"code\":\"...\"}. No markdown. The evaluator applies your replacement and runs independent regression tests. Use only builtins or collections, math, typing; no IO or dynamic execution. Required contract: Implement paginate(items,page,size). page and size must be integers (booleans are invalid), both >=1. Invalid types raise TypeError; nonpositive integers raise ValueError. Return a dict with keys items,page,size,total,pages,has_next. Pages are 1-based; pages is ceil(total/size), including zero for empty input. Pages beyond the end return items=[],has_next=False. Do not mutate items. Retain all existing return keys.",
+      "read_ok": true,
+      "candidate": "repairs\\luna-high\\pagination.py",
+      "verification": {
+        "passed": true,
+        "checks": 104,
+        "passed_checks": 104,
+        "failures": [],
+        "seconds": 0.048
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"code\":\"from collections import OrderedDict\\n\\n\\nclass TTLCache:\\n    def __init__(self, capacity, clock):\\n        self.capacity = capacity\\n        self.clock = clock\\n        self.data = OrderedDict()\\n\\n    def get(self, key, default=None):\\n        if key not in self.data:\\n            return default\\n        value, expiry = self.data[key]\\n        if self.clock() >= expiry:\\n            del self.data[key]\\n            return default\\n        self.data.move_to_end(key)\\n        return value\\n\\n    def put(self, key, value, ttl):\\n        if ttl <= 0:\\n            self.data.pop(key, None)\\n            return\\n        self.data[key] = (value, self.clock() + ttl)\\n        self.data.move_to_end(key)\\n        now = self.clock()\\n        expired = [k for k, (_, e) in self.data.items() if now >= e]\\n        for k in expired:\\n            del self.data[k]\\n        while len(self.data) > self.capacity:\\n            self.data.popitem(last=False)\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "ttl_lru.py",
+            "offset": 1,
+            "limit": 200
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "from collections import OrderedDict\r\n\r\nclass TTLCache:\r\n    def __init__(self, capacity, clock):\r\n        self.capacity = capacity\r\n        self.clock = clock\r\n        self.data = OrderedDict()\r\n\r\n    def get(self, key, default=None):\r\n        if key not in self.data:\r\n            return default\r\n        value, expiry = self.data[key]\r\n        if expiry < self.clock():\r\n            del self.data[key]\r\n            return default\r\n        return value\r\n\r\n    def put(self, key, value, ttl):\r\n        self.data[key] = (value, self.clock() + ttl)\r\n        if len(self.data) > self.capacity:\r\n            self.data.popitem(last=False)\r\n"
+              }
+            ],
+            "structuredContent": "from collections import OrderedDict\r\n\r\nclass TTLCache:\r\n    def __init__(self, capacity, clock):\r\n        self.capacity = capacity\r\n        self.clock = clock\r\n        self.data = OrderedDict()\r\n\r\n    def get(self, key, default=None):\r\n        if key not in self.data:\r\n            return default\r\n        value, expiry = self.data[key]\r\n        if expiry < self.clock():\r\n            del self.data[key]\r\n            return default\r\n        return value\r\n\r\n    def put(self, key, value, ttl):\r\n        self.data[key] = (value, self.clock() + ttl)\r\n        if len(self.data) > self.capacity:\r\n            self.data.popitem(last=False)\r\n"
+          }
+        }
+      ],
+      "wall_seconds": 18.437,
+      "usage": {
+        "input": 2211,
+        "output": 1994,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 1970,
+        "totalTokens": 4205
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 7709,
+      "parsed": {
+        "code": "from collections import OrderedDict\n\n\nclass TTLCache:\n    def __init__(self, capacity, clock):\n        self.capacity = capacity\n        self.clock = clock\n        self.data = OrderedDict()\n\n    def get(self, key, default=None):\n        if key not in self.data:\n            return default\n        value, expiry = self.data[key]\n        if self.clock() >= expiry:\n            del self.data[key]\n            return default\n        self.data.move_to_end(key)\n        return value\n\n    def put(self, key, value, ttl):\n        if ttl <= 0:\n            self.data.pop(key, None)\n            return\n        self.data[key] = (value, self.clock() + ttl)\n        self.data.move_to_end(key)\n        now = self.clock()\n        expired = [k for k, (_, e) in self.data.items() if now >= e]\n        for k in expired:\n            del self.data[k]\n        while len(self.data) > self.capacity:\n            self.data.popitem(last=False)"
+      },
+      "response_ok": true,
+      "suite": "A",
+      "task": "ttl_lru",
+      "trial": 1,
+      "profile": "flint",
+      "prompt": "Read ttl_lru.py using the read tool before proposing a repair. Read only that file. Do not use any other tools. Return the complete corrected Python module in exactly one JSON object with a code string: {\"code\":\"...\"}. No markdown. The evaluator applies your replacement and runs independent regression tests. Use only builtins or collections, math, typing; no IO or dynamic execution. Required contract: Repair TTLCache(capacity,clock), preserving put(key,value,ttl) and get(key,default=None). capacity is a positive integer; clock is an injected callable returning numeric time. A key is expired when now>=its expiry. get returns default for absent/expired keys and makes a live hit most recently used. put updates expiry and makes key most recent. ttl<=0 deletes that key and stores nothing. Before enforcing capacity on put, purge ALL expired entries so live entries are not evicted unnecessarily. Evict the least recently used LIVE key if still over capacity. Do not add dependencies beyond the Python standard library.",
+      "read_ok": true,
+      "candidate": "repairs\\flint\\ttl_lru.py",
+      "verification": {
+        "passed": true,
+        "checks": 19,
+        "passed_checks": 19,
+        "failures": [],
+        "seconds": 0.054
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"code\":\"from collections import OrderedDict\\n\\n\\nclass TTLCache:\\n    def __init__(self, capacity, clock):\\n        if isinstance(capacity, bool) or not isinstance(capacity, int) or capacity <= 0:\\n            raise ValueError(\\\"capacity must be a positive integer\\\")\\n        self.capacity = capacity\\n        self.clock = clock\\n        self.data = OrderedDict()\\n\\n    def get(self, key, default=None):\\n        now = self.clock()\\n        if key not in self.data:\\n            return default\\n\\n        value, expiry = self.data[key]\\n        if now >= expiry:\\n            del self.data[key]\\n            return default\\n\\n        self.data.move_to_end(key)\\n        return value\\n\\n    def put(self, key, value, ttl):\\n        now = self.clock()\\n        if ttl <= 0:\\n            self.data.pop(key, None)\\n            return\\n\\n        expired = [stored_key for stored_key, (_, expiry) in self.data.items() if now >= expiry]\\n        for expired_key in expired:\\n            del self.data[expired_key]\\n\\n        self.data[key] = (value, now + ttl)\\n        self.data.move_to_end(key)\\n\\n        if len(self.data) > self.capacity:\\n            self.data.popitem(last=False)\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "ttl_lru.py",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "from collections import OrderedDict\r\n\r\nclass TTLCache:\r\n    def __init__(self, capacity, clock):\r\n        self.capacity = capacity\r\n        self.clock = clock\r\n        self.data = OrderedDict()\r\n\r\n    def get(self, key, default=None):\r\n        if key not in self.data:\r\n            return default\r\n        value, expiry = self.data[key]\r\n        if expiry < self.clock():\r\n            del self.data[key]\r\n            return default\r\n        return value\r\n\r\n    def put(self, key, value, ttl):\r\n        self.data[key] = (value, self.clock() + ttl)\r\n        if len(self.data) > self.capacity:\r\n            self.data.popitem(last=False)\r\n"
+              }
+            ],
+            "structuredContent": "from collections import OrderedDict\r\n\r\nclass TTLCache:\r\n    def __init__(self, capacity, clock):\r\n        self.capacity = capacity\r\n        self.clock = clock\r\n        self.data = OrderedDict()\r\n\r\n    def get(self, key, default=None):\r\n        if key not in self.data:\r\n            return default\r\n        value, expiry = self.data[key]\r\n        if expiry < self.clock():\r\n            del self.data[key]\r\n            return default\r\n        return value\r\n\r\n    def put(self, key, value, ttl):\r\n        self.data[key] = (value, self.clock() + ttl)\r\n        if len(self.data) > self.capacity:\r\n            self.data.popitem(last=False)\r\n"
+          }
+        }
+      ],
+      "wall_seconds": 13.665,
+      "usage": {
+        "input": 1852,
+        "output": 828,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 504,
+        "totalTokens": 2680
+      },
+      "reported_cost_usd": 0.0005992,
+      "thinking_characters": 1046,
+      "parsed": {
+        "code": "from collections import OrderedDict\n\n\nclass TTLCache:\n    def __init__(self, capacity, clock):\n        if isinstance(capacity, bool) or not isinstance(capacity, int) or capacity <= 0:\n            raise ValueError(\"capacity must be a positive integer\")\n        self.capacity = capacity\n        self.clock = clock\n        self.data = OrderedDict()\n\n    def get(self, key, default=None):\n        now = self.clock()\n        if key not in self.data:\n            return default\n\n        value, expiry = self.data[key]\n        if now >= expiry:\n            del self.data[key]\n            return default\n\n        self.data.move_to_end(key)\n        return value\n\n    def put(self, key, value, ttl):\n        now = self.clock()\n        if ttl <= 0:\n            self.data.pop(key, None)\n            return\n\n        expired = [stored_key for stored_key, (_, expiry) in self.data.items() if now >= expiry]\n        for expired_key in expired:\n            del self.data[expired_key]\n\n        self.data[key] = (value, now + ttl)\n        self.data.move_to_end(key)\n\n        if len(self.data) > self.capacity:\n            self.data.popitem(last=False)"
+      },
+      "response_ok": true,
+      "suite": "A",
+      "task": "ttl_lru",
+      "trial": 1,
+      "profile": "luna-high",
+      "prompt": "Read ttl_lru.py using the read tool before proposing a repair. Read only that file. Do not use any other tools. Return the complete corrected Python module in exactly one JSON object with a code string: {\"code\":\"...\"}. No markdown. The evaluator applies your replacement and runs independent regression tests. Use only builtins or collections, math, typing; no IO or dynamic execution. Required contract: Repair TTLCache(capacity,clock), preserving put(key,value,ttl) and get(key,default=None). capacity is a positive integer; clock is an injected callable returning numeric time. A key is expired when now>=its expiry. get returns default for absent/expired keys and makes a live hit most recently used. put updates expiry and makes key most recent. ttl<=0 deletes that key and stores nothing. Before enforcing capacity on put, purge ALL expired entries so live entries are not evicted unnecessarily. Evict the least recently used LIVE key if still over capacity. Do not add dependencies beyond the Python standard library.",
+      "read_ok": true,
+      "candidate": "repairs\\luna-high\\ttl_lru.py",
+      "verification": {
+        "passed": true,
+        "checks": 19,
+        "passed_checks": 19,
+        "failures": [],
+        "seconds": 0.05
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"code\":\"from collections import OrderedDict\\n\\n\\nclass TTLCache:\\n    def __init__(self, capacity, clock):\\n        if not isinstance(capacity, int) or isinstance(capacity, bool):\\n            raise TypeError(\\\"capacity must be a positive integer\\\")\\n        if capacity <= 0:\\n            raise ValueError(\\\"capacity must be a positive integer\\\")\\n        self.capacity = capacity\\n        self.clock = clock\\n        self.data = OrderedDict()\\n\\n    def get(self, key, default=None):\\n        if key not in self.data:\\n            return default\\n\\n        now = self.clock()\\n        value, expiry = self.data[key]\\n        if now >= expiry:\\n            del self.data[key]\\n            return default\\n\\n        self.data.move_to_end(key)\\n        return value\\n\\n    def put(self, key, value, ttl):\\n        if ttl <= 0:\\n            self.data.pop(key, None)\\n            return\\n\\n        now = self.clock()\\n        expired = [stored_key for stored_key, (_, expiry) in self.data.items() if now >= expiry]\\n        for stored_key in expired:\\n            del self.data[stored_key]\\n\\n        self.data[key] = (value, now + ttl)\\n        self.data.move_to_end(key)\\n\\n        if len(self.data) > self.capacity:\\n            self.data.popitem(last=False)\\n\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "ttl_lru.py",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "from collections import OrderedDict\r\n\r\nclass TTLCache:\r\n    def __init__(self, capacity, clock):\r\n        self.capacity = capacity\r\n        self.clock = clock\r\n        self.data = OrderedDict()\r\n\r\n    def get(self, key, default=None):\r\n        if key not in self.data:\r\n            return default\r\n        value, expiry = self.data[key]\r\n        if expiry < self.clock():\r\n            del self.data[key]\r\n            return default\r\n        return value\r\n\r\n    def put(self, key, value, ttl):\r\n        self.data[key] = (value, self.clock() + ttl)\r\n        if len(self.data) > self.capacity:\r\n            self.data.popitem(last=False)\r\n"
+              }
+            ],
+            "structuredContent": "from collections import OrderedDict\r\n\r\nclass TTLCache:\r\n    def __init__(self, capacity, clock):\r\n        self.capacity = capacity\r\n        self.clock = clock\r\n        self.data = OrderedDict()\r\n\r\n    def get(self, key, default=None):\r\n        if key not in self.data:\r\n            return default\r\n        value, expiry = self.data[key]\r\n        if expiry < self.clock():\r\n            del self.data[key]\r\n            return default\r\n        return value\r\n\r\n    def put(self, key, value, ttl):\r\n        self.data[key] = (value, self.clock() + ttl)\r\n        if len(self.data) > self.capacity:\r\n            self.data.popitem(last=False)\r\n"
+          }
+        }
+      ],
+      "wall_seconds": 8.172,
+      "usage": {
+        "input": 1852,
+        "output": 674,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 332,
+        "totalTokens": 2526
+      },
+      "reported_cost_usd": 0.0005222,
+      "thinking_characters": 0,
+      "parsed": {
+        "code": "from collections import OrderedDict\n\n\nclass TTLCache:\n    def __init__(self, capacity, clock):\n        if not isinstance(capacity, int) or isinstance(capacity, bool):\n            raise TypeError(\"capacity must be a positive integer\")\n        if capacity <= 0:\n            raise ValueError(\"capacity must be a positive integer\")\n        self.capacity = capacity\n        self.clock = clock\n        self.data = OrderedDict()\n\n    def get(self, key, default=None):\n        if key not in self.data:\n            return default\n\n        now = self.clock()\n        value, expiry = self.data[key]\n        if now >= expiry:\n            del self.data[key]\n            return default\n\n        self.data.move_to_end(key)\n        return value\n\n    def put(self, key, value, ttl):\n        if ttl <= 0:\n            self.data.pop(key, None)\n            return\n\n        now = self.clock()\n        expired = [stored_key for stored_key, (_, expiry) in self.data.items() if now >= expiry]\n        for stored_key in expired:\n            del self.data[stored_key]\n\n        self.data[key] = (value, now + ttl)\n        self.data.move_to_end(key)\n\n        if len(self.data) > self.capacity:\n            self.data.popitem(last=False)\n"
+      },
+      "response_ok": true,
+      "suite": "A",
+      "task": "ttl_lru",
+      "trial": 1,
+      "profile": "luna-medium",
+      "prompt": "Read ttl_lru.py using the read tool before proposing a repair. Read only that file. Do not use any other tools. Return the complete corrected Python module in exactly one JSON object with a code string: {\"code\":\"...\"}. No markdown. The evaluator applies your replacement and runs independent regression tests. Use only builtins or collections, math, typing; no IO or dynamic execution. Required contract: Repair TTLCache(capacity,clock), preserving put(key,value,ttl) and get(key,default=None). capacity is a positive integer; clock is an injected callable returning numeric time. A key is expired when now>=its expiry. get returns default for absent/expired keys and makes a live hit most recently used. put updates expiry and makes key most recent. ttl<=0 deletes that key and stores nothing. Before enforcing capacity on put, purge ALL expired entries so live entries are not evicted unnecessarily. Evict the least recently used LIVE key if still over capacity. Do not add dependencies beyond the Python standard library.",
+      "read_ok": true,
+      "candidate": "repairs\\luna-medium\\ttl_lru.py",
+      "verification": {
+        "passed": true,
+        "checks": 19,
+        "passed_checks": 19,
+        "failures": [],
+        "seconds": 0.053
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"239c70432cfc46cb7a5002a7\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "C:/Users/tno/Documents/GitHub/Recursive-Flint-Test/benchmarks/expanded-20261026/nonce-fixtures/1/probe-1e342da9.json",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"239c70432cfc46cb7a5002a7\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"239c70432cfc46cb7a5002a7\"}"
+          }
+        }
+      ],
+      "wall_seconds": 3.062,
+      "usage": {
+        "input": 1477,
+        "output": 84,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1561
+      },
+      "reported_cost_usd": 0.0001897,
+      "thinking_characters": 0,
+      "parsed": {
+        "token": "239c70432cfc46cb7a5002a7"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 1,
+      "profile": "luna-high",
+      "prompt": "Call read exactly once to read probe-1e342da9.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "239c70432cfc46cb7a5002a7"
+      },
+      "fixture": "nonce-fixtures\\1\\probe-1e342da9.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"239c70432cfc46cb7a5002a7\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "C:/Users/tno/Documents/GitHub/Recursive-Flint-Test/benchmarks/expanded-20261026/nonce-fixtures/1/probe-1e342da9.json",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"239c70432cfc46cb7a5002a7\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"239c70432cfc46cb7a5002a7\"}"
+          }
+        }
+      ],
+      "wall_seconds": 3.336,
+      "usage": {
+        "input": 1477,
+        "output": 96,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 10,
+        "totalTokens": 1573
+      },
+      "reported_cost_usd": 0.0001957,
+      "thinking_characters": 0,
+      "parsed": {
+        "token": "239c70432cfc46cb7a5002a7"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 1,
+      "profile": "luna-medium",
+      "prompt": "Call read exactly once to read probe-1e342da9.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "239c70432cfc46cb7a5002a7"
+      },
+      "fixture": "nonce-fixtures\\1\\probe-1e342da9.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"239c70432cfc46cb7a5002a7\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "probe-1e342da9.json",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"239c70432cfc46cb7a5002a7\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"239c70432cfc46cb7a5002a7\"}"
+          }
+        }
+      ],
+      "wall_seconds": 3.0,
+      "usage": {
+        "input": 1718,
+        "output": 167,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 131,
+        "totalTokens": 1885
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 519,
+      "parsed": {
+        "token": "239c70432cfc46cb7a5002a7"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 1,
+      "profile": "flint",
+      "prompt": "Call read exactly once to read probe-1e342da9.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "239c70432cfc46cb7a5002a7"
+      },
+      "fixture": "nonce-fixtures\\1\\probe-1e342da9.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"4dbe27a11daebd22133fda3b\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "C:/Users/tno/Documents/GitHub/Recursive-Flint-Test/benchmarks/expanded-20261026/nonce-fixtures/2/probe-25ed8b5f.json",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"4dbe27a11daebd22133fda3b\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"4dbe27a11daebd22133fda3b\"}"
+          }
+        }
+      ],
+      "wall_seconds": 5.864,
+      "usage": {
+        "input": 1481,
+        "output": 86,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1567
+      },
+      "reported_cost_usd": 0.0001911,
+      "thinking_characters": 0,
+      "parsed": {
+        "token": "4dbe27a11daebd22133fda3b"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 2,
+      "profile": "luna-medium",
+      "prompt": "Call read exactly once to read probe-25ed8b5f.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "4dbe27a11daebd22133fda3b"
+      },
+      "fixture": "nonce-fixtures\\2\\probe-25ed8b5f.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"4dbe27a11daebd22133fda3b\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "probe-25ed8b5f.json",
+            "offset": 1,
+            "limit": 10
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"4dbe27a11daebd22133fda3b\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"4dbe27a11daebd22133fda3b\"}"
+          }
+        }
+      ],
+      "wall_seconds": 3.695,
+      "usage": {
+        "input": 1793,
+        "output": 246,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 207,
+        "totalTokens": 2039
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 813,
+      "parsed": {
+        "token": "4dbe27a11daebd22133fda3b"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 2,
+      "profile": "flint",
+      "prompt": "Call read exactly once to read probe-25ed8b5f.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "4dbe27a11daebd22133fda3b"
+      },
+      "fixture": "nonce-fixtures\\2\\probe-25ed8b5f.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"4dbe27a11daebd22133fda3b\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "C:/Users/tno/Documents/GitHub/Recursive-Flint-Test/benchmarks/expanded-20261026/nonce-fixtures/2/probe-25ed8b5f.json",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"4dbe27a11daebd22133fda3b\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"4dbe27a11daebd22133fda3b\"}"
+          }
+        }
+      ],
+      "wall_seconds": 5.426,
+      "usage": {
+        "input": 1481,
+        "output": 86,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1567
+      },
+      "reported_cost_usd": 0.0001911,
+      "thinking_characters": 0,
+      "parsed": {
+        "token": "4dbe27a11daebd22133fda3b"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 2,
+      "profile": "luna-high",
+      "prompt": "Call read exactly once to read probe-25ed8b5f.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "4dbe27a11daebd22133fda3b"
+      },
+      "fixture": "nonce-fixtures\\2\\probe-25ed8b5f.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"d278c5a4f9b61fcd3bd214ff\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "probe-fc2bb2de.json",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"d278c5a4f9b61fcd3bd214ff\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"d278c5a4f9b61fcd3bd214ff\"}"
+          }
+        }
+      ],
+      "wall_seconds": 2.642,
+      "usage": {
+        "input": 1764,
+        "output": 176,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 141,
+        "totalTokens": 1940
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 558,
+      "parsed": {
+        "token": "d278c5a4f9b61fcd3bd214ff"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 3,
+      "profile": "flint",
+      "prompt": "Call read exactly once to read probe-fc2bb2de.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "d278c5a4f9b61fcd3bd214ff"
+      },
+      "fixture": "nonce-fixtures\\3\\probe-fc2bb2de.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"d278c5a4f9b61fcd3bd214ff\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "probe-fc2bb2de.json",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"d278c5a4f9b61fcd3bd214ff\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"d278c5a4f9b61fcd3bd214ff\"}"
+          }
+        }
+      ],
+      "wall_seconds": 3.575,
+      "usage": {
+        "input": 1449,
+        "output": 56,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1505
+      },
+      "reported_cost_usd": 0.00017290000000000003,
+      "thinking_characters": 0,
+      "parsed": {
+        "token": "d278c5a4f9b61fcd3bd214ff"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 3,
+      "profile": "luna-high",
+      "prompt": "Call read exactly once to read probe-fc2bb2de.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "d278c5a4f9b61fcd3bd214ff"
+      },
+      "fixture": "nonce-fixtures\\3\\probe-fc2bb2de.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"d278c5a4f9b61fcd3bd214ff\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "probe-fc2bb2de.json",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"d278c5a4f9b61fcd3bd214ff\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"d278c5a4f9b61fcd3bd214ff\"}"
+          }
+        }
+      ],
+      "wall_seconds": 3.722,
+      "usage": {
+        "input": 1449,
+        "output": 56,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1505
+      },
+      "reported_cost_usd": 0.00017290000000000003,
+      "thinking_characters": 0,
+      "parsed": {
+        "token": "d278c5a4f9b61fcd3bd214ff"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 3,
+      "profile": "luna-medium",
+      "prompt": "Call read exactly once to read probe-fc2bb2de.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "d278c5a4f9b61fcd3bd214ff"
+      },
+      "fixture": "nonce-fixtures\\3\\probe-fc2bb2de.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"337bce7aead740f8cf81586f\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "probe-f44d5894.json",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"337bce7aead740f8cf81586f\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"337bce7aead740f8cf81586f\"}"
+          }
+        }
+      ],
+      "wall_seconds": 20.883,
+      "usage": {
+        "input": 1443,
+        "output": 52,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1495
+      },
+      "reported_cost_usd": 0.00017030000000000002,
+      "thinking_characters": 0,
+      "parsed": {
+        "token": "337bce7aead740f8cf81586f"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 4,
+      "profile": "luna-high",
+      "prompt": "Call read exactly once to read probe-f44d5894.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "337bce7aead740f8cf81586f"
+      },
+      "fixture": "nonce-fixtures\\4\\probe-f44d5894.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"337bce7aead740f8cf81586f\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "C:/Users/tno/Documents/GitHub/Recursive-Flint-Test/benchmarks/expanded-20261026/nonce-fixtures/4/probe-f44d5894.json",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"337bce7aead740f8cf81586f\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"337bce7aead740f8cf81586f\"}"
+          }
+        }
+      ],
+      "wall_seconds": 5.573,
+      "usage": {
+        "input": 1473,
+        "output": 107,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 23,
+        "totalTokens": 1580
+      },
+      "reported_cost_usd": 0.0002008,
+      "thinking_characters": 0,
+      "parsed": {
+        "token": "337bce7aead740f8cf81586f"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 4,
+      "profile": "luna-medium",
+      "prompt": "Call read exactly once to read probe-f44d5894.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "337bce7aead740f8cf81586f"
+      },
+      "fixture": "nonce-fixtures\\4\\probe-f44d5894.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"337bce7aead740f8cf81586f\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "probe-f44d5894.json",
+            "offset": 1,
+            "limit": 10
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"337bce7aead740f8cf81586f\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"337bce7aead740f8cf81586f\"}"
+          }
+        }
+      ],
+      "wall_seconds": 3.386,
+      "usage": {
+        "input": 1702,
+        "output": 216,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 173,
+        "totalTokens": 1918
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 678,
+      "parsed": {
+        "token": "337bce7aead740f8cf81586f"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 4,
+      "profile": "flint",
+      "prompt": "Call read exactly once to read probe-f44d5894.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "337bce7aead740f8cf81586f"
+      },
+      "fixture": "nonce-fixtures\\4\\probe-f44d5894.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"d4443df54dbb99976d4cba32\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "probe-2fb669ff.json",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"d4443df54dbb99976d4cba32\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"d4443df54dbb99976d4cba32\"}"
+          }
+        }
+      ],
+      "wall_seconds": 3.368,
+      "usage": {
+        "input": 1444,
+        "output": 53,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1497
+      },
+      "reported_cost_usd": 0.0001709,
+      "thinking_characters": 0,
+      "parsed": {
+        "token": "d4443df54dbb99976d4cba32"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 5,
+      "profile": "luna-medium",
+      "prompt": "Call read exactly once to read probe-2fb669ff.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "d4443df54dbb99976d4cba32"
+      },
+      "fixture": "nonce-fixtures\\5\\probe-2fb669ff.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"d4443df54dbb99976d4cba32\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "probe-2fb669ff.json",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"d4443df54dbb99976d4cba32\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"d4443df54dbb99976d4cba32\"}"
+          }
+        }
+      ],
+      "wall_seconds": 3.483,
+      "usage": {
+        "input": 1695,
+        "output": 310,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 274,
+        "totalTokens": 2005
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 1074,
+      "parsed": {
+        "token": "d4443df54dbb99976d4cba32"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 5,
+      "profile": "flint",
+      "prompt": "Call read exactly once to read probe-2fb669ff.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "d4443df54dbb99976d4cba32"
+      },
+      "fixture": "nonce-fixtures\\5\\probe-2fb669ff.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"d4443df54dbb99976d4cba32\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "C:/Users/tno/Documents/GitHub/Recursive-Flint-Test/benchmarks/expanded-20261026/nonce-fixtures/5/probe-2fb669ff.json",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"d4443df54dbb99976d4cba32\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"d4443df54dbb99976d4cba32\"}"
+          }
+        }
+      ],
+      "wall_seconds": 3.756,
+      "usage": {
+        "input": 1474,
+        "output": 95,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 10,
+        "totalTokens": 1569
+      },
+      "reported_cost_usd": 0.00019490000000000002,
+      "thinking_characters": 0,
+      "parsed": {
+        "token": "d4443df54dbb99976d4cba32"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 5,
+      "profile": "luna-high",
+      "prompt": "Call read exactly once to read probe-2fb669ff.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "d4443df54dbb99976d4cba32"
+      },
+      "fixture": "nonce-fixtures\\5\\probe-2fb669ff.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\": \"2801947e6e544c996a201574\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "probe-41612b6c.json",
+            "offset": null,
+            "limit": 10
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"2801947e6e544c996a201574\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"2801947e6e544c996a201574\"}"
+          }
+        }
+      ],
+      "wall_seconds": 6.288,
+      "usage": {
+        "input": 1699,
+        "output": 732,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 674,
+        "totalTokens": 2431
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 2650,
+      "parsed": {
+        "token": "2801947e6e544c996a201574"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 6,
+      "profile": "flint",
+      "prompt": "Call read exactly once to read probe-41612b6c.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "2801947e6e544c996a201574"
+      },
+      "fixture": "nonce-fixtures\\6\\probe-41612b6c.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"2801947e6e544c996a201574\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "C:/Users/tno/Documents/GitHub/Recursive-Flint-Test/benchmarks/expanded-20261026/nonce-fixtures/6/probe-41612b6c.json",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"2801947e6e544c996a201574\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"2801947e6e544c996a201574\"}"
+          }
+        }
+      ],
+      "wall_seconds": 4.947,
+      "usage": {
+        "input": 1475,
+        "output": 82,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1557
+      },
+      "reported_cost_usd": 0.0001885,
+      "thinking_characters": 0,
+      "parsed": {
+        "token": "2801947e6e544c996a201574"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 6,
+      "profile": "luna-high",
+      "prompt": "Call read exactly once to read probe-41612b6c.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "2801947e6e544c996a201574"
+      },
+      "fixture": "nonce-fixtures\\6\\probe-41612b6c.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"2801947e6e544c996a201574\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "probe-41612b6c.json",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"2801947e6e544c996a201574\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"2801947e6e544c996a201574\"}"
+          }
+        }
+      ],
+      "wall_seconds": 2.729,
+      "usage": {
+        "input": 1445,
+        "output": 52,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1497
+      },
+      "reported_cost_usd": 0.00017050000000000002,
+      "thinking_characters": 0,
+      "parsed": {
+        "token": "2801947e6e544c996a201574"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 6,
+      "profile": "luna-medium",
+      "prompt": "Call read exactly once to read probe-41612b6c.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "2801947e6e544c996a201574"
+      },
+      "fixture": "nonce-fixtures\\6\\probe-41612b6c.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"d5430aeaadf9c91299695e32\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "C:/Users/tno/Documents/GitHub/Recursive-Flint-Test/benchmarks/expanded-20261026/nonce-fixtures/7/probe-a5bf033f.json",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"d5430aeaadf9c91299695e32\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"d5430aeaadf9c91299695e32\"}"
+          }
+        }
+      ],
+      "wall_seconds": 3.563,
+      "usage": {
+        "input": 1473,
+        "output": 82,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1555
+      },
+      "reported_cost_usd": 0.0001883,
+      "thinking_characters": 0,
+      "parsed": {
+        "token": "d5430aeaadf9c91299695e32"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 7,
+      "profile": "luna-high",
+      "prompt": "Call read exactly once to read probe-a5bf033f.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "d5430aeaadf9c91299695e32"
+      },
+      "fixture": "nonce-fixtures\\7\\probe-a5bf033f.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"d5430aeaadf9c91299695e32\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "probe-a5bf033f.json",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"d5430aeaadf9c91299695e32\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"d5430aeaadf9c91299695e32\"}"
+          }
+        }
+      ],
+      "wall_seconds": 13.817,
+      "usage": {
+        "input": 1443,
+        "output": 52,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1495
+      },
+      "reported_cost_usd": 0.00017030000000000002,
+      "thinking_characters": 0,
+      "parsed": {
+        "token": "d5430aeaadf9c91299695e32"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 7,
+      "profile": "luna-medium",
+      "prompt": "Call read exactly once to read probe-a5bf033f.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "d5430aeaadf9c91299695e32"
+      },
+      "fixture": "nonce-fixtures\\7\\probe-a5bf033f.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\": \"d5430aeaadf9c91299695e32\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "probe-a5bf033f.json",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"d5430aeaadf9c91299695e32\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"d5430aeaadf9c91299695e32\"}"
+          }
+        }
+      ],
+      "wall_seconds": 2.624,
+      "usage": {
+        "input": 1752,
+        "output": 179,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 142,
+        "totalTokens": 1931
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 561,
+      "parsed": {
+        "token": "d5430aeaadf9c91299695e32"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 7,
+      "profile": "flint",
+      "prompt": "Call read exactly once to read probe-a5bf033f.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "d5430aeaadf9c91299695e32"
+      },
+      "fixture": "nonce-fixtures\\7\\probe-a5bf033f.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"97a25fe3786fa488b90e45a5\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "C:/Users/tno/Documents/GitHub/Recursive-Flint-Test/benchmarks/expanded-20261026/nonce-fixtures/8/probe-20c727b6.json",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"97a25fe3786fa488b90e45a5\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"97a25fe3786fa488b90e45a5\"}"
+          }
+        }
+      ],
+      "wall_seconds": 8.165,
+      "usage": {
+        "input": 1477,
+        "output": 84,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1561
+      },
+      "reported_cost_usd": 0.0001897,
+      "thinking_characters": 0,
+      "parsed": {
+        "token": "97a25fe3786fa488b90e45a5"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 8,
+      "profile": "luna-medium",
+      "prompt": "Call read exactly once to read probe-20c727b6.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "97a25fe3786fa488b90e45a5"
+      },
+      "fixture": "nonce-fixtures\\8\\probe-20c727b6.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"97a25fe3786fa488b90e45a5\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "probe-20c727b6.json",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"97a25fe3786fa488b90e45a5\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"97a25fe3786fa488b90e45a5\"}"
+          }
+        }
+      ],
+      "wall_seconds": 4.736,
+      "usage": {
+        "input": 1719,
+        "output": 190,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 140,
+        "totalTokens": 1909
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 550,
+      "parsed": {
+        "token": "97a25fe3786fa488b90e45a5"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 8,
+      "profile": "flint",
+      "prompt": "Call read exactly once to read probe-20c727b6.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "97a25fe3786fa488b90e45a5"
+      },
+      "fixture": "nonce-fixtures\\8\\probe-20c727b6.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"97a25fe3786fa488b90e45a5\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "C:/Users/tno/Documents/GitHub/Recursive-Flint-Test/benchmarks/expanded-20261026/nonce-fixtures/8/probe-20c727b6.json",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"97a25fe3786fa488b90e45a5\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"97a25fe3786fa488b90e45a5\"}"
+          }
+        }
+      ],
+      "wall_seconds": 5.261,
+      "usage": {
+        "input": 1477,
+        "output": 98,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 12,
+        "totalTokens": 1575
+      },
+      "reported_cost_usd": 0.0001967,
+      "thinking_characters": 0,
+      "parsed": {
+        "token": "97a25fe3786fa488b90e45a5"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 8,
+      "profile": "luna-high",
+      "prompt": "Call read exactly once to read probe-20c727b6.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "97a25fe3786fa488b90e45a5"
+      },
+      "fixture": "nonce-fixtures\\8\\probe-20c727b6.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"fdf65df7ab79cfc63abf2ce7\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "probe-b5a55e2c.json",
+            "offset": 1,
+            "limit": 50
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"fdf65df7ab79cfc63abf2ce7\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"fdf65df7ab79cfc63abf2ce7\"}"
+          }
+        }
+      ],
+      "wall_seconds": 4.431,
+      "usage": {
+        "input": 1762,
+        "output": 493,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 455,
+        "totalTokens": 2255
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 1797,
+      "parsed": {
+        "token": "fdf65df7ab79cfc63abf2ce7"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 9,
+      "profile": "flint",
+      "prompt": "Call read exactly once to read probe-b5a55e2c.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "fdf65df7ab79cfc63abf2ce7"
+      },
+      "fixture": "nonce-fixtures\\9\\probe-b5a55e2c.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"fdf65df7ab79cfc63abf2ce7\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "C:/Users/tno/Documents/GitHub/Recursive-Flint-Test/benchmarks/expanded-20261026/nonce-fixtures/9/probe-b5a55e2c.json",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"fdf65df7ab79cfc63abf2ce7\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"fdf65df7ab79cfc63abf2ce7\"}"
+          }
+        }
+      ],
+      "wall_seconds": 3.187,
+      "usage": {
+        "input": 1481,
+        "output": 86,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1567
+      },
+      "reported_cost_usd": 0.0001911,
+      "thinking_characters": 0,
+      "parsed": {
+        "token": "fdf65df7ab79cfc63abf2ce7"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 9,
+      "profile": "luna-high",
+      "prompt": "Call read exactly once to read probe-b5a55e2c.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "fdf65df7ab79cfc63abf2ce7"
+      },
+      "fixture": "nonce-fixtures\\9\\probe-b5a55e2c.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"fdf65df7ab79cfc63abf2ce7\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "probe-b5a55e2c.json",
+            "offset": 1,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"fdf65df7ab79cfc63abf2ce7\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"fdf65df7ab79cfc63abf2ce7\"}"
+          }
+        }
+      ],
+      "wall_seconds": 16.932,
+      "usage": {
+        "input": 1451,
+        "output": 56,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1507
+      },
+      "reported_cost_usd": 0.0001731,
+      "thinking_characters": 0,
+      "parsed": {
+        "token": "fdf65df7ab79cfc63abf2ce7"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 9,
+      "profile": "luna-medium",
+      "prompt": "Call read exactly once to read probe-b5a55e2c.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "fdf65df7ab79cfc63abf2ce7"
+      },
+      "fixture": "nonce-fixtures\\9\\probe-b5a55e2c.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"55b0ad6a2e785b817033e308\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "C:/Users/tno/Documents/GitHub/Recursive-Flint-Test/benchmarks/expanded-20261026/nonce-fixtures/10/probe-54e9d4c7.json",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"55b0ad6a2e785b817033e308\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"55b0ad6a2e785b817033e308\"}"
+          }
+        }
+      ],
+      "wall_seconds": 4.05,
+      "usage": {
+        "input": 1483,
+        "output": 86,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1569
+      },
+      "reported_cost_usd": 0.0001913,
+      "thinking_characters": 0,
+      "parsed": {
+        "token": "55b0ad6a2e785b817033e308"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 10,
+      "profile": "luna-high",
+      "prompt": "Call read exactly once to read probe-54e9d4c7.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "55b0ad6a2e785b817033e308"
+      },
+      "fixture": "nonce-fixtures\\10\\probe-54e9d4c7.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"55b0ad6a2e785b817033e308\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "C:/Users/tno/Documents/GitHub/Recursive-Flint-Test/benchmarks/expanded-20261026/nonce-fixtures/10/probe-54e9d4c7.json",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"55b0ad6a2e785b817033e308\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"55b0ad6a2e785b817033e308\"}"
+          }
+        }
+      ],
+      "wall_seconds": 20.122,
+      "usage": {
+        "input": 1483,
+        "output": 86,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1569
+      },
+      "reported_cost_usd": 0.0001913,
+      "thinking_characters": 0,
+      "parsed": {
+        "token": "55b0ad6a2e785b817033e308"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 10,
+      "profile": "luna-medium",
+      "prompt": "Call read exactly once to read probe-54e9d4c7.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "55b0ad6a2e785b817033e308"
+      },
+      "fixture": "nonce-fixtures\\10\\probe-54e9d4c7.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"token\":\"55b0ad6a2e785b817033e308\"}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "probe-54e9d4c7.json",
+            "offset": 1,
+            "limit": 10
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"token\": \"55b0ad6a2e785b817033e308\"}"
+              }
+            ],
+            "structuredContent": "{\"token\": \"55b0ad6a2e785b817033e308\"}"
+          }
+        }
+      ],
+      "wall_seconds": 2.917,
+      "usage": {
+        "input": 1811,
+        "output": 258,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 216,
+        "totalTokens": 2069
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 854,
+      "parsed": {
+        "token": "55b0ad6a2e785b817033e308"
+      },
+      "response_ok": true,
+      "suite": "B",
+      "task": "randomized_read",
+      "trial": 10,
+      "profile": "flint",
+      "prompt": "Call read exactly once to read probe-54e9d4c7.json in the current directory. Read no other file. Return exactly one JSON object {\"token\":\"the exact token value from that file\"}, without markdown. Do not infer the value; an actual successful read is required.",
+      "expected": {
+        "token": "55b0ad6a2e785b817033e308"
+      },
+      "fixture": "nonce-fixtures\\10\\probe-54e9d4c7.json",
+      "read_ok": true,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"value\":1005973}",
+      "tool_calls": [],
+      "tool_results": [],
+      "wall_seconds": 2.785,
+      "usage": {
+        "input": 500,
+        "output": 54,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 41,
+        "totalTokens": 554
+      },
+      "reported_cost_usd": 7.7e-05,
+      "thinking_characters": 348,
+      "parsed": {
+        "value": 1005973
+      },
+      "response_ok": true,
+      "suite": "C",
+      "task": "arithmetic",
+      "trial": 1,
+      "profile": "luna-high",
+      "prompt": "Reply in English. Return only the requested JSON object in your final answer, without markdown. Return {\"value\": <1009 multiplied by 997>}.",
+      "expected": {
+        "value": 1005973
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"value\":1005973}",
+      "tool_calls": [],
+      "tool_results": [],
+      "wall_seconds": 3.694,
+      "usage": {
+        "input": 500,
+        "output": 54,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 41,
+        "totalTokens": 554
+      },
+      "reported_cost_usd": 7.7e-05,
+      "thinking_characters": 389,
+      "parsed": {
+        "value": 1005973
+      },
+      "response_ok": true,
+      "suite": "C",
+      "task": "arithmetic",
+      "trial": 1,
+      "profile": "luna-medium",
+      "prompt": "Reply in English. Return only the requested JSON object in your final answer, without markdown. Return {\"value\": <1009 multiplied by 997>}.",
+      "expected": {
+        "value": 1005973
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"a\":[2,2,2],\"b\":[0,1,2]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "wall_seconds": 2.221,
+      "usage": {
+        "input": 554,
+        "output": 52,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 29,
+        "totalTokens": 606
+      },
+      "reported_cost_usd": 8.14e-05,
+      "thinking_characters": 0,
+      "parsed": {
+        "a": [
+          2,
+          2,
+          2
+        ],
+        "b": [
+          0,
+          1,
+          2
+        ]
+      },
+      "response_ok": true,
+      "suite": "C",
+      "task": "python_closures",
+      "trial": 1,
+      "profile": "luna-medium",
+      "prompt": "Reply in English. Return only the requested JSON object in your final answer, without markdown. For Python 3, determine a and b: fs=[lambda: i for i in range(3)]; a=[f() for f in fs]; gs=[lambda i=i: i for i in range(3)]; b=[g() for g in gs]. Return {\"a\": [...], \"b\": [...]}.",
+      "expected": {
+        "a": [
+          2,
+          2,
+          2
+        ],
+        "b": [
+          0,
+          1,
+          2
+        ]
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"a\":[2,2,2],\"b\":[0,1,2]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "wall_seconds": 3.352,
+      "usage": {
+        "input": 554,
+        "output": 55,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 32,
+        "totalTokens": 609
+      },
+      "reported_cost_usd": 8.290000000000001e-05,
+      "thinking_characters": 423,
+      "parsed": {
+        "a": [
+          2,
+          2,
+          2
+        ],
+        "b": [
+          0,
+          1,
+          2
+        ]
+      },
+      "response_ok": true,
+      "suite": "C",
+      "task": "python_closures",
+      "trial": 1,
+      "profile": "luna-high",
+      "prompt": "Reply in English. Return only the requested JSON object in your final answer, without markdown. For Python 3, determine a and b: fs=[lambda: i for i in range(3)]; a=[f() for f in fs]; gs=[lambda i=i: i for i in range(3)]; b=[g() for g in gs]. Return {\"a\": [...], \"b\": [...]}.",
+      "expected": {
+        "a": [
+          2,
+          2,
+          2
+        ],
+        "b": [
+          0,
+          1,
+          2
+        ]
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"order\":[\"A\",\"D\",\"B\",\"C\"]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "wall_seconds": 3.214,
+      "usage": {
+        "input": 534,
+        "output": 46,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 28,
+        "totalTokens": 580
+      },
+      "reported_cost_usd": 7.64e-05,
+      "thinking_characters": 405,
+      "parsed": {
+        "order": [
+          "A",
+          "D",
+          "B",
+          "C"
+        ]
+      },
+      "response_ok": true,
+      "suite": "C",
+      "task": "javascript_microtasks",
+      "trial": 1,
+      "profile": "luna-high",
+      "prompt": "Reply in English. Return only the requested JSON object in your final answer, without markdown. In modern JavaScript, console.log(\"A\"); Promise.resolve().then(()=>console.log(\"B\")); queueMicrotask(()=>console.log(\"C\")); console.log(\"D\"); Return {\"order\": [the four strings in execution order]}.",
+      "expected": {
+        "order": [
+          "A",
+          "D",
+          "B",
+          "C"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"order\":[\"A\",\"D\",\"B\",\"C\"]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "wall_seconds": 2.167,
+      "usage": {
+        "input": 534,
+        "output": 46,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 28,
+        "totalTokens": 580
+      },
+      "reported_cost_usd": 7.64e-05,
+      "thinking_characters": 0,
+      "parsed": {
+        "order": [
+          "A",
+          "D",
+          "B",
+          "C"
+        ]
+      },
+      "response_ok": true,
+      "suite": "C",
+      "task": "javascript_microtasks",
+      "trial": 1,
+      "profile": "luna-medium",
+      "prompt": "Reply in English. Return only the requested JSON object in your final answer, without markdown. In modern JavaScript, console.log(\"A\"); Promise.resolve().then(()=>console.log(\"B\")); queueMicrotask(()=>console.log(\"C\")); console.log(\"D\"); Return {\"order\": [the four strings in execution order]}.",
+      "expected": {
+        "order": [
+          "A",
+          "D",
+          "B",
+          "C"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"intervals\":[[1,5],[8,15],[20,20]]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "wall_seconds": 3.489,
+      "usage": {
+        "input": 529,
+        "output": 73,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 49,
+        "totalTokens": 602
+      },
+      "reported_cost_usd": 8.94e-05,
+      "thinking_characters": 386,
+      "parsed": {
+        "intervals": [
+          [
+            1,
+            5
+          ],
+          [
+            8,
+            15
+          ],
+          [
+            20,
+            20
+          ]
+        ]
+      },
+      "response_ok": true,
+      "suite": "C",
+      "task": "interval_merge",
+      "trial": 1,
+      "profile": "luna-medium",
+      "prompt": "Reply in English. Return only the requested JSON object in your final answer, without markdown. Merge overlapping OR touching closed intervals [[8,10],[1,4],[4,5],[12,15],[9,12],[20,20]]. Return {\"intervals\": [...]} sorted by start.",
+      "expected": {
+        "intervals": [
+          [
+            1,
+            5
+          ],
+          [
+            8,
+            15
+          ],
+          [
+            20,
+            20
+          ]
+        ]
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"intervals\":[[1,5],[8,15],[20,20]]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "wall_seconds": 3.846,
+      "usage": {
+        "input": 529,
+        "output": 79,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 55,
+        "totalTokens": 608
+      },
+      "reported_cost_usd": 9.24e-05,
+      "thinking_characters": 375,
+      "parsed": {
+        "intervals": [
+          [
+            1,
+            5
+          ],
+          [
+            8,
+            15
+          ],
+          [
+            20,
+            20
+          ]
+        ]
+      },
+      "response_ok": true,
+      "suite": "C",
+      "task": "interval_merge",
+      "trial": 1,
+      "profile": "luna-high",
+      "prompt": "Reply in English. Return only the requested JSON object in your final answer, without markdown. Merge overlapping OR touching closed intervals [[8,10],[1,4],[4,5],[12,15],[9,12],[20,20]]. Return {\"intervals\": [...]} sorted by start.",
+      "expected": {
+        "intervals": [
+          [
+            1,
+            5
+          ],
+          [
+            8,
+            15
+          ],
+          [
+            20,
+            20
+          ]
+        ]
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"distance\":7,\"path\":[\"S\",\"B\",\"A\",\"C\",\"T\"]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "wall_seconds": 4.378,
+      "usage": {
+        "input": 560,
+        "output": 99,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 75,
+        "totalTokens": 659
+      },
+      "reported_cost_usd": 0.0001055,
+      "thinking_characters": 0,
+      "parsed": {
+        "distance": 7,
+        "path": [
+          "S",
+          "B",
+          "A",
+          "C",
+          "T"
+        ]
+      },
+      "response_ok": true,
+      "suite": "C",
+      "task": "shortest_path",
+      "trial": 1,
+      "profile": "luna-high",
+      "prompt": "Reply in English. Return only the requested JSON object in your final answer, without markdown. Directed weighted edges: S->A 4, S->B 1, B->A 2, A->C 1, B->C 5, C->T 3, A->T 9, B->T 12. Return {\"distance\": shortest S-to-T cost, \"path\": [node names in that path]}.",
+      "expected": {
+        "distance": 7,
+        "path": [
+          "S",
+          "B",
+          "A",
+          "C",
+          "T"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"distance\":7,\"path\":[\"S\",\"B\",\"A\",\"C\",\"T\"]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "wall_seconds": 3.245,
+      "usage": {
+        "input": 560,
+        "output": 73,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 49,
+        "totalTokens": 633
+      },
+      "reported_cost_usd": 9.25e-05,
+      "thinking_characters": 0,
+      "parsed": {
+        "distance": 7,
+        "path": [
+          "S",
+          "B",
+          "A",
+          "C",
+          "T"
+        ]
+      },
+      "response_ok": true,
+      "suite": "C",
+      "task": "shortest_path",
+      "trial": 1,
+      "profile": "luna-medium",
+      "prompt": "Reply in English. Return only the requested JSON object in your final answer, without markdown. Directed weighted edges: S->A 4, S->B 1, B->A 2, A->C 1, B->C 5, C->T 3, A->T 9, B->T 12. Return {\"distance\": shortest S-to-T cost, \"path\": [node names in that path]}.",
+      "expected": {
+        "distance": 7,
+        "path": [
+          "S",
+          "B",
+          "A",
+          "C",
+          "T"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"result\":[{\"id\":1,\"rows\":2,\"orders\":2,\"amounts\":1,\"sum\":10},{\"id\":2,\"rows\":1,\"orders\":0,\"amounts\":0,\"sum\":null}]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "wall_seconds": 3.841,
+      "usage": {
+        "input": 595,
+        "output": 111,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 58,
+        "totalTokens": 706
+      },
+      "reported_cost_usd": 0.000115,
+      "thinking_characters": 458,
+      "parsed": {
+        "result": [
+          {
+            "id": 1,
+            "rows": 2,
+            "orders": 2,
+            "amounts": 1,
+            "sum": 10
+          },
+          {
+            "id": 2,
+            "rows": 1,
+            "orders": 0,
+            "amounts": 0,
+            "sum": null
+          }
+        ]
+      },
+      "response_ok": true,
+      "suite": "C",
+      "task": "sql_left_join_null",
+      "trial": 1,
+      "profile": "luna-medium",
+      "prompt": "Reply in English. Return only the requested JSON object in your final answer, without markdown. SQL tables customers(id) has (1),(2); orders(id,customer_id,amount) has (10,1,10),(11,1,NULL). Evaluate SELECT c.id,COUNT(*) AS rows,COUNT(o.id) AS orders,COUNT(o.amount) AS amounts,SUM(o.amount) AS sum FROM customers c LEFT JOIN orders o ON o.customer_id=c.id GROUP BY c.id ORDER BY c.id. Return {\"result\": [objects with id,rows,orders,amounts,sum]}, using JSON null for SQL NULL.",
+      "expected": {
+        "result": [
+          {
+            "id": 1,
+            "rows": 2,
+            "orders": 2,
+            "amounts": 1,
+            "sum": 10
+          },
+          {
+            "id": 2,
+            "rows": 1,
+            "orders": 0,
+            "amounts": 0,
+            "sum": null
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"result\":[{\"id\":1,\"rows\":2,\"orders\":2,\"amounts\":1,\"sum\":10},{\"id\":2,\"rows\":1,\"orders\":0,\"amounts\":0,\"sum\":null}]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "wall_seconds": 2.314,
+      "usage": {
+        "input": 595,
+        "output": 103,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 50,
+        "totalTokens": 698
+      },
+      "reported_cost_usd": 0.000111,
+      "thinking_characters": 0,
+      "parsed": {
+        "result": [
+          {
+            "id": 1,
+            "rows": 2,
+            "orders": 2,
+            "amounts": 1,
+            "sum": 10
+          },
+          {
+            "id": 2,
+            "rows": 1,
+            "orders": 0,
+            "amounts": 0,
+            "sum": null
+          }
+        ]
+      },
+      "response_ok": true,
+      "suite": "C",
+      "task": "sql_left_join_null",
+      "trial": 1,
+      "profile": "luna-high",
+      "prompt": "Reply in English. Return only the requested JSON object in your final answer, without markdown. SQL tables customers(id) has (1),(2); orders(id,customer_id,amount) has (10,1,10),(11,1,NULL). Evaluate SELECT c.id,COUNT(*) AS rows,COUNT(o.id) AS orders,COUNT(o.amount) AS amounts,SUM(o.amount) AS sum FROM customers c LEFT JOIN orders o ON o.customer_id=c.id GROUP BY c.id ORDER BY c.id. Return {\"result\": [objects with id,rows,orders,amounts,sum]}, using JSON null for SQL NULL.",
+      "expected": {
+        "result": [
+          {
+            "id": 1,
+            "rows": 2,
+            "orders": 2,
+            "amounts": 1,
+            "sum": 10
+          },
+          {
+            "id": 2,
+            "rows": 1,
+            "orders": 0,
+            "amounts": 0,
+            "sum": null
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"choice\":\"B\"}",
+      "tool_calls": [],
+      "tool_results": [],
+      "wall_seconds": 4.009,
+      "usage": {
+        "input": 634,
+        "output": 56,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 45,
+        "totalTokens": 690
+      },
+      "reported_cost_usd": 9.140000000000001e-05,
+      "thinking_characters": 435,
+      "parsed": {
+        "choice": "B"
+      },
+      "response_ok": true,
+      "suite": "C",
+      "task": "binary_search_repair",
+      "trial": 1,
+      "profile": "luna-high",
+      "prompt": "Reply in English. Return only the requested JSON object in your final answer, without markdown. A binary search on ascending a uses inclusive bounds lo=0,hi=len(a)-1; while lo < hi: mid=(lo+hi)//2; if a[mid]==x return mid; elif a[mid]<x set lo=mid; else set hi=mid; after loop return -1. Which patch is fully correct, terminating and handles empty/singleton arrays? A: only change loop to lo<=hi. B: loop lo<=hi, set lo=mid+1 and hi=mid-1. C: loop lo<hi, set lo=mid+1 and hi=mid-1. D: only change hi initialization to len(a). Return {\"choice\":\"A/B/C/D\"}.",
+      "expected": {
+        "choice": "B"
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"choice\":\"B\"}",
+      "tool_calls": [],
+      "tool_results": [],
+      "wall_seconds": 3.243,
+      "usage": {
+        "input": 634,
+        "output": 45,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 34,
+        "totalTokens": 679
+      },
+      "reported_cost_usd": 8.59e-05,
+      "thinking_characters": 0,
+      "parsed": {
+        "choice": "B"
+      },
+      "response_ok": true,
+      "suite": "C",
+      "task": "binary_search_repair",
+      "trial": 1,
+      "profile": "luna-medium",
+      "prompt": "Reply in English. Return only the requested JSON object in your final answer, without markdown. A binary search on ascending a uses inclusive bounds lo=0,hi=len(a)-1; while lo < hi: mid=(lo+hi)//2; if a[mid]==x return mid; elif a[mid]<x set lo=mid; else set hi=mid; after loop return -1. Which patch is fully correct, terminating and handles empty/singleton arrays? A: only change loop to lo<=hi. B: loop lo<=hi, set lo=mid+1 and hi=mid-1. C: loop lo<hi, set lo=mid+1 and hi=mid-1. D: only change hi initialization to len(a). Return {\"choice\":\"A/B/C/D\"}.",
+      "expected": {
+        "choice": "B"
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"unsafe\":[1,3]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "wall_seconds": 2.947,
+      "usage": {
+        "input": 581,
+        "output": 55,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 42,
+        "totalTokens": 636
+      },
+      "reported_cost_usd": 8.56e-05,
+      "thinking_characters": 0,
+      "parsed": {
+        "unsafe": [
+          1,
+          3
+        ]
+      },
+      "response_ok": true,
+      "suite": "C",
+      "task": "tenant_predicate",
+      "trial": 1,
+      "profile": "luna-medium",
+      "prompt": "Reply in English. Return only the requested JSON object in your final answer, without markdown. Assume SQL boolean precedence AND before OR. Security requirement: every returned row must have tenant_id=:tenant. Select unsafe query numbers: 1) WHERE tenant_id=:tenant AND status='open' OR is_public=1; 2) WHERE tenant_id=:tenant AND (status='open' OR is_public=1); 3) WHERE id=:id; 4) WHERE tenant_id=:tenant AND id=:id. Return {\"unsafe\":[numbers ascending]}.",
+      "expected": {
+        "unsafe": [
+          1,
+          3
+        ]
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"unsafe\":[1,3]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "wall_seconds": 2.452,
+      "usage": {
+        "input": 581,
+        "output": 52,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 39,
+        "totalTokens": 633
+      },
+      "reported_cost_usd": 8.41e-05,
+      "thinking_characters": 0,
+      "parsed": {
+        "unsafe": [
+          1,
+          3
+        ]
+      },
+      "response_ok": true,
+      "suite": "C",
+      "task": "tenant_predicate",
+      "trial": 1,
+      "profile": "luna-high",
+      "prompt": "Reply in English. Return only the requested JSON object in your final answer, without markdown. Assume SQL boolean precedence AND before OR. Security requirement: every returned row must have tenant_id=:tenant. Select unsafe query numbers: 1) WHERE tenant_id=:tenant AND status='open' OR is_public=1; 2) WHERE tenant_id=:tenant AND (status='open' OR is_public=1); 3) WHERE id=:id; 4) WHERE tenant_id=:tenant AND id=:id. Return {\"unsafe\":[numbers ascending]}.",
+      "expected": {
+        "unsafe": [
+          1,
+          3
+        ]
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"gets\":[1,-1,-1,3,4],\"keys\":[\"C\",\"D\"]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "wall_seconds": 3.037,
+      "usage": {
+        "input": 565,
+        "output": 131,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 105,
+        "totalTokens": 696
+      },
+      "reported_cost_usd": 0.000122,
+      "thinking_characters": 0,
+      "parsed": {
+        "gets": [
+          1,
+          -1,
+          -1,
+          3,
+          4
+        ],
+        "keys": [
+          "C",
+          "D"
+        ]
+      },
+      "response_ok": true,
+      "suite": "C",
+      "task": "lru_trace",
+      "trial": 1,
+      "profile": "luna-high",
+      "prompt": "Reply in English. Return only the requested JSON object in your final answer, without markdown. An initially empty LRU cache capacity 2 executes put(A,1),put(B,2),get(A),put(C,3),get(B),put(D,4),get(A),get(C),get(D). A get hit makes that entry most recent; misses return -1. Return {\"gets\":[all get return values],\"keys\":[final keys least-to-most recent]}.",
+      "expected": {
+        "gets": [
+          1,
+          -1,
+          -1,
+          3,
+          4
+        ],
+        "keys": [
+          "C",
+          "D"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"gets\":[1,-1,-1,3,4],\"keys\":[\"C\",\"D\"]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "wall_seconds": 3.384,
+      "usage": {
+        "input": 565,
+        "output": 107,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 81,
+        "totalTokens": 672
+      },
+      "reported_cost_usd": 0.00011,
+      "thinking_characters": 0,
+      "parsed": {
+        "gets": [
+          1,
+          -1,
+          -1,
+          3,
+          4
+        ],
+        "keys": [
+          "C",
+          "D"
+        ]
+      },
+      "response_ok": true,
+      "suite": "C",
+      "task": "lru_trace",
+      "trial": 1,
+      "profile": "luna-medium",
+      "prompt": "Reply in English. Return only the requested JSON object in your final answer, without markdown. An initially empty LRU cache capacity 2 executes put(A,1),put(B,2),get(A),put(C,3),get(B),put(D,4),get(A),get(C),get(D). A get hit makes that entry most recent; misses return -1. Return {\"gets\":[all get return values],\"keys\":[final keys least-to-most recent]}.",
+      "expected": {
+        "gets": [
+          1,
+          -1,
+          -1,
+          3,
+          4
+        ],
+        "keys": [
+          "C",
+          "D"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"textAuto\":true}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": ".gitattributes",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "# Auto detect text files and perform LF normalization\r\n* text=auto\r\n"
+              }
+            ],
+            "structuredContent": "# Auto detect text files and perform LF normalization\r\n* text=auto\r\n"
+          }
+        }
+      ],
+      "wall_seconds": 10.756,
+      "usage": {
+        "input": 1459,
+        "output": 38,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1497
+      },
+      "reported_cost_usd": 0.0001649,
+      "thinking_characters": 0,
+      "parsed": {
+        "textAuto": true
+      },
+      "response_ok": true,
+      "suite": "C",
+      "task": "read_tool",
+      "trial": 1,
+      "profile": "luna-medium",
+      "prompt": "Reply in English. Return only the requested JSON object in your final answer, without markdown. You MUST call the read tool exactly once to read only .gitattributes in the current directory. Do not access any other file. Return {\"textAuto\":true} if the returned file contains the line * text=auto, otherwise false.",
+      "expected": {
+        "textAuto": true
+      },
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"textAuto\":true}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": ".gitattributes",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "# Auto detect text files and perform LF normalization\r\n* text=auto\r\n"
+              }
+            ],
+            "structuredContent": "# Auto detect text files and perform LF normalization\r\n* text=auto\r\n"
+          }
+        }
+      ],
+      "wall_seconds": 16.447,
+      "usage": {
+        "input": 1459,
+        "output": 38,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1497
+      },
+      "reported_cost_usd": 0.0001649,
+      "thinking_characters": 0,
+      "parsed": {
+        "textAuto": true
+      },
+      "response_ok": true,
+      "suite": "C",
+      "task": "read_tool",
+      "trial": 1,
+      "profile": "luna-high",
+      "prompt": "Reply in English. Return only the requested JSON object in your final answer, without markdown. You MUST call the read tool exactly once to read only .gitattributes in the current directory. Do not access any other file. Return {\"textAuto\":true} if the returned file contains the line * text=auto, otherwise false.",
+      "expected": {
+        "textAuto": true
+      },
+      "passed": true
+    }
+  ]
+}

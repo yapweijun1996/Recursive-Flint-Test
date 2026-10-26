@@ -1,0 +1,88 @@
+{
+  "A": {
+    "luna-high": {
+      "passed": 3,
+      "runs": 3,
+      "read_successes": 3,
+      "total_wall_seconds": 28.647,
+      "median_wall_seconds": 7.777,
+      "reported_cost_usd": 0.0013047,
+      "reported_tokens": 6883,
+      "timeouts": 0
+    },
+    "luna-medium": {
+      "passed": 3,
+      "runs": 3,
+      "read_successes": 3,
+      "total_wall_seconds": 19.72,
+      "median_wall_seconds": 6.392,
+      "reported_cost_usd": 0.0012001,
+      "reported_tokens": 6653,
+      "timeouts": 0
+    },
+    "flint": {
+      "passed": 3,
+      "runs": 3,
+      "read_successes": 3,
+      "total_wall_seconds": 40.473,
+      "median_wall_seconds": 18.437,
+      "reported_cost_usd": 0,
+      "reported_tokens": 10497,
+      "timeouts": 0
+    }
+  },
+  "B": {
+    "luna-high": {
+      "passed": 10,
+      "runs": 10,
+      "read_successes": 10,
+      "total_wall_seconds": 57.71,
+      "median_wall_seconds": 3.903,
+      "reported_cost_usd": 0.0018748,
+      "reported_tokens": 15520,
+      "timeouts": 0
+    },
+    "luna-medium": {
+      "passed": 10,
+      "runs": 10,
+      "read_successes": 10,
+      "total_wall_seconds": 83.628,
+      "median_wall_seconds": 5.719,
+      "reported_cost_usd": 0.0018263,
+      "reported_tokens": 15351,
+      "timeouts": 0
+    },
+    "flint": {
+      "passed": 10,
+      "runs": 10,
+      "read_successes": 10,
+      "total_wall_seconds": 37.202,
+      "median_wall_seconds": 3.434,
+      "reported_cost_usd": 0,
+      "reported_tokens": 20382,
+      "timeouts": 0
+    }
+  },
+  "C": {
+    "luna-high": {
+      "passed": 10,
+      "runs": 10,
+      "read_successes": 1,
+      "total_wall_seconds": 45.834,
+      "median_wall_seconds": 3.283,
+      "reported_cost_usd": 0.0010076,
+      "reported_tokens": 7224,
+      "timeouts": 0
+    },
+    "luna-medium": {
+      "passed": 10,
+      "runs": 10,
+      "read_successes": 1,
+      "total_wall_seconds": 38.987,
+      "median_wall_seconds": 3.314,
+      "reported_cost_usd": 0.0009781,
+      "reported_tokens": 7165,
+      "timeouts": 0
+    }
+  }
+}

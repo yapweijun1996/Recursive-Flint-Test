@@ -1,0 +1,2852 @@
+{
+  "metadata": {
+    "started_utc": "2026-10-26T01:27:10.419609+00:00",
+    "pi_version": "1.4.0",
+    "provider": "openrouter",
+    "models": [
+      "openai/gpt-6-luna",
+      "recursive/flint-v1.0:free"
+    ],
+    "requested_thinking": "high",
+    "repeats_per_case": 3,
+    "case_source": "benchmarks\\flint-20261026\\run.py",
+    "cases_sha256": "a21c4218569f07dffea97c5a9f3f44d9c79f7057d9ad297db45dc443dbb31bb8",
+    "read_fixture_sha256": "1a1dbe176bc233b499d35a57db7513f2941c99ab9759f177830c9149be99005b",
+    "limitations": [
+      "Small fixed custom benchmark, not SWE-bench or a general coding ranking.",
+      "Nine answer tasks and one real read-tool task; no patches generated or executed.",
+      "Independent nonpersistent Pi sessions; extensions and built-in MCP disabled.",
+      "Same provider platform, not necessarily the same upstream infrastructure.",
+      "Requested high for both; Flint decides when to reason and has no effort control.",
+      "Existing Pi settings and project context retained; provider sampling defaults retained.",
+      "Wall time includes startup, network, inference and all tool turns.",
+      "Token counters and costs are reported by Pi; counters are not cross-tokenizer equivalents.",
+      "No automatic retries; unsuccessful responses count as failures."
+    ],
+    "finished_utc": "2026-10-26T01:34:23.342971+00:00",
+    "grading_note": "Read paths are resolved to the target file; equivalent absolute and relative paths are accepted. Original raw results remain unchanged."
+  },
+  "summary": {
+    "openai/gpt-6-luna": {
+      "runs": 30,
+      "passed": 30,
+      "answer_tasks_passed": 27,
+      "read_tasks_passed": 3,
+      "total_wall_seconds": 185.788,
+      "median_wall_seconds": 5.804,
+      "usage": {
+        "input": 99,
+        "output": 2057,
+        "cacheRead": 19008,
+        "cacheWrite": 127356,
+        "reasoning": 1293,
+        "totalTokens": 148520
+      },
+      "reported_cost_usd": 0.01714798
+    },
+    "recursive/flint-v1.0:free": {
+      "runs": 30,
+      "passed": 29,
+      "answer_tasks_passed": 27,
+      "read_tasks_passed": 2,
+      "total_wall_seconds": 247.07,
+      "median_wall_seconds": 5.164,
+      "usage": {
+        "input": 137947,
+        "output": 31769,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 28073,
+        "totalTokens": 169716
+      },
+      "reported_cost_usd": 0
+    }
+  },
+  "results": [
+    {
+      "trial": 1,
+      "name": "arithmetic",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "Return {\"value\": <1009 multiplied by 997>}.",
+      "expected": {
+        "value": 1005973
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"value\":1005973}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "value": 1005973
+      },
+      "usage": {
+        "input": 3,
+        "output": 55,
+        "cacheRead": 0,
+        "cacheWrite": 3943,
+        "reasoning": 42,
+        "totalTokens": 4001
+      },
+      "reported_cost_usd": 0.0005206750000000001,
+      "thinking_characters": 0,
+      "wall_seconds": 4.606
+    },
+    {
+      "trial": 1,
+      "name": "arithmetic",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "Return {\"value\": <1009 multiplied by 997>}.",
+      "expected": {
+        "value": 1005973
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"value\": 1005973}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "value": 1005973
+      },
+      "usage": {
+        "input": 3857,
+        "output": 247,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 201,
+        "totalTokens": 4104
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 774,
+      "wall_seconds": 3.066
+    },
+    {
+      "trial": 1,
+      "name": "python_closures",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "For Python 3, determine a and b: fs=[lambda: i for i in range(3)]; a=[f() for f in fs]; gs=[lambda i=i: i for i in range(3)]; b=[g() for g in gs]. Return {\"a\": [...], \"b\": [...]}.",
+      "expected": {
+        "a": [
+          2,
+          2,
+          2
+        ],
+        "b": [
+          0,
+          1,
+          2
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"a\": [2, 2, 2], \"b\": [0, 1, 2]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "a": [
+          2,
+          2,
+          2
+        ],
+        "b": [
+          0,
+          1,
+          2
+        ]
+      },
+      "usage": {
+        "input": 3909,
+        "output": 327,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 259,
+        "totalTokens": 4236
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 1013,
+      "wall_seconds": 3.093
+    },
+    {
+      "trial": 1,
+      "name": "python_closures",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "For Python 3, determine a and b: fs=[lambda: i for i in range(3)]; a=[f() for f in fs]; gs=[lambda i=i: i for i in range(3)]; b=[g() for g in gs]. Return {\"a\": [...], \"b\": [...]}.",
+      "expected": {
+        "a": [
+          2,
+          2,
+          2
+        ],
+        "b": [
+          0,
+          1,
+          2
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"a\":[2,2,2],\"b\":[0,1,2]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "a": [
+          2,
+          2,
+          2
+        ],
+        "b": [
+          0,
+          1,
+          2
+        ]
+      },
+      "usage": {
+        "input": 3,
+        "output": 52,
+        "cacheRead": 0,
+        "cacheWrite": 3997,
+        "reasoning": 29,
+        "totalTokens": 4052
+      },
+      "reported_cost_usd": 0.000525925,
+      "thinking_characters": 0,
+      "wall_seconds": 4.127
+    },
+    {
+      "trial": 1,
+      "name": "javascript_microtasks",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "In modern JavaScript, console.log(\"A\"); Promise.resolve().then(()=>console.log(\"B\")); queueMicrotask(()=>console.log(\"C\")); console.log(\"D\"); Return {\"order\": [the four strings in execution order]}.",
+      "expected": {
+        "order": [
+          "A",
+          "D",
+          "B",
+          "C"
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"order\":[\"A\",\"D\",\"B\",\"C\"]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "order": [
+          "A",
+          "D",
+          "B",
+          "C"
+        ]
+      },
+      "usage": {
+        "input": 3,
+        "output": 46,
+        "cacheRead": 0,
+        "cacheWrite": 3977,
+        "reasoning": 28,
+        "totalTokens": 4026
+      },
+      "reported_cost_usd": 0.0005204249999999999,
+      "thinking_characters": 0,
+      "wall_seconds": 4.554
+    },
+    {
+      "trial": 1,
+      "name": "javascript_microtasks",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "In modern JavaScript, console.log(\"A\"); Promise.resolve().then(()=>console.log(\"B\")); queueMicrotask(()=>console.log(\"C\")); console.log(\"D\"); Return {\"order\": [the four strings in execution order]}.",
+      "expected": {
+        "order": [
+          "A",
+          "D",
+          "B",
+          "C"
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"order\": [\"A\", \"D\", \"B\", \"C\"]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "order": [
+          "A",
+          "D",
+          "B",
+          "C"
+        ]
+      },
+      "usage": {
+        "input": 3892,
+        "output": 913,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 963,
+        "totalTokens": 4805
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 3763,
+      "wall_seconds": 6.52
+    },
+    {
+      "trial": 1,
+      "name": "interval_merge",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "Merge overlapping OR touching closed intervals [[8,10],[1,4],[4,5],[12,15],[9,12],[20,20]]. Return {\"intervals\": [...]} sorted by start.",
+      "expected": {
+        "intervals": [
+          [
+            1,
+            5
+          ],
+          [
+            8,
+            15
+          ],
+          [
+            20,
+            20
+          ]
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"intervals\": [[1,5],[8,15],[20,20]]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "intervals": [
+          [
+            1,
+            5
+          ],
+          [
+            8,
+            15
+          ],
+          [
+            20,
+            20
+          ]
+        ]
+      },
+      "usage": {
+        "input": 3885,
+        "output": 374,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 271,
+        "totalTokens": 4259
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 1062,
+      "wall_seconds": 4.267
+    },
+    {
+      "trial": 1,
+      "name": "interval_merge",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "Merge overlapping OR touching closed intervals [[8,10],[1,4],[4,5],[12,15],[9,12],[20,20]]. Return {\"intervals\": [...]} sorted by start.",
+      "expected": {
+        "intervals": [
+          [
+            1,
+            5
+          ],
+          [
+            8,
+            15
+          ],
+          [
+            20,
+            20
+          ]
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"intervals\":[[1,5],[8,15],[20,20]]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "intervals": [
+          [
+            1,
+            5
+          ],
+          [
+            8,
+            15
+          ],
+          [
+            20,
+            20
+          ]
+        ]
+      },
+      "usage": {
+        "input": 3,
+        "output": 75,
+        "cacheRead": 0,
+        "cacheWrite": 3972,
+        "reasoning": 51,
+        "totalTokens": 4050
+      },
+      "reported_cost_usd": 0.0005342999999999999,
+      "thinking_characters": 403,
+      "wall_seconds": 5.906
+    },
+    {
+      "trial": 1,
+      "name": "shortest_path",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "Directed weighted edges: S->A 4, S->B 1, B->A 2, A->C 1, B->C 5, C->T 3, A->T 9, B->T 12. Return {\"distance\": shortest S-to-T cost, \"path\": [node names in that path]}.",
+      "expected": {
+        "distance": 7,
+        "path": [
+          "S",
+          "B",
+          "A",
+          "C",
+          "T"
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"distance\":7,\"path\":[\"S\",\"B\",\"A\",\"C\",\"T\"]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "distance": 7,
+        "path": [
+          "S",
+          "B",
+          "A",
+          "C",
+          "T"
+        ]
+      },
+      "usage": {
+        "input": 3,
+        "output": 88,
+        "cacheRead": 0,
+        "cacheWrite": 4003,
+        "reasoning": 64,
+        "totalTokens": 4094
+      },
+      "reported_cost_usd": 0.000544675,
+      "thinking_characters": 413,
+      "wall_seconds": 5.17
+    },
+    {
+      "trial": 1,
+      "name": "shortest_path",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "Directed weighted edges: S->A 4, S->B 1, B->A 2, A->C 1, B->C 5, C->T 3, A->T 9, B->T 12. Return {\"distance\": shortest S-to-T cost, \"path\": [node names in that path]}.",
+      "expected": {
+        "distance": 7,
+        "path": [
+          "S",
+          "B",
+          "A",
+          "C",
+          "T"
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"distance\": 7, \"path\": [\"S\", \"B\", \"A\", \"C\", \"T\"]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "distance": 7,
+        "path": [
+          "S",
+          "B",
+          "A",
+          "C",
+          "T"
+        ]
+      },
+      "usage": {
+        "input": 3916,
+        "output": 339,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 195,
+        "totalTokens": 4255
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 746,
+      "wall_seconds": 3.063
+    },
+    {
+      "trial": 1,
+      "name": "sql_left_join_null",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "SQL tables customers(id) has (1),(2); orders(id,customer_id,amount) has (10,1,10),(11,1,NULL). Evaluate SELECT c.id,COUNT(*) AS rows,COUNT(o.id) AS orders,COUNT(o.amount) AS amounts,SUM(o.amount) AS sum FROM customers c LEFT JOIN orders o ON o.customer_id=c.id GROUP BY c.id ORDER BY c.id. Return {\"result\": [objects with id,rows,orders,amounts,sum]}, using JSON null for SQL NULL.",
+      "expected": {
+        "result": [
+          {
+            "id": 1,
+            "rows": 2,
+            "orders": 2,
+            "amounts": 1,
+            "sum": 10
+          },
+          {
+            "id": 2,
+            "rows": 1,
+            "orders": 0,
+            "amounts": 0,
+            "sum": null
+          }
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"result\": [{\"id\": 1, \"rows\": 2, \"orders\": 2, \"amounts\": 1, \"sum\": 10}, {\"id\": 2, \"rows\": 1, \"orders\": 0, \"amounts\": 0, \"sum\": null}]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "result": [
+          {
+            "id": 1,
+            "rows": 2,
+            "orders": 2,
+            "amounts": 1,
+            "sum": 10
+          },
+          {
+            "id": 2,
+            "rows": 1,
+            "orders": 0,
+            "amounts": 0,
+            "sum": null
+          }
+        ]
+      },
+      "usage": {
+        "input": 3952,
+        "output": 1260,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 993,
+        "totalTokens": 5212
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 3854,
+      "wall_seconds": 8.397
+    },
+    {
+      "trial": 1,
+      "name": "sql_left_join_null",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "SQL tables customers(id) has (1),(2); orders(id,customer_id,amount) has (10,1,10),(11,1,NULL). Evaluate SELECT c.id,COUNT(*) AS rows,COUNT(o.id) AS orders,COUNT(o.amount) AS amounts,SUM(o.amount) AS sum FROM customers c LEFT JOIN orders o ON o.customer_id=c.id GROUP BY c.id ORDER BY c.id. Return {\"result\": [objects with id,rows,orders,amounts,sum]}, using JSON null for SQL NULL.",
+      "expected": {
+        "result": [
+          {
+            "id": 1,
+            "rows": 2,
+            "orders": 2,
+            "amounts": 1,
+            "sum": 10
+          },
+          {
+            "id": 2,
+            "rows": 1,
+            "orders": 0,
+            "amounts": 0,
+            "sum": null
+          }
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"result\":[{\"id\":1,\"rows\":2,\"orders\":2,\"amounts\":1,\"sum\":10},{\"id\":2,\"rows\":1,\"orders\":0,\"amounts\":0,\"sum\":null}]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "result": [
+          {
+            "id": 1,
+            "rows": 2,
+            "orders": 2,
+            "amounts": 1,
+            "sum": 10
+          },
+          {
+            "id": 2,
+            "rows": 1,
+            "orders": 0,
+            "amounts": 0,
+            "sum": null
+          }
+        ]
+      },
+      "usage": {
+        "input": 3,
+        "output": 104,
+        "cacheRead": 0,
+        "cacheWrite": 4038,
+        "reasoning": 51,
+        "totalTokens": 4145
+      },
+      "reported_cost_usd": 0.00055705,
+      "thinking_characters": 424,
+      "wall_seconds": 3.664
+    },
+    {
+      "trial": 1,
+      "name": "binary_search_repair",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "A binary search on ascending a uses inclusive bounds lo=0,hi=len(a)-1; while lo < hi: mid=(lo+hi)//2; if a[mid]==x return mid; elif a[mid]<x set lo=mid; else set hi=mid; after loop return -1. Which patch is fully correct, terminating and handles empty/singleton arrays? A: only change loop to lo<=hi. B: loop lo<=hi, set lo=mid+1 and hi=mid-1. C: loop lo<hi, set lo=mid+1 and hi=mid-1. D: only change hi initialization to len(a). Return {\"choice\":\"A/B/C/D\"}.",
+      "expected": {
+        "choice": "B"
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"choice\":\"B\"}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "choice": "B"
+      },
+      "usage": {
+        "input": 3,
+        "output": 47,
+        "cacheRead": 0,
+        "cacheWrite": 4077,
+        "reasoning": 36,
+        "totalTokens": 4127
+      },
+      "reported_cost_usd": 0.000533425,
+      "thinking_characters": 0,
+      "wall_seconds": 3.564
+    },
+    {
+      "trial": 1,
+      "name": "binary_search_repair",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "A binary search on ascending a uses inclusive bounds lo=0,hi=len(a)-1; while lo < hi: mid=(lo+hi)//2; if a[mid]==x return mid; elif a[mid]<x set lo=mid; else set hi=mid; after loop return -1. Which patch is fully correct, terminating and handles empty/singleton arrays? A: only change loop to lo<=hi. B: loop lo<=hi, set lo=mid+1 and hi=mid-1. C: loop lo<hi, set lo=mid+1 and hi=mid-1. D: only change hi initialization to len(a). Return {\"choice\":\"A/B/C/D\"}.",
+      "expected": {
+        "choice": "B"
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"choice\":\"B\"}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "choice": "B"
+      },
+      "usage": {
+        "input": 3982,
+        "output": 1318,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 1183,
+        "totalTokens": 5300
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 4679,
+      "wall_seconds": 8.072
+    },
+    {
+      "trial": 1,
+      "name": "tenant_predicate",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "Assume SQL boolean precedence AND before OR. Security requirement: every returned row must have tenant_id=:tenant. Select unsafe query numbers: 1) WHERE tenant_id=:tenant AND status='open' OR is_public=1; 2) WHERE tenant_id=:tenant AND (status='open' OR is_public=1); 3) WHERE id=:id; 4) WHERE tenant_id=:tenant AND id=:id. Return {\"unsafe\":[numbers ascending]}.",
+      "expected": {
+        "unsafe": [
+          1,
+          3
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"unsafe\":[1,3]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "unsafe": [
+          1,
+          3
+        ]
+      },
+      "usage": {
+        "input": 3937,
+        "output": 563,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 613,
+        "totalTokens": 4500
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 2416,
+      "wall_seconds": 5.097
+    },
+    {
+      "trial": 1,
+      "name": "tenant_predicate",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "Assume SQL boolean precedence AND before OR. Security requirement: every returned row must have tenant_id=:tenant. Select unsafe query numbers: 1) WHERE tenant_id=:tenant AND status='open' OR is_public=1; 2) WHERE tenant_id=:tenant AND (status='open' OR is_public=1); 3) WHERE id=:id; 4) WHERE tenant_id=:tenant AND id=:id. Return {\"unsafe\":[numbers ascending]}.",
+      "expected": {
+        "unsafe": [
+          1,
+          3
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"unsafe\":[1,3]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "unsafe": [
+          1,
+          3
+        ]
+      },
+      "usage": {
+        "input": 3,
+        "output": 52,
+        "cacheRead": 0,
+        "cacheWrite": 4024,
+        "reasoning": 39,
+        "totalTokens": 4079
+      },
+      "reported_cost_usd": 0.0005293,
+      "thinking_characters": 0,
+      "wall_seconds": 2.167
+    },
+    {
+      "trial": 1,
+      "name": "lru_trace",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "An initially empty LRU cache capacity 2 executes put(A,1),put(B,2),get(A),put(C,3),get(B),put(D,4),get(A),get(C),get(D). A get hit makes that entry most recent; misses return -1. Return {\"gets\":[all get return values],\"keys\":[final keys least-to-most recent]}.",
+      "expected": {
+        "gets": [
+          1,
+          -1,
+          -1,
+          3,
+          4
+        ],
+        "keys": [
+          "C",
+          "D"
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"gets\":[1,-1,-1,3,4],\"keys\":[\"C\",\"D\"]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "gets": [
+          1,
+          -1,
+          -1,
+          3,
+          4
+        ],
+        "keys": [
+          "C",
+          "D"
+        ]
+      },
+      "usage": {
+        "input": 3,
+        "output": 131,
+        "cacheRead": 0,
+        "cacheWrite": 4008,
+        "reasoning": 105,
+        "totalTokens": 4142
+      },
+      "reported_cost_usd": 0.0005668,
+      "thinking_characters": 0,
+      "wall_seconds": 2.707
+    },
+    {
+      "trial": 1,
+      "name": "lru_trace",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "An initially empty LRU cache capacity 2 executes put(A,1),put(B,2),get(A),put(C,3),get(B),put(D,4),get(A),get(C),get(D). A get hit makes that entry most recent; misses return -1. Return {\"gets\":[all get return values],\"keys\":[final keys least-to-most recent]}.",
+      "expected": {
+        "gets": [
+          1,
+          -1,
+          -1,
+          3,
+          4
+        ],
+        "keys": [
+          "C",
+          "D"
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"gets\":[1,-1,-1,3,4],\"keys\":[\"C\",\"D\"]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "gets": [
+          1,
+          -1,
+          -1,
+          3,
+          4
+        ],
+        "keys": [
+          "C",
+          "D"
+        ]
+      },
+      "usage": {
+        "input": 3920,
+        "output": 885,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 714,
+        "totalTokens": 4805
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 2800,
+      "wall_seconds": 6.254
+    },
+    {
+      "trial": 1,
+      "name": "read_tool",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "You MUST call the read tool exactly once to read only .gitattributes in the current directory. Do not access any other file. Return {\"textAuto\":true} if the returned file contains the line * text=auto, otherwise false.",
+      "expected": {
+        "textAuto": true
+      },
+      "requires_read": true,
+      "passed": false,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"textAuto\":true}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "textAuto": true
+      },
+      "usage": {
+        "input": 6345,
+        "output": 88,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 94,
+        "totalTokens": 6433
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 371,
+      "wall_seconds": 1.91,
+      "original_score": false
+    },
+    {
+      "trial": 1,
+      "name": "read_tool",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "You MUST call the read tool exactly once to read only .gitattributes in the current directory. Do not access any other file. Return {\"textAuto\":true} if the returned file contains the line * text=auto, otherwise false.",
+      "expected": {
+        "textAuto": true
+      },
+      "requires_read": true,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"textAuto\":true}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "C:/Users/tno/Documents/GitHub/Recursive-Flint-Test/.gitattributes",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "# Auto detect text files and perform LF normalization\n* text=auto\n"
+              }
+            ],
+            "structuredContent": "# Auto detect text files and perform LF normalization\n* text=auto\n"
+          }
+        }
+      ],
+      "parsed": {
+        "textAuto": true
+      },
+      "usage": {
+        "input": 6,
+        "output": 72,
+        "cacheRead": 6336,
+        "cacheWrite": 6423,
+        "reasoning": 18,
+        "totalTokens": 12837
+      },
+      "reported_cost_usd": 0.0009028349999999998,
+      "thinking_characters": 0,
+      "wall_seconds": 3.467,
+      "original_score": false
+    },
+    {
+      "trial": 2,
+      "name": "arithmetic",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "Return {\"value\": <1009 multiplied by 997>}.",
+      "expected": {
+        "value": 1005973
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"value\": 1005973}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "value": 1005973
+      },
+      "usage": {
+        "input": 3857,
+        "output": 168,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 132,
+        "totalTokens": 4025
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 511,
+      "wall_seconds": 2.235
+    },
+    {
+      "trial": 2,
+      "name": "arithmetic",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "Return {\"value\": <1009 multiplied by 997>}.",
+      "expected": {
+        "value": 1005973
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"value\":1005973}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "value": 1005973
+      },
+      "usage": {
+        "input": 3,
+        "output": 53,
+        "cacheRead": 0,
+        "cacheWrite": 3943,
+        "reasoning": 40,
+        "totalTokens": 3999
+      },
+      "reported_cost_usd": 0.000519675,
+      "thinking_characters": 374,
+      "wall_seconds": 4.388
+    },
+    {
+      "trial": 2,
+      "name": "python_closures",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "For Python 3, determine a and b: fs=[lambda: i for i in range(3)]; a=[f() for f in fs]; gs=[lambda i=i: i for i in range(3)]; b=[g() for g in gs]. Return {\"a\": [...], \"b\": [...]}.",
+      "expected": {
+        "a": [
+          2,
+          2,
+          2
+        ],
+        "b": [
+          0,
+          1,
+          2
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"a\": [2, 2, 2], \"b\": [0, 1, 2]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "a": [
+          2,
+          2,
+          2
+        ],
+        "b": [
+          0,
+          1,
+          2
+        ]
+      },
+      "usage": {
+        "input": 3,
+        "output": 58,
+        "cacheRead": 0,
+        "cacheWrite": 3997,
+        "reasoning": 28,
+        "totalTokens": 4058
+      },
+      "reported_cost_usd": 0.000528925,
+      "thinking_characters": 0,
+      "wall_seconds": 2.653
+    },
+    {
+      "trial": 2,
+      "name": "python_closures",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "For Python 3, determine a and b: fs=[lambda: i for i in range(3)]; a=[f() for f in fs]; gs=[lambda i=i: i for i in range(3)]; b=[g() for g in gs]. Return {\"a\": [...], \"b\": [...]}.",
+      "expected": {
+        "a": [
+          2,
+          2,
+          2
+        ],
+        "b": [
+          0,
+          1,
+          2
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"a\": [2, 2, 2], \"b\": [0, 1, 2]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "a": [
+          2,
+          2,
+          2
+        ],
+        "b": [
+          0,
+          1,
+          2
+        ]
+      },
+      "usage": {
+        "input": 3909,
+        "output": 1337,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 1285,
+        "totalTokens": 5246
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 5044,
+      "wall_seconds": 9.631
+    },
+    {
+      "trial": 2,
+      "name": "javascript_microtasks",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "In modern JavaScript, console.log(\"A\"); Promise.resolve().then(()=>console.log(\"B\")); queueMicrotask(()=>console.log(\"C\")); console.log(\"D\"); Return {\"order\": [the four strings in execution order]}.",
+      "expected": {
+        "order": [
+          "A",
+          "D",
+          "B",
+          "C"
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"order\": [\"A\", \"D\", \"B\", \"C\"]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "order": [
+          "A",
+          "D",
+          "B",
+          "C"
+        ]
+      },
+      "usage": {
+        "input": 3892,
+        "output": 296,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 293,
+        "totalTokens": 4188
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 1149,
+      "wall_seconds": 3.987
+    },
+    {
+      "trial": 2,
+      "name": "javascript_microtasks",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "In modern JavaScript, console.log(\"A\"); Promise.resolve().then(()=>console.log(\"B\")); queueMicrotask(()=>console.log(\"C\")); console.log(\"D\"); Return {\"order\": [the four strings in execution order]}.",
+      "expected": {
+        "order": [
+          "A",
+          "D",
+          "B",
+          "C"
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"order\":[\"A\",\"D\",\"B\",\"C\"]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "order": [
+          "A",
+          "D",
+          "B",
+          "C"
+        ]
+      },
+      "usage": {
+        "input": 3,
+        "output": 53,
+        "cacheRead": 0,
+        "cacheWrite": 3977,
+        "reasoning": 35,
+        "totalTokens": 4033
+      },
+      "reported_cost_usd": 0.000523925,
+      "thinking_characters": 0,
+      "wall_seconds": 9.162
+    },
+    {
+      "trial": 2,
+      "name": "interval_merge",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "Merge overlapping OR touching closed intervals [[8,10],[1,4],[4,5],[12,15],[9,12],[20,20]]. Return {\"intervals\": [...]} sorted by start.",
+      "expected": {
+        "intervals": [
+          [
+            1,
+            5
+          ],
+          [
+            8,
+            15
+          ],
+          [
+            20,
+            20
+          ]
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"intervals\":[[1,5],[8,15],[20,20]]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "intervals": [
+          [
+            1,
+            5
+          ],
+          [
+            8,
+            15
+          ],
+          [
+            20,
+            20
+          ]
+        ]
+      },
+      "usage": {
+        "input": 3,
+        "output": 79,
+        "cacheRead": 0,
+        "cacheWrite": 3972,
+        "reasoning": 55,
+        "totalTokens": 4054
+      },
+      "reported_cost_usd": 0.0005363,
+      "thinking_characters": 401,
+      "wall_seconds": 8.827
+    },
+    {
+      "trial": 2,
+      "name": "interval_merge",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "Merge overlapping OR touching closed intervals [[8,10],[1,4],[4,5],[12,15],[9,12],[20,20]]. Return {\"intervals\": [...]} sorted by start.",
+      "expected": {
+        "intervals": [
+          [
+            1,
+            5
+          ],
+          [
+            8,
+            15
+          ],
+          [
+            20,
+            20
+          ]
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"intervals\": [[1,5],[8,15],[20,20]]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "intervals": [
+          [
+            1,
+            5
+          ],
+          [
+            8,
+            15
+          ],
+          [
+            20,
+            20
+          ]
+        ]
+      },
+      "usage": {
+        "input": 3885,
+        "output": 483,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 388,
+        "totalTokens": 4368
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 1493,
+      "wall_seconds": 4.364
+    },
+    {
+      "trial": 2,
+      "name": "shortest_path",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "Directed weighted edges: S->A 4, S->B 1, B->A 2, A->C 1, B->C 5, C->T 3, A->T 9, B->T 12. Return {\"distance\": shortest S-to-T cost, \"path\": [node names in that path]}.",
+      "expected": {
+        "distance": 7,
+        "path": [
+          "S",
+          "B",
+          "A",
+          "C",
+          "T"
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"distance\": 7, \"path\": [\"S\", \"B\", \"A\", \"C\", \"T\"]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "distance": 7,
+        "path": [
+          "S",
+          "B",
+          "A",
+          "C",
+          "T"
+        ]
+      },
+      "usage": {
+        "input": 3916,
+        "output": 505,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 294,
+        "totalTokens": 4421
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 1130,
+      "wall_seconds": 4.246
+    },
+    {
+      "trial": 2,
+      "name": "shortest_path",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "Directed weighted edges: S->A 4, S->B 1, B->A 2, A->C 1, B->C 5, C->T 3, A->T 9, B->T 12. Return {\"distance\": shortest S-to-T cost, \"path\": [node names in that path]}.",
+      "expected": {
+        "distance": 7,
+        "path": [
+          "S",
+          "B",
+          "A",
+          "C",
+          "T"
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"distance\":7,\"path\":[\"S\",\"B\",\"A\",\"C\",\"T\"]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "distance": 7,
+        "path": [
+          "S",
+          "B",
+          "A",
+          "C",
+          "T"
+        ]
+      },
+      "usage": {
+        "input": 3,
+        "output": 66,
+        "cacheRead": 0,
+        "cacheWrite": 4003,
+        "reasoning": 42,
+        "totalTokens": 4072
+      },
+      "reported_cost_usd": 0.000533675,
+      "thinking_characters": 0,
+      "wall_seconds": 10.801
+    },
+    {
+      "trial": 2,
+      "name": "sql_left_join_null",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "SQL tables customers(id) has (1),(2); orders(id,customer_id,amount) has (10,1,10),(11,1,NULL). Evaluate SELECT c.id,COUNT(*) AS rows,COUNT(o.id) AS orders,COUNT(o.amount) AS amounts,SUM(o.amount) AS sum FROM customers c LEFT JOIN orders o ON o.customer_id=c.id GROUP BY c.id ORDER BY c.id. Return {\"result\": [objects with id,rows,orders,amounts,sum]}, using JSON null for SQL NULL.",
+      "expected": {
+        "result": [
+          {
+            "id": 1,
+            "rows": 2,
+            "orders": 2,
+            "amounts": 1,
+            "sum": 10
+          },
+          {
+            "id": 2,
+            "rows": 1,
+            "orders": 0,
+            "amounts": 0,
+            "sum": null
+          }
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"result\":[{\"id\":1,\"rows\":2,\"orders\":2,\"amounts\":1,\"sum\":10},{\"id\":2,\"rows\":1,\"orders\":0,\"amounts\":0,\"sum\":null}]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "result": [
+          {
+            "id": 1,
+            "rows": 2,
+            "orders": 2,
+            "amounts": 1,
+            "sum": 10
+          },
+          {
+            "id": 2,
+            "rows": 1,
+            "orders": 0,
+            "amounts": 0,
+            "sum": null
+          }
+        ]
+      },
+      "usage": {
+        "input": 3,
+        "output": 114,
+        "cacheRead": 0,
+        "cacheWrite": 4038,
+        "reasoning": 61,
+        "totalTokens": 4155
+      },
+      "reported_cost_usd": 0.00056205,
+      "thinking_characters": 402,
+      "wall_seconds": 9.185
+    },
+    {
+      "trial": 2,
+      "name": "sql_left_join_null",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "SQL tables customers(id) has (1),(2); orders(id,customer_id,amount) has (10,1,10),(11,1,NULL). Evaluate SELECT c.id,COUNT(*) AS rows,COUNT(o.id) AS orders,COUNT(o.amount) AS amounts,SUM(o.amount) AS sum FROM customers c LEFT JOIN orders o ON o.customer_id=c.id GROUP BY c.id ORDER BY c.id. Return {\"result\": [objects with id,rows,orders,amounts,sum]}, using JSON null for SQL NULL.",
+      "expected": {
+        "result": [
+          {
+            "id": 1,
+            "rows": 2,
+            "orders": 2,
+            "amounts": 1,
+            "sum": 10
+          },
+          {
+            "id": 2,
+            "rows": 1,
+            "orders": 0,
+            "amounts": 0,
+            "sum": null
+          }
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"result\":[{\"id\":1,\"rows\":2,\"orders\":2,\"amounts\":1,\"sum\":10},{\"id\":2,\"rows\":1,\"orders\":0,\"amounts\":0,\"sum\":null}]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "result": [
+          {
+            "id": 1,
+            "rows": 2,
+            "orders": 2,
+            "amounts": 1,
+            "sum": 10
+          },
+          {
+            "id": 2,
+            "rows": 1,
+            "orders": 0,
+            "amounts": 0,
+            "sum": null
+          }
+        ]
+      },
+      "usage": {
+        "input": 3952,
+        "output": 1652,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 1377,
+        "totalTokens": 5604
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 5355,
+      "wall_seconds": 9.714
+    },
+    {
+      "trial": 2,
+      "name": "binary_search_repair",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "A binary search on ascending a uses inclusive bounds lo=0,hi=len(a)-1; while lo < hi: mid=(lo+hi)//2; if a[mid]==x return mid; elif a[mid]<x set lo=mid; else set hi=mid; after loop return -1. Which patch is fully correct, terminating and handles empty/singleton arrays? A: only change loop to lo<=hi. B: loop lo<=hi, set lo=mid+1 and hi=mid-1. C: loop lo<hi, set lo=mid+1 and hi=mid-1. D: only change hi initialization to len(a). Return {\"choice\":\"A/B/C/D\"}.",
+      "expected": {
+        "choice": "B"
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"choice\":\"B\"}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "choice": "B"
+      },
+      "usage": {
+        "input": 3982,
+        "output": 915,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 850,
+        "totalTokens": 4897
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 3373,
+      "wall_seconds": 6.98
+    },
+    {
+      "trial": 2,
+      "name": "binary_search_repair",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "A binary search on ascending a uses inclusive bounds lo=0,hi=len(a)-1; while lo < hi: mid=(lo+hi)//2; if a[mid]==x return mid; elif a[mid]<x set lo=mid; else set hi=mid; after loop return -1. Which patch is fully correct, terminating and handles empty/singleton arrays? A: only change loop to lo<=hi. B: loop lo<=hi, set lo=mid+1 and hi=mid-1. C: loop lo<hi, set lo=mid+1 and hi=mid-1. D: only change hi initialization to len(a). Return {\"choice\":\"A/B/C/D\"}.",
+      "expected": {
+        "choice": "B"
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"choice\":\"B\"}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "choice": "B"
+      },
+      "usage": {
+        "input": 3,
+        "output": 9,
+        "cacheRead": 0,
+        "cacheWrite": 4077,
+        "reasoning": 0,
+        "totalTokens": 4089
+      },
+      "reported_cost_usd": 0.000514425,
+      "thinking_characters": 0,
+      "wall_seconds": 11.451
+    },
+    {
+      "trial": 2,
+      "name": "tenant_predicate",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "Assume SQL boolean precedence AND before OR. Security requirement: every returned row must have tenant_id=:tenant. Select unsafe query numbers: 1) WHERE tenant_id=:tenant AND status='open' OR is_public=1; 2) WHERE tenant_id=:tenant AND (status='open' OR is_public=1); 3) WHERE id=:id; 4) WHERE tenant_id=:tenant AND id=:id. Return {\"unsafe\":[numbers ascending]}.",
+      "expected": {
+        "unsafe": [
+          1,
+          3
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"unsafe\":[1,3]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "unsafe": [
+          1,
+          3
+        ]
+      },
+      "usage": {
+        "input": 3,
+        "output": 56,
+        "cacheRead": 0,
+        "cacheWrite": 4024,
+        "reasoning": 43,
+        "totalTokens": 4083
+      },
+      "reported_cost_usd": 0.0005313,
+      "thinking_characters": 0,
+      "wall_seconds": 9.385
+    },
+    {
+      "trial": 2,
+      "name": "tenant_predicate",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "Assume SQL boolean precedence AND before OR. Security requirement: every returned row must have tenant_id=:tenant. Select unsafe query numbers: 1) WHERE tenant_id=:tenant AND status='open' OR is_public=1; 2) WHERE tenant_id=:tenant AND (status='open' OR is_public=1); 3) WHERE id=:id; 4) WHERE tenant_id=:tenant AND id=:id. Return {\"unsafe\":[numbers ascending]}.",
+      "expected": {
+        "unsafe": [
+          1,
+          3
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"unsafe\":[1,3]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "unsafe": [
+          1,
+          3
+        ]
+      },
+      "usage": {
+        "input": 3937,
+        "output": 646,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 651,
+        "totalTokens": 4583
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 2525,
+      "wall_seconds": 5.253
+    },
+    {
+      "trial": 2,
+      "name": "lru_trace",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "An initially empty LRU cache capacity 2 executes put(A,1),put(B,2),get(A),put(C,3),get(B),put(D,4),get(A),get(C),get(D). A get hit makes that entry most recent; misses return -1. Return {\"gets\":[all get return values],\"keys\":[final keys least-to-most recent]}.",
+      "expected": {
+        "gets": [
+          1,
+          -1,
+          -1,
+          3,
+          4
+        ],
+        "keys": [
+          "C",
+          "D"
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"gets\":[1,-1,-1,3,4],\"keys\":[\"C\",\"D\"]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "gets": [
+          1,
+          -1,
+          -1,
+          3,
+          4
+        ],
+        "keys": [
+          "C",
+          "D"
+        ]
+      },
+      "usage": {
+        "input": 3920,
+        "output": 323,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 203,
+        "totalTokens": 4243
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 788,
+      "wall_seconds": 3.366
+    },
+    {
+      "trial": 2,
+      "name": "lru_trace",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "An initially empty LRU cache capacity 2 executes put(A,1),put(B,2),get(A),put(C,3),get(B),put(D,4),get(A),get(C),get(D). A get hit makes that entry most recent; misses return -1. Return {\"gets\":[all get return values],\"keys\":[final keys least-to-most recent]}.",
+      "expected": {
+        "gets": [
+          1,
+          -1,
+          -1,
+          3,
+          4
+        ],
+        "keys": [
+          "C",
+          "D"
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"gets\":[1,-1,-1,3,4],\"keys\":[\"C\",\"D\"]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "gets": [
+          1,
+          -1,
+          -1,
+          3,
+          4
+        ],
+        "keys": [
+          "C",
+          "D"
+        ]
+      },
+      "usage": {
+        "input": 3,
+        "output": 127,
+        "cacheRead": 0,
+        "cacheWrite": 4008,
+        "reasoning": 101,
+        "totalTokens": 4138
+      },
+      "reported_cost_usd": 0.0005648000000000001,
+      "thinking_characters": 0,
+      "wall_seconds": 8.811
+    },
+    {
+      "trial": 2,
+      "name": "read_tool",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "You MUST call the read tool exactly once to read only .gitattributes in the current directory. Do not access any other file. Return {\"textAuto\":true} if the returned file contains the line * text=auto, otherwise false.",
+      "expected": {
+        "textAuto": true
+      },
+      "requires_read": true,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"textAuto\":true}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "C:/Users/tno/Documents/GitHub/Recursive-Flint-Test/.gitattributes",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "# Auto detect text files and perform LF normalization\n* text=auto\n"
+              }
+            ],
+            "structuredContent": "# Auto detect text files and perform LF normalization\n* text=auto\n"
+          }
+        }
+      ],
+      "parsed": {
+        "textAuto": true
+      },
+      "usage": {
+        "input": 6,
+        "output": 76,
+        "cacheRead": 6336,
+        "cacheWrite": 6427,
+        "reasoning": 22,
+        "totalTokens": 12845
+      },
+      "reported_cost_usd": 0.000905335,
+      "thinking_characters": 0,
+      "wall_seconds": 3.261,
+      "original_score": false
+    },
+    {
+      "trial": 2,
+      "name": "read_tool",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "You MUST call the read tool exactly once to read only .gitattributes in the current directory. Do not access any other file. Return {\"textAuto\":true} if the returned file contains the line * text=auto, otherwise false.",
+      "expected": {
+        "textAuto": true
+      },
+      "requires_read": true,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"textAuto\":true}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": ".gitattributes",
+            "offset": 1,
+            "limit": 10
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "# Auto detect text files and perform LF normalization\n* text=auto\n"
+              }
+            ],
+            "structuredContent": "# Auto detect text files and perform LF normalization\n* text=auto\n"
+          }
+        }
+      ],
+      "parsed": {
+        "textAuto": true
+      },
+      "usage": {
+        "input": 13047,
+        "output": 408,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 398,
+        "totalTokens": 13455
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 1573,
+      "wall_seconds": 5.23,
+      "original_score": true
+    },
+    {
+      "trial": 3,
+      "name": "arithmetic",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "Return {\"value\": <1009 multiplied by 997>}.",
+      "expected": {
+        "value": 1005973
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"value\":1005973}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "value": 1005973
+      },
+      "usage": {
+        "input": 3,
+        "output": 55,
+        "cacheRead": 0,
+        "cacheWrite": 3943,
+        "reasoning": 42,
+        "totalTokens": 4001
+      },
+      "reported_cost_usd": 0.0005206750000000001,
+      "thinking_characters": 330,
+      "wall_seconds": 6.073
+    },
+    {
+      "trial": 3,
+      "name": "arithmetic",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "Return {\"value\": <1009 multiplied by 997>}.",
+      "expected": {
+        "value": 1005973
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"value\": 1005973}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "value": 1005973
+      },
+      "usage": {
+        "input": 3857,
+        "output": 207,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 173,
+        "totalTokens": 4064
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 677,
+      "wall_seconds": 2.239
+    },
+    {
+      "trial": 3,
+      "name": "python_closures",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "For Python 3, determine a and b: fs=[lambda: i for i in range(3)]; a=[f() for f in fs]; gs=[lambda i=i: i for i in range(3)]; b=[g() for g in gs]. Return {\"a\": [...], \"b\": [...]}.",
+      "expected": {
+        "a": [
+          2,
+          2,
+          2
+        ],
+        "b": [
+          0,
+          1,
+          2
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"a\": [2, 2, 2], \"b\": [0, 1, 2]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "a": [
+          2,
+          2,
+          2
+        ],
+        "b": [
+          0,
+          1,
+          2
+        ]
+      },
+      "usage": {
+        "input": 3909,
+        "output": 921,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 833,
+        "totalTokens": 4830
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 3258,
+      "wall_seconds": 7.319
+    },
+    {
+      "trial": 3,
+      "name": "python_closures",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "For Python 3, determine a and b: fs=[lambda: i for i in range(3)]; a=[f() for f in fs]; gs=[lambda i=i: i for i in range(3)]; b=[g() for g in gs]. Return {\"a\": [...], \"b\": [...]}.",
+      "expected": {
+        "a": [
+          2,
+          2,
+          2
+        ],
+        "b": [
+          0,
+          1,
+          2
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"a\":[2,2,2],\"b\":[0,1,2]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "a": [
+          2,
+          2,
+          2
+        ],
+        "b": [
+          0,
+          1,
+          2
+        ]
+      },
+      "usage": {
+        "input": 3,
+        "output": 56,
+        "cacheRead": 0,
+        "cacheWrite": 3997,
+        "reasoning": 33,
+        "totalTokens": 4056
+      },
+      "reported_cost_usd": 0.0005279249999999999,
+      "thinking_characters": 0,
+      "wall_seconds": 5.706
+    },
+    {
+      "trial": 3,
+      "name": "javascript_microtasks",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "In modern JavaScript, console.log(\"A\"); Promise.resolve().then(()=>console.log(\"B\")); queueMicrotask(()=>console.log(\"C\")); console.log(\"D\"); Return {\"order\": [the four strings in execution order]}.",
+      "expected": {
+        "order": [
+          "A",
+          "D",
+          "B",
+          "C"
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"order\":[\"A\",\"D\",\"B\",\"C\"]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "order": [
+          "A",
+          "D",
+          "B",
+          "C"
+        ]
+      },
+      "usage": {
+        "input": 3,
+        "output": 52,
+        "cacheRead": 0,
+        "cacheWrite": 3977,
+        "reasoning": 34,
+        "totalTokens": 4032
+      },
+      "reported_cost_usd": 0.000523425,
+      "thinking_characters": 0,
+      "wall_seconds": 6.562
+    },
+    {
+      "trial": 3,
+      "name": "javascript_microtasks",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "In modern JavaScript, console.log(\"A\"); Promise.resolve().then(()=>console.log(\"B\")); queueMicrotask(()=>console.log(\"C\")); console.log(\"D\"); Return {\"order\": [the four strings in execution order]}.",
+      "expected": {
+        "order": [
+          "A",
+          "D",
+          "B",
+          "C"
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"order\": [\"A\", \"D\", \"B\", \"C\"]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "order": [
+          "A",
+          "D",
+          "B",
+          "C"
+        ]
+      },
+      "usage": {
+        "input": 3892,
+        "output": 580,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 621,
+        "totalTokens": 4472
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 2414,
+      "wall_seconds": 7.457
+    },
+    {
+      "trial": 3,
+      "name": "interval_merge",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "Merge overlapping OR touching closed intervals [[8,10],[1,4],[4,5],[12,15],[9,12],[20,20]]. Return {\"intervals\": [...]} sorted by start.",
+      "expected": {
+        "intervals": [
+          [
+            1,
+            5
+          ],
+          [
+            8,
+            15
+          ],
+          [
+            20,
+            20
+          ]
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"intervals\": [[1, 5], [8, 15], [20, 20]]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "intervals": [
+          [
+            1,
+            5
+          ],
+          [
+            8,
+            15
+          ],
+          [
+            20,
+            20
+          ]
+        ]
+      },
+      "usage": {
+        "input": 3885,
+        "output": 360,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 221,
+        "totalTokens": 4245
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 834,
+      "wall_seconds": 3.172
+    },
+    {
+      "trial": 3,
+      "name": "interval_merge",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "Merge overlapping OR touching closed intervals [[8,10],[1,4],[4,5],[12,15],[9,12],[20,20]]. Return {\"intervals\": [...]} sorted by start.",
+      "expected": {
+        "intervals": [
+          [
+            1,
+            5
+          ],
+          [
+            8,
+            15
+          ],
+          [
+            20,
+            20
+          ]
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"intervals\":[[1,5],[8,15],[20,20]]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "intervals": [
+          [
+            1,
+            5
+          ],
+          [
+            8,
+            15
+          ],
+          [
+            20,
+            20
+          ]
+        ]
+      },
+      "usage": {
+        "input": 3,
+        "output": 72,
+        "cacheRead": 0,
+        "cacheWrite": 3972,
+        "reasoning": 48,
+        "totalTokens": 4047
+      },
+      "reported_cost_usd": 0.0005327999999999999,
+      "thinking_characters": 411,
+      "wall_seconds": 5.694
+    },
+    {
+      "trial": 3,
+      "name": "shortest_path",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "Directed weighted edges: S->A 4, S->B 1, B->A 2, A->C 1, B->C 5, C->T 3, A->T 9, B->T 12. Return {\"distance\": shortest S-to-T cost, \"path\": [node names in that path]}.",
+      "expected": {
+        "distance": 7,
+        "path": [
+          "S",
+          "B",
+          "A",
+          "C",
+          "T"
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"distance\":7,\"path\":[\"S\",\"B\",\"A\",\"C\",\"T\"]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "distance": 7,
+        "path": [
+          "S",
+          "B",
+          "A",
+          "C",
+          "T"
+        ]
+      },
+      "usage": {
+        "input": 3,
+        "output": 69,
+        "cacheRead": 0,
+        "cacheWrite": 4003,
+        "reasoning": 45,
+        "totalTokens": 4075
+      },
+      "reported_cost_usd": 0.0005351749999999999,
+      "thinking_characters": 366,
+      "wall_seconds": 5.902
+    },
+    {
+      "trial": 3,
+      "name": "shortest_path",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "Directed weighted edges: S->A 4, S->B 1, B->A 2, A->C 1, B->C 5, C->T 3, A->T 9, B->T 12. Return {\"distance\": shortest S-to-T cost, \"path\": [node names in that path]}.",
+      "expected": {
+        "distance": 7,
+        "path": [
+          "S",
+          "B",
+          "A",
+          "C",
+          "T"
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"distance\": 7, \"path\": [\"S\", \"B\", \"A\", \"C\", \"T\"]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "distance": 7,
+        "path": [
+          "S",
+          "B",
+          "A",
+          "C",
+          "T"
+        ]
+      },
+      "usage": {
+        "input": 3916,
+        "output": 386,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 263,
+        "totalTokens": 4302
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 1008,
+      "wall_seconds": 5.345
+    },
+    {
+      "trial": 3,
+      "name": "sql_left_join_null",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "SQL tables customers(id) has (1),(2); orders(id,customer_id,amount) has (10,1,10),(11,1,NULL). Evaluate SELECT c.id,COUNT(*) AS rows,COUNT(o.id) AS orders,COUNT(o.amount) AS amounts,SUM(o.amount) AS sum FROM customers c LEFT JOIN orders o ON o.customer_id=c.id GROUP BY c.id ORDER BY c.id. Return {\"result\": [objects with id,rows,orders,amounts,sum]}, using JSON null for SQL NULL.",
+      "expected": {
+        "result": [
+          {
+            "id": 1,
+            "rows": 2,
+            "orders": 2,
+            "amounts": 1,
+            "sum": 10
+          },
+          {
+            "id": 2,
+            "rows": 1,
+            "orders": 0,
+            "amounts": 0,
+            "sum": null
+          }
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"result\": [{\"id\": 1, \"rows\": 2, \"orders\": 2, \"amounts\": 1, \"sum\": 10}, {\"id\": 2, \"rows\": 1, \"orders\": 0, \"amounts\": 0, \"sum\": null}]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "result": [
+          {
+            "id": 1,
+            "rows": 2,
+            "orders": 2,
+            "amounts": 1,
+            "sum": 10
+          },
+          {
+            "id": 2,
+            "rows": 1,
+            "orders": 0,
+            "amounts": 0,
+            "sum": null
+          }
+        ]
+      },
+      "usage": {
+        "input": 3952,
+        "output": 10630,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 10009,
+        "totalTokens": 14582
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 38938,
+      "wall_seconds": 75.021
+    },
+    {
+      "trial": 3,
+      "name": "sql_left_join_null",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "SQL tables customers(id) has (1),(2); orders(id,customer_id,amount) has (10,1,10),(11,1,NULL). Evaluate SELECT c.id,COUNT(*) AS rows,COUNT(o.id) AS orders,COUNT(o.amount) AS amounts,SUM(o.amount) AS sum FROM customers c LEFT JOIN orders o ON o.customer_id=c.id GROUP BY c.id ORDER BY c.id. Return {\"result\": [objects with id,rows,orders,amounts,sum]}, using JSON null for SQL NULL.",
+      "expected": {
+        "result": [
+          {
+            "id": 1,
+            "rows": 2,
+            "orders": 2,
+            "amounts": 1,
+            "sum": 10
+          },
+          {
+            "id": 2,
+            "rows": 1,
+            "orders": 0,
+            "amounts": 0,
+            "sum": null
+          }
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"result\":[{\"id\":1,\"rows\":2,\"orders\":2,\"amounts\":1,\"sum\":10},{\"id\":2,\"rows\":1,\"orders\":0,\"amounts\":0,\"sum\":null}]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "result": [
+          {
+            "id": 1,
+            "rows": 2,
+            "orders": 2,
+            "amounts": 1,
+            "sum": 10
+          },
+          {
+            "id": 2,
+            "rows": 1,
+            "orders": 0,
+            "amounts": 0,
+            "sum": null
+          }
+        ]
+      },
+      "usage": {
+        "input": 3,
+        "output": 106,
+        "cacheRead": 0,
+        "cacheWrite": 4038,
+        "reasoning": 53,
+        "totalTokens": 4147
+      },
+      "reported_cost_usd": 0.00055805,
+      "thinking_characters": 0,
+      "wall_seconds": 6.623
+    },
+    {
+      "trial": 3,
+      "name": "binary_search_repair",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "A binary search on ascending a uses inclusive bounds lo=0,hi=len(a)-1; while lo < hi: mid=(lo+hi)//2; if a[mid]==x return mid; elif a[mid]<x set lo=mid; else set hi=mid; after loop return -1. Which patch is fully correct, terminating and handles empty/singleton arrays? A: only change loop to lo<=hi. B: loop lo<=hi, set lo=mid+1 and hi=mid-1. C: loop lo<hi, set lo=mid+1 and hi=mid-1. D: only change hi initialization to len(a). Return {\"choice\":\"A/B/C/D\"}.",
+      "expected": {
+        "choice": "B"
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"choice\":\"B\"}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "choice": "B"
+      },
+      "usage": {
+        "input": 3,
+        "output": 9,
+        "cacheRead": 0,
+        "cacheWrite": 4077,
+        "reasoning": 0,
+        "totalTokens": 4089
+      },
+      "reported_cost_usd": 0.000514425,
+      "thinking_characters": 0,
+      "wall_seconds": 7.488
+    },
+    {
+      "trial": 3,
+      "name": "binary_search_repair",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "A binary search on ascending a uses inclusive bounds lo=0,hi=len(a)-1; while lo < hi: mid=(lo+hi)//2; if a[mid]==x return mid; elif a[mid]<x set lo=mid; else set hi=mid; after loop return -1. Which patch is fully correct, terminating and handles empty/singleton arrays? A: only change loop to lo<=hi. B: loop lo<=hi, set lo=mid+1 and hi=mid-1. C: loop lo<hi, set lo=mid+1 and hi=mid-1. D: only change hi initialization to len(a). Return {\"choice\":\"A/B/C/D\"}.",
+      "expected": {
+        "choice": "B"
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"choice\":\"B\"}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "choice": "B"
+      },
+      "usage": {
+        "input": 3982,
+        "output": 4436,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 3565,
+        "totalTokens": 8418
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 13901,
+      "wall_seconds": 27.66
+    },
+    {
+      "trial": 3,
+      "name": "tenant_predicate",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "Assume SQL boolean precedence AND before OR. Security requirement: every returned row must have tenant_id=:tenant. Select unsafe query numbers: 1) WHERE tenant_id=:tenant AND status='open' OR is_public=1; 2) WHERE tenant_id=:tenant AND (status='open' OR is_public=1); 3) WHERE id=:id; 4) WHERE tenant_id=:tenant AND id=:id. Return {\"unsafe\":[numbers ascending]}.",
+      "expected": {
+        "unsafe": [
+          1,
+          3
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"unsafe\":[1,3]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "unsafe": [
+          1,
+          3
+        ]
+      },
+      "usage": {
+        "input": 3937,
+        "output": 466,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 477,
+        "totalTokens": 4403
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 1848,
+      "wall_seconds": 3.668
+    },
+    {
+      "trial": 3,
+      "name": "tenant_predicate",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "Assume SQL boolean precedence AND before OR. Security requirement: every returned row must have tenant_id=:tenant. Select unsafe query numbers: 1) WHERE tenant_id=:tenant AND status='open' OR is_public=1; 2) WHERE tenant_id=:tenant AND (status='open' OR is_public=1); 3) WHERE id=:id; 4) WHERE tenant_id=:tenant AND id=:id. Return {\"unsafe\":[numbers ascending]}.",
+      "expected": {
+        "unsafe": [
+          1,
+          3
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"unsafe\":[1,3]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "unsafe": [
+          1,
+          3
+        ]
+      },
+      "usage": {
+        "input": 3,
+        "output": 60,
+        "cacheRead": 0,
+        "cacheWrite": 4024,
+        "reasoning": 47,
+        "totalTokens": 4087
+      },
+      "reported_cost_usd": 0.0005333,
+      "thinking_characters": 0,
+      "wall_seconds": 10.439
+    },
+    {
+      "trial": 3,
+      "name": "lru_trace",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "An initially empty LRU cache capacity 2 executes put(A,1),put(B,2),get(A),put(C,3),get(B),put(D,4),get(A),get(C),get(D). A get hit makes that entry most recent; misses return -1. Return {\"gets\":[all get return values],\"keys\":[final keys least-to-most recent]}.",
+      "expected": {
+        "gets": [
+          1,
+          -1,
+          -1,
+          3,
+          4
+        ],
+        "keys": [
+          "C",
+          "D"
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"gets\":[1,-1,-1,3,4],\"keys\":[\"C\",\"D\"]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "gets": [
+          1,
+          -1,
+          -1,
+          3,
+          4
+        ],
+        "keys": [
+          "C",
+          "D"
+        ]
+      },
+      "usage": {
+        "input": 3,
+        "output": 127,
+        "cacheRead": 0,
+        "cacheWrite": 4008,
+        "reasoning": 101,
+        "totalTokens": 4138
+      },
+      "reported_cost_usd": 0.0005648000000000001,
+      "thinking_characters": 0,
+      "wall_seconds": 9.047
+    },
+    {
+      "trial": 3,
+      "name": "lru_trace",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "An initially empty LRU cache capacity 2 executes put(A,1),put(B,2),get(A),put(C,3),get(B),put(D,4),get(A),get(C),get(D). A get hit makes that entry most recent; misses return -1. Return {\"gets\":[all get return values],\"keys\":[final keys least-to-most recent]}.",
+      "expected": {
+        "gets": [
+          1,
+          -1,
+          -1,
+          3,
+          4
+        ],
+        "keys": [
+          "C",
+          "D"
+        ]
+      },
+      "requires_read": false,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"gets\":[1,-1,-1,3,4],\"keys\":[\"C\",\"D\"]}",
+      "tool_calls": [],
+      "tool_results": [],
+      "parsed": {
+        "gets": [
+          1,
+          -1,
+          -1,
+          3,
+          4
+        ],
+        "keys": [
+          "C",
+          "D"
+        ]
+      },
+      "usage": {
+        "input": 3920,
+        "output": 574,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 403,
+        "totalTokens": 4494
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 1547,
+      "wall_seconds": 5.08
+    },
+    {
+      "trial": 3,
+      "name": "read_tool",
+      "requested_model": "recursive/flint-v1.0:free",
+      "prompt": "You MUST call the read tool exactly once to read only .gitattributes in the current directory. Do not access any other file. Return {\"textAuto\":true} if the returned file contains the line * text=auto, otherwise false.",
+      "expected": {
+        "textAuto": true
+      },
+      "requires_read": true,
+      "passed": true,
+      "exit_code": 0,
+      "model": "recursive/flint-v1.0:free",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"textAuto\":true}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": ".gitattributes",
+            "offset": 1,
+            "limit": 10
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "# Auto detect text files and perform LF normalization\n* text=auto\n"
+              }
+            ],
+            "structuredContent": "# Auto detect text files and perform LF normalization\n* text=auto\n"
+          }
+        }
+      ],
+      "parsed": {
+        "textAuto": true
+      },
+      "usage": {
+        "input": 12805,
+        "output": 162,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 151,
+        "totalTokens": 12967
+      },
+      "reported_cost_usd": 0,
+      "thinking_characters": 597,
+      "wall_seconds": 5.364,
+      "original_score": true
+    },
+    {
+      "trial": 3,
+      "name": "read_tool",
+      "requested_model": "openai/gpt-6-luna",
+      "prompt": "You MUST call the read tool exactly once to read only .gitattributes in the current directory. Do not access any other file. Return {\"textAuto\":true} if the returned file contains the line * text=auto, otherwise false.",
+      "expected": {
+        "textAuto": true
+      },
+      "requires_read": true,
+      "passed": true,
+      "exit_code": 0,
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
+      "stop_reason": "stop",
+      "answer": "{\"textAuto\":true}",
+      "tool_calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": ".gitattributes",
+            "offset": null,
+            "limit": null
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "read",
+          "is_error": false,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "# Auto detect text files and perform LF normalization\n* text=auto\n"
+              }
+            ],
+            "structuredContent": "# Auto detect text files and perform LF normalization\n* text=auto\n"
+          }
+        }
+      ],
+      "parsed": {
+        "textAuto": true
+      },
+      "usage": {
+        "input": 6,
+        "output": 38,
+        "cacheRead": 6336,
+        "cacheWrite": 6389,
+        "reasoning": 0,
+        "totalTokens": 12769
+      },
+      "reported_cost_usd": 0.0008815849999999999,
+      "thinking_characters": 0,
+      "wall_seconds": 4.398,
+      "original_score": true
+    }
+  ]
+}

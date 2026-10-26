@@ -1,0 +1,638 @@
+{
+  "merge_intervals": {
+    "buggy": {
+      "passed": false,
+      "checks": 37,
+      "passed_checks": 8,
+      "failures": [
+        {
+          "name": "fixed-2",
+          "passed": false,
+          "error": "AssertionError: Expected [[1, 8]], got [[1, 4], [4, 8]]"
+        },
+        {
+          "name": "fixed-4",
+          "passed": false,
+          "error": "AssertionError: Expected [[1, 10]], got [[1, 9], [9, 10]]"
+        },
+        {
+          "name": "fixed-5",
+          "passed": false,
+          "error": "AssertionError: Expected [[-2, 0]], got [[-2, 0], [0, 0], [0, 0]]"
+        },
+        {
+          "name": "input-and-output-aliasing",
+          "passed": false,
+          "error": "AssertionError: Expected [[4, 6], [1, 5]], got [[1, 6], [4, 6]]"
+        },
+        {
+          "name": "generated-0",
+          "passed": false,
+          "error": "AssertionError: Expected [[2, 5], [-9, -7], [6, 9], [2, 4], [5, 7], [8, 9], [6, 7], [-1, 0], [-7, -3], [-2, 2], [9, 10], [-1, -1], [-8, -3]], got [[-9, -3], [-8, -3], [-7, -3], [-2, 2], [-1, -1], [-1, 0], [2, 5], [2, 5], [5, 9], [6, 7], [6, 9], [8, 9], [9,"
+        },
+        {
+          "name": "generated-1",
+          "passed": false,
+          "error": "AssertionError: Expected [[8, 8], [-2, -2]], got [[-2, -2], [8, 8]]"
+        },
+        {
+          "name": "generated-2",
+          "passed": false,
+          "error": "AssertionError: Expected [[-9, -9], [-8, -6], [-5, 0], [-1, 1], [9, 10], [9, 9], [8, 13], [-5, -2], [10, 13], [6, 8], [7, 10], [6, 8], [-9, -9]], got [[-9, -9], [-9, -9], [-8, -6], [-5, 1], [-5, 0], [-1, 1], [6, 13], [6, 8], [7, 10], [8, 13], [9, 9], [9, 1"
+        },
+        {
+          "name": "generated-3",
+          "passed": false,
+          "error": "AssertionError: Expected [[8, 12], [-6, -4], [9, 12]], got [[-6, -4], [8, 12], [9, 12]]"
+        },
+        {
+          "name": "generated-4",
+          "passed": false,
+          "error": "AssertionError: Expected [[-1, -1], [2, 5], [-6, -6]], got [[-6, -6], [-1, -1], [2, 5]]"
+        },
+        {
+          "name": "generated-5",
+          "passed": false,
+          "error": "AssertionError: Expected [[-2, 3], [1, 6], [10, 14], [-10, -7], [-3, 2], [-9, -8], [-7, -5], [5, 6], [2, 6]], got [[-10, -7], [-9, -8], [-7, -5], [-3, 6], [-2, 3], [1, 6], [2, 6], [5, 6], [10, 14]]"
+        },
+        {
+          "name": "generated-6",
+          "passed": false,
+          "error": "AssertionError: Expected [[8, 8], [5, 7], [-9, -9], [-6, -1], [8, 11], [1, 3], [-10, -8], [5, 6], [3, 7], [7, 12], [-7, -6], [8, 12]], got [[-10, -8], [-9, -9], [-7, -6], [-6, -1], [1, 3], [3, 7], [5, 6], [5, 7], [7, 12], [8, 8], [8, 11], [8, 12]]"
+        },
+        {
+          "name": "generated-7",
+          "passed": false,
+          "error": "AssertionError: Expected [[-6, -3], [10, 10], [-8, -4], [-7, -5], [8, 8]], got [[-8, -3], [-7, -5], [-6, -3], [8, 8], [10, 10]]"
+        },
+        {
+          "name": "generated-8",
+          "passed": false,
+          "error": "AssertionError: Expected [[1, 4], [-6, -5], [-9, -9]], got [[-9, -9], [-6, -5], [1, 4]]"
+        },
+        {
+          "name": "generated-9",
+          "passed": false,
+          "error": "AssertionError: Expected [[9, 11], [-2, -1], [-5, 0], [-10, -8], [6, 9], [9, 9], [0, 4]], got [[-10, -8], [-5, 0], [-2, -1], [0, 4], [6, 9], [9, 9], [9, 11]]"
+        },
+        {
+          "name": "generated-10",
+          "passed": false,
+          "error": "AssertionError: Expected [[-9, -6], [5, 9], [-10, -9], [4, 7], [-2, 3], [-5, -5], [6, 9], [0, 0], [-3, 2]], got [[-10, -9], [-9, -6], [-5, -5], [-3, 3], [-2, 3], [0, 0], [4, 9], [5, 9], [6, 9]]"
+        },
+        {
+          "name": "generated-11",
+          "passed": false,
+          "error": "AssertionError: Expected [[7, 10], [4, 8], [8, 9], [-5, -1], [5, 10], [9, 10], [-7, -4]], got [[-7, -1], [-5, -1], [4, 10], [5, 10], [7, 10], [8, 9], [9, 10]]"
+        },
+        {
+          "name": "generated-12",
+          "passed": false,
+          "error": "AssertionError: Expected [[-2, 3], [6, 11], [1, 2], [2, 2], [1, 4], [-2, 3], [4, 9]], got [[-2, 4], [-2, 3], [1, 2], [1, 4], [2, 2], [4, 11], [6, 11]]"
+        },
+        {
+          "name": "generated-13",
+          "passed": false,
+          "error": "AssertionError: Expected [[-1, 4], [-5, 0], [-3, 2], [-6, -5]], got [[-6, -5], [-5, 4], [-3, 2], [-1, 4]]"
+        },
+        {
+          "name": "generated-16",
+          "passed": false,
+          "error": "AssertionError: Expected [[5, 8], [-1, 2], [-3, 0], [-10, -7], [-2, -1]], got [[-10, -7], [-3, 2], [-2, -1], [-1, 2], [5, 8]]"
+        },
+        {
+          "name": "generated-17",
+          "passed": false,
+          "error": "AssertionError: Expected [[3, 5], [1, 3], [-5, 0], [7, 12], [-2, -2], [-10, -9], [2, 7], [3, 5]], got [[-10, -9], [-5, 0], [-2, -2], [1, 7], [2, 7], [3, 5], [3, 5], [7, 12]]"
+        },
+        {
+          "name": "generated-19",
+          "passed": false,
+          "error": "AssertionError: Expected [[-9, -5], [-7, -3], [-4, -1], [1, 5], [-1, 3], [-6, -2], [-2, -2], [-2, 1], [0, 2], [-7, -5]], got [[-9, 5], [-7, -5], [-7, -3], [-6, -2], [-4, -1], [-2, -2], [-2, 1], [-1, 3], [0, 2], [1, 5]]"
+        },
+        {
+          "name": "generated-20",
+          "passed": false,
+          "error": "AssertionError: Expected [[-6, -4], [10, 10], [0, 4], [-5, -5], [3, 6], [-8, -8], [-6, -4], [5, 9], [4, 7], [-4, -3], [0, 5], [0, 2], [3, 3], [10, 14]], got [[-8, -8], [-6, -4], [-6, -4], [-5, -5], [-4, -3], [0, 9], [0, 4], [0, 5], [3, 3], [3, 6], [4, 7], "
+        },
+        {
+          "name": "generated-22",
+          "passed": false,
+          "error": "AssertionError: Expected [[-6, -5], [-10, -6], [4, 5], [-7, -2], [10, 12], [-8, -7], [-2, -2], [0, 4], [-5, -1], [3, 8], [-9, -5], [-10, -6], [-2, 0], [3, 4]], got [[-10, 0], [-10, -6], [-9, -5], [-8, -7], [-7, -2], [-6, -5], [-5, -1], [-2, -2], [-2, 0], ["
+        },
+        {
+          "name": "generated-23",
+          "passed": false,
+          "error": "AssertionError: Expected [[-1, -1], [-10, -6], [-1, 2], [2, 6], [1, 2], [-4, -2], [4, 4], [-3, 1], [4, 4], [-7, -7], [5, 8], [-10, -6], [10, 15], [3, 5]], got [[-10, -6], [-10, -6], [-7, -7], [-4, 2], [-3, 1], [-1, -1], [-1, 2], [1, 2], [2, 8], [3, 5], [4,"
+        },
+        {
+          "name": "generated-24",
+          "passed": false,
+          "error": "AssertionError: Expected [[2, 6], [-5, -4], [-5, -4], [-5, 0], [-8, -3], [-6, -1], [-1, 4], [-10, -7], [4, 9], [10, 10], [-10, -6]], got [[-10, 9], [-10, -6], [-8, -3], [-6, -1], [-5, -4], [-5, -4], [-5, 0], [-1, 4], [2, 6], [4, 9], [10, 10]]"
+        },
+        {
+          "name": "generated-25",
+          "passed": false,
+          "error": "AssertionError: Expected [[-10, -9], [-1, 4], [5, 5], [-2, -2], [-1, 3], [3, 3]], got [[-10, -9], [-2, -2], [-1, 4], [-1, 4], [3, 3], [5, 5]]"
+        },
+        {
+          "name": "generated-26",
+          "passed": false,
+          "error": "AssertionError: Expected [[-4, 1], [-4, -1], [9, 13], [-9, -8], [5, 5], [9, 13], [-5, 0], [3, 4], [3, 8], [-4, 1], [-10, -5]], got [[-10, -5], [-9, -8], [-5, 1], [-4, -1], [-4, 1], [-4, 1], [3, 8], [3, 8], [5, 5], [9, 13], [9, 13]]"
+        },
+        {
+          "name": "generated-27",
+          "passed": false,
+          "error": "AssertionError: Expected [[5, 10], [-2, 0], [-4, -4], [-8, -6], [7, 9], [-2, 0], [2, 3], [-3, -2], [5, 5], [10, 14]], got [[-8, -6], [-4, -4], [-3, -2], [-2, 0], [-2, 0], [2, 3], [5, 5], [5, 10], [7, 9], [10, 14]]"
+        },
+        {
+          "name": "generated-29",
+          "passed": false,
+          "error": "AssertionError: Expected [[-8, -6], [9, 13], [-1, -1], [6, 8], [2, 5], [-10, -10], [-7, -4], [10, 11]], got [[-10, -10], [-8, -4], [-7, -4], [-1, -1], [2, 5], [6, 8], [9, 13], [10, 11]]"
+        }
+      ],
+      "seconds": 0.049
+    },
+    "reference": {
+      "passed": true,
+      "checks": 37,
+      "passed_checks": 37,
+      "failures": [],
+      "seconds": 0.048
+    }
+  },
+  "pagination": {
+    "buggy": {
+      "passed": false,
+      "checks": 104,
+      "passed_checks": 34,
+      "failures": [
+        {
+          "name": "page-1-1-1",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [0], 'page': 1, 'size': 1, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 1, 'size': 1, 'total': 1, 'pages': 1, 'has_next': True}"
+        },
+        {
+          "name": "page-1-2-1",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [0], 'page': 1, 'size': 2, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 1, 'size': 2, 'total': 1, 'pages': 0, 'has_next': False}"
+        },
+        {
+          "name": "page-1-2-2",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 2, 'size': 2, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 2, 'size': 2, 'total': 1, 'pages': 0, 'has_next': False}"
+        },
+        {
+          "name": "page-1-2-4",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 4, 'size': 2, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 4, 'size': 2, 'total': 1, 'pages': 0, 'has_next': False}"
+        },
+        {
+          "name": "page-1-2-20",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 20, 'size': 2, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 20, 'size': 2, 'total': 1, 'pages': 0, 'has_next': False}"
+        },
+        {
+          "name": "page-1-4-1",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [0], 'page': 1, 'size': 4, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 1, 'size': 4, 'total': 1, 'pages': 0, 'has_next': False}"
+        },
+        {
+          "name": "page-1-4-2",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 2, 'size': 4, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 2, 'size': 4, 'total': 1, 'pages': 0, 'has_next': False}"
+        },
+        {
+          "name": "page-1-4-4",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 4, 'size': 4, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 4, 'size': 4, 'total': 1, 'pages': 0, 'has_next': False}"
+        },
+        {
+          "name": "page-1-4-20",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 20, 'size': 4, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 20, 'size': 4, 'total': 1, 'pages': 0, 'has_next': False}"
+        },
+        {
+          "name": "page-1-10-1",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [0], 'page': 1, 'size': 10, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 1, 'size': 10, 'total': 1, 'pages': 0, 'has_next': False}"
+        },
+        {
+          "name": "page-1-10-2",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 2, 'size': 10, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 2, 'size': 10, 'total': 1, 'pages': 0, 'has_next': False}"
+        },
+        {
+          "name": "page-1-10-4",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 4, 'size': 10, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 4, 'size': 10, 'total': 1, 'pages': 0, 'has_next': False}"
+        },
+        {
+          "name": "page-1-10-20",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 20, 'size': 10, 'total': 1, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 20, 'size': 10, 'total': 1, 'pages': 0, 'has_next': False}"
+        },
+        {
+          "name": "page-2-1-1",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [0], 'page': 1, 'size': 1, 'total': 2, 'pages': 2, 'has_next': True}, got {'items': [1], 'page': 1, 'size': 1, 'total': 2, 'pages': 2, 'has_next': True}"
+        },
+        {
+          "name": "page-2-1-2",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [1], 'page': 2, 'size': 1, 'total': 2, 'pages': 2, 'has_next': False}, got {'items': [], 'page': 2, 'size': 1, 'total': 2, 'pages': 2, 'has_next': True}"
+        },
+        {
+          "name": "page-2-2-1",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [0, 1], 'page': 1, 'size': 2, 'total': 2, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 1, 'size': 2, 'total': 2, 'pages': 1, 'has_next': True}"
+        },
+        {
+          "name": "page-2-4-1",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [0, 1], 'page': 1, 'size': 4, 'total': 2, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 1, 'size': 4, 'total': 2, 'pages': 0, 'has_next': False}"
+        },
+        {
+          "name": "page-2-4-2",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 2, 'size': 4, 'total': 2, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 2, 'size': 4, 'total': 2, 'pages': 0, 'has_next': False}"
+        },
+        {
+          "name": "page-2-4-4",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 4, 'size': 4, 'total': 2, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 4, 'size': 4, 'total': 2, 'pages': 0, 'has_next': False}"
+        },
+        {
+          "name": "page-2-4-20",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 20, 'size': 4, 'total': 2, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 20, 'size': 4, 'total': 2, 'pages': 0, 'has_next': False}"
+        },
+        {
+          "name": "page-2-10-1",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [0, 1], 'page': 1, 'size': 10, 'total': 2, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 1, 'size': 10, 'total': 2, 'pages': 0, 'has_next': False}"
+        },
+        {
+          "name": "page-2-10-2",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 2, 'size': 10, 'total': 2, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 2, 'size': 10, 'total': 2, 'pages': 0, 'has_next': False}"
+        },
+        {
+          "name": "page-2-10-4",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 4, 'size': 10, 'total': 2, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 4, 'size': 10, 'total': 2, 'pages': 0, 'has_next': False}"
+        },
+        {
+          "name": "page-2-10-20",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 20, 'size': 10, 'total': 2, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 20, 'size': 10, 'total': 2, 'pages': 0, 'has_next': False}"
+        },
+        {
+          "name": "page-7-1-1",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [0], 'page': 1, 'size': 1, 'total': 7, 'pages': 7, 'has_next': True}, got {'items': [1], 'page': 1, 'size': 1, 'total': 7, 'pages': 7, 'has_next': True}"
+        },
+        {
+          "name": "page-7-1-2",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [1], 'page': 2, 'size': 1, 'total': 7, 'pages': 7, 'has_next': True}, got {'items': [2], 'page': 2, 'size': 1, 'total': 7, 'pages': 7, 'has_next': True}"
+        },
+        {
+          "name": "page-7-1-4",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [3], 'page': 4, 'size': 1, 'total': 7, 'pages': 7, 'has_next': True}, got {'items': [4], 'page': 4, 'size': 1, 'total': 7, 'pages': 7, 'has_next': True}"
+        },
+        {
+          "name": "page-7-2-1",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [0, 1], 'page': 1, 'size': 2, 'total': 7, 'pages': 4, 'has_next': True}, got {'items': [2, 3], 'page': 1, 'size': 2, 'total': 7, 'pages': 3, 'has_next': True}"
+        },
+        {
+          "name": "page-7-2-2",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [2, 3], 'page': 2, 'size': 2, 'total': 7, 'pages': 4, 'has_next': True}, got {'items': [4, 5], 'page': 2, 'size': 2, 'total': 7, 'pages': 3, 'has_next': True}"
+        },
+        {
+          "name": "page-7-2-4",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [6], 'page': 4, 'size': 2, 'total': 7, 'pages': 4, 'has_next': False}, got {'items': [], 'page': 4, 'size': 2, 'total': 7, 'pages': 3, 'has_next': False}"
+        },
+        {
+          "name": "page-7-2-20",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 20, 'size': 2, 'total': 7, 'pages': 4, 'has_next': False}, got {'items': [], 'page': 20, 'size': 2, 'total': 7, 'pages': 3, 'has_next': False}"
+        },
+        {
+          "name": "page-7-4-1",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [0, 1, 2, 3], 'page': 1, 'size': 4, 'total': 7, 'pages': 2, 'has_next': True}, got {'items': [4, 5, 6], 'page': 1, 'size': 4, 'total': 7, 'pages': 1, 'has_next': True}"
+        },
+        {
+          "name": "page-7-4-2",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [4, 5, 6], 'page': 2, 'size': 4, 'total': 7, 'pages': 2, 'has_next': False}, got {'items': [], 'page': 2, 'size': 4, 'total': 7, 'pages': 1, 'has_next': False}"
+        },
+        {
+          "name": "page-7-4-4",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 4, 'size': 4, 'total': 7, 'pages': 2, 'has_next': False}, got {'items': [], 'page': 4, 'size': 4, 'total': 7, 'pages': 1, 'has_next': False}"
+        },
+        {
+          "name": "page-7-4-20",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 20, 'size': 4, 'total': 7, 'pages': 2, 'has_next': False}, got {'items': [], 'page': 20, 'size': 4, 'total': 7, 'pages': 1, 'has_next': False}"
+        },
+        {
+          "name": "page-7-10-1",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [0, 1, 2, 3, 4, 5, 6], 'page': 1, 'size': 10, 'total': 7, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 1, 'size': 10, 'total': 7, 'pages': 0, 'has_next': False}"
+        },
+        {
+          "name": "page-7-10-2",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 2, 'size': 10, 'total': 7, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 2, 'size': 10, 'total': 7, 'pages': 0, 'has_next': False}"
+        },
+        {
+          "name": "page-7-10-4",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 4, 'size': 10, 'total': 7, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 4, 'size': 10, 'total': 7, 'pages': 0, 'has_next': False}"
+        },
+        {
+          "name": "page-7-10-20",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 20, 'size': 10, 'total': 7, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 20, 'size': 10, 'total': 7, 'pages': 0, 'has_next': False}"
+        },
+        {
+          "name": "page-10-1-1",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [0], 'page': 1, 'size': 1, 'total': 10, 'pages': 10, 'has_next': True}, got {'items': [1], 'page': 1, 'size': 1, 'total': 10, 'pages': 10, 'has_next': True}"
+        },
+        {
+          "name": "page-10-1-2",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [1], 'page': 2, 'size': 1, 'total': 10, 'pages': 10, 'has_next': True}, got {'items': [2], 'page': 2, 'size': 1, 'total': 10, 'pages': 10, 'has_next': True}"
+        },
+        {
+          "name": "page-10-1-4",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [3], 'page': 4, 'size': 1, 'total': 10, 'pages': 10, 'has_next': True}, got {'items': [4], 'page': 4, 'size': 1, 'total': 10, 'pages': 10, 'has_next': True}"
+        },
+        {
+          "name": "page-10-2-1",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [0, 1], 'page': 1, 'size': 2, 'total': 10, 'pages': 5, 'has_next': True}, got {'items': [2, 3], 'page': 1, 'size': 2, 'total': 10, 'pages': 5, 'has_next': True}"
+        },
+        {
+          "name": "page-10-2-2",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [2, 3], 'page': 2, 'size': 2, 'total': 10, 'pages': 5, 'has_next': True}, got {'items': [4, 5], 'page': 2, 'size': 2, 'total': 10, 'pages': 5, 'has_next': True}"
+        },
+        {
+          "name": "page-10-2-4",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [6, 7], 'page': 4, 'size': 2, 'total': 10, 'pages': 5, 'has_next': True}, got {'items': [8, 9], 'page': 4, 'size': 2, 'total': 10, 'pages': 5, 'has_next': True}"
+        },
+        {
+          "name": "page-10-4-1",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [0, 1, 2, 3], 'page': 1, 'size': 4, 'total': 10, 'pages': 3, 'has_next': True}, got {'items': [4, 5, 6, 7], 'page': 1, 'size': 4, 'total': 10, 'pages': 2, 'has_next': True}"
+        },
+        {
+          "name": "page-10-4-2",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [4, 5, 6, 7], 'page': 2, 'size': 4, 'total': 10, 'pages': 3, 'has_next': True}, got {'items': [8, 9], 'page': 2, 'size': 4, 'total': 10, 'pages': 2, 'has_next': True}"
+        },
+        {
+          "name": "page-10-4-4",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 4, 'size': 4, 'total': 10, 'pages': 3, 'has_next': False}, got {'items': [], 'page': 4, 'size': 4, 'total': 10, 'pages': 2, 'has_next': False}"
+        },
+        {
+          "name": "page-10-4-20",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 20, 'size': 4, 'total': 10, 'pages': 3, 'has_next': False}, got {'items': [], 'page': 20, 'size': 4, 'total': 10, 'pages': 2, 'has_next': False}"
+        },
+        {
+          "name": "page-10-10-1",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 'page': 1, 'size': 10, 'total': 10, 'pages': 1, 'has_next': False}, got {'items': [], 'page': 1, 'size': 10, 'total': 10, 'pages': 1, 'has_next': True}"
+        },
+        {
+          "name": "page-11-1-1",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [0], 'page': 1, 'size': 1, 'total': 11, 'pages': 11, 'has_next': True}, got {'items': [1], 'page': 1, 'size': 1, 'total': 11, 'pages': 11, 'has_next': True}"
+        },
+        {
+          "name": "page-11-1-2",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [1], 'page': 2, 'size': 1, 'total': 11, 'pages': 11, 'has_next': True}, got {'items': [2], 'page': 2, 'size': 1, 'total': 11, 'pages': 11, 'has_next': True}"
+        },
+        {
+          "name": "page-11-1-4",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [3], 'page': 4, 'size': 1, 'total': 11, 'pages': 11, 'has_next': True}, got {'items': [4], 'page': 4, 'size': 1, 'total': 11, 'pages': 11, 'has_next': True}"
+        },
+        {
+          "name": "page-11-2-1",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [0, 1], 'page': 1, 'size': 2, 'total': 11, 'pages': 6, 'has_next': True}, got {'items': [2, 3], 'page': 1, 'size': 2, 'total': 11, 'pages': 5, 'has_next': True}"
+        },
+        {
+          "name": "page-11-2-2",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [2, 3], 'page': 2, 'size': 2, 'total': 11, 'pages': 6, 'has_next': True}, got {'items': [4, 5], 'page': 2, 'size': 2, 'total': 11, 'pages': 5, 'has_next': True}"
+        },
+        {
+          "name": "page-11-2-4",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [6, 7], 'page': 4, 'size': 2, 'total': 11, 'pages': 6, 'has_next': True}, got {'items': [8, 9], 'page': 4, 'size': 2, 'total': 11, 'pages': 5, 'has_next': True}"
+        },
+        {
+          "name": "page-11-2-20",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 20, 'size': 2, 'total': 11, 'pages': 6, 'has_next': False}, got {'items': [], 'page': 20, 'size': 2, 'total': 11, 'pages': 5, 'has_next': False}"
+        },
+        {
+          "name": "page-11-4-1",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [0, 1, 2, 3], 'page': 1, 'size': 4, 'total': 11, 'pages': 3, 'has_next': True}, got {'items': [4, 5, 6, 7], 'page': 1, 'size': 4, 'total': 11, 'pages': 2, 'has_next': True}"
+        },
+        {
+          "name": "page-11-4-2",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [4, 5, 6, 7], 'page': 2, 'size': 4, 'total': 11, 'pages': 3, 'has_next': True}, got {'items': [8, 9, 10], 'page': 2, 'size': 4, 'total': 11, 'pages': 2, 'has_next': True}"
+        },
+        {
+          "name": "page-11-4-4",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 4, 'size': 4, 'total': 11, 'pages': 3, 'has_next': False}, got {'items': [], 'page': 4, 'size': 4, 'total': 11, 'pages': 2, 'has_next': False}"
+        },
+        {
+          "name": "page-11-4-20",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 20, 'size': 4, 'total': 11, 'pages': 3, 'has_next': False}, got {'items': [], 'page': 20, 'size': 4, 'total': 11, 'pages': 2, 'has_next': False}"
+        },
+        {
+          "name": "page-11-10-1",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 'page': 1, 'size': 10, 'total': 11, 'pages': 2, 'has_next': True}, got {'items': [10], 'page': 1, 'size': 10, 'total': 11, 'pages': 1, 'has_next': True}"
+        },
+        {
+          "name": "page-11-10-2",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [10], 'page': 2, 'size': 10, 'total': 11, 'pages': 2, 'has_next': False}, got {'items': [], 'page': 2, 'size': 10, 'total': 11, 'pages': 1, 'has_next': False}"
+        },
+        {
+          "name": "page-11-10-4",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 4, 'size': 10, 'total': 11, 'pages': 2, 'has_next': False}, got {'items': [], 'page': 4, 'size': 10, 'total': 11, 'pages': 1, 'has_next': False}"
+        },
+        {
+          "name": "page-11-10-20",
+          "passed": false,
+          "error": "AssertionError: Expected {'items': [], 'page': 20, 'size': 10, 'total': 11, 'pages': 2, 'has_next': False}, got {'items': [], 'page': 20, 'size': 10, 'total': 11, 'pages': 1, 'has_next': False}"
+        },
+        {
+          "name": "invalid-True-2",
+          "passed": false,
+          "error": "AssertionError: Required validation exception was not raised"
+        },
+        {
+          "name": "invalid-1-False",
+          "passed": false,
+          "error": "ZeroDivisionError: integer division or modulo by zero"
+        },
+        {
+          "name": "invalid-0-2",
+          "passed": false,
+          "error": "AssertionError: Required validation exception was not raised"
+        },
+        {
+          "name": "invalid--1-2",
+          "passed": false,
+          "error": "AssertionError: Required validation exception was not raised"
+        },
+        {
+          "name": "invalid-1-0",
+          "passed": false,
+          "error": "ZeroDivisionError: integer division or modulo by zero"
+        }
+      ],
+      "seconds": 0.046
+    },
+    "reference": {
+      "passed": true,
+      "checks": 104,
+      "passed_checks": 104,
+      "failures": [],
+      "seconds": 0.046
+    }
+  },
+  "ttl_lru": {
+    "buggy": {
+      "passed": false,
+      "checks": 19,
+      "passed_checks": 1,
+      "failures": [
+        {
+          "name": "expiry-boundary",
+          "passed": false,
+          "error": "AssertionError: Expected 'missing', got 7"
+        },
+        {
+          "name": "live-hit-refreshes-lru",
+          "passed": false,
+          "error": "AssertionError: Expected None, got 2"
+        },
+        {
+          "name": "purge-expired-before-eviction",
+          "passed": false,
+          "error": "AssertionError: Expected 1, got None"
+        },
+        {
+          "name": "nonpositive-ttl-deletes",
+          "passed": false,
+          "error": "AssertionError: Expected None, got 2"
+        },
+        {
+          "name": "stateful-0",
+          "passed": false,
+          "error": "AssertionError: Expected 43, got 'missing'"
+        },
+        {
+          "name": "stateful-1",
+          "passed": false,
+          "error": "AssertionError: Expected 'missing', got 21"
+        },
+        {
+          "name": "stateful-2",
+          "passed": false,
+          "error": "AssertionError: Expected 'missing', got 77"
+        },
+        {
+          "name": "stateful-3",
+          "passed": false,
+          "error": "AssertionError: Expected 'missing', got 44"
+        },
+        {
+          "name": "stateful-5",
+          "passed": false,
+          "error": "AssertionError: Expected 'missing', got 31"
+        },
+        {
+          "name": "stateful-6",
+          "passed": false,
+          "error": "AssertionError: Expected 4, got 'missing'"
+        },
+        {
+          "name": "stateful-7",
+          "passed": false,
+          "error": "AssertionError: Expected 'missing', got 7"
+        },
+        {
+          "name": "stateful-8",
+          "passed": false,
+          "error": "AssertionError: Expected 48, got 'missing'"
+        },
+        {
+          "name": "stateful-9",
+          "passed": false,
+          "error": "AssertionError: Expected 'missing', got 76"
+        },
+        {
+          "name": "stateful-10",
+          "passed": false,
+          "error": "AssertionError: Expected 'missing', got 87"
+        },
+        {
+          "name": "stateful-11",
+          "passed": false,
+          "error": "AssertionError: Expected 'missing', got 17"
+        },
+        {
+          "name": "stateful-12",
+          "passed": false,
+          "error": "AssertionError: Expected 'missing', got 24"
+        },
+        {
+          "name": "stateful-13",
+          "passed": false,
+          "error": "AssertionError: Expected 'missing', got 85"
+        },
+        {
+          "name": "stateful-14",
+          "passed": false,
+          "error": "AssertionError: Expected 'missing', got 16"
+        }
+      ],
+      "seconds": 0.047
+    },
+    "reference": {
+      "passed": true,
+      "checks": 19,
+      "passed_checks": 19,
+      "failures": [],
+      "seconds": 0.057
+    }
+  }
+}
