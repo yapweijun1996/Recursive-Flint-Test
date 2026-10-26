@@ -1,2 +1,5 @@
 # Local Pi configuration and session state
 .pi/
+
+# Generated static report
+/dist/

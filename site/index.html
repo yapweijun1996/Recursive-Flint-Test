@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6f0">
+  <meta name="description" content="An evidence-backed field report on Recursive Flint and GPT-6 Luna, tested through Pi: executed code repairs, verified tool calls, timing, and limitations.">
+  <title>Flint, put to the test. — A Pi benchmark field report</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script id="benchmark-data" type="application/json">{{DATA}}</script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to report</a>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#main" aria-label="Flint field report home"><img src="favicon.svg" alt="" width="32" height="32"><span>flint<span class="brand-divider">/</span><span class="brand-light">field notes</span></span></a>
+      <nav aria-label="Main navigation"><a href="#results">Results</a><a href="#method">Method</a><a href="#evidence">Evidence</a></nav>
+      <a class="repository-link" href="https://github.com/yapweijun1996/Recursive-Flint-Test">View on GitHub <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span> INDEPENDENT TEST NOTES <span class="eyebrow-separator">/</span> 26 OCT 2026</p>
+          <h1 id="hero-title">Flint, put<br>to the <em>test.</em></h1>
+          <p class="hero-description">A hands-on look at Recursive’s open-weight coding model. Real code execution, verified tool calls, and a comparison with GPT-6 Luna—all through Pi.</p>
+          <div class="hero-actions"><a class="button button-primary" href="#results">Explore the results <span aria-hidden="true">↓</span></a><a class="text-link" href="downloads/FLINT_TESTING_KNOWLEDGE.md" download>Download the agent brief <span aria-hidden="true">↗</span></a></div>
+          <p class="hero-footnote">Recorded observations. Reproducible scripts. Small-sample conclusions.</p>
+        </div>
+        <aside class="hero-score" aria-label="Expanded benchmark headline result">
+          <div class="score-top"><span class="small-label">EXPANDED BENCHMARK</span><span class="score-badge">COMPLETE</span></div>
+          <div class="score-number">{{PASSED}}<span>/{{CALLS}}</span></div>
+          <p class="score-caption">scored model calls passed</p>
+          <div class="score-tiles"><div><span>{{REPAIR_CALLS}}</span><p>code repairs</p></div><div><span>{{READ_CALLS}}</span><p>verified reads</p></div><div><span>{{EFFORT_CALLS}}</span><p>effort trials</p></div></div>
+          <div class="score-bottom"><span class="checkmark" aria-hidden="true">✓</span><p>Luna high · Luna medium · Flint<br><strong>Controlled tasks. No automatic retries.</strong></p></div>
+        </aside>
+      </section>
+
+      <div class="environment-strip" aria-label="Test environment"><span class="strip-label">THE TEST BENCH</span><span>Pi {{PI_VERSION}}</span><span>OpenRouter</span><span>Python 3.13</span><span>Windows</span><span class="strip-last">{{CHECKS}} regression checks / configuration</span></div>
+
+      <section class="findings section-space" aria-labelledby="findings-title">
+        <div class="section-kicker"><span>01 / THE TAKEAWAYS</span><span>Start here</span></div>
+        <div class="findings-heading"><h2 id="findings-title">Capable on small tasks.<br>Context still matters.</h2><p>All three configurations passed the expanded tests. Earlier runs also revealed an important distinction between giving the right answer and doing the requested work.</p></div>
+        <div class="findings-grid">
+          <article class="finding"><span class="finding-number">01</span><h3>The repairs held up.</h3><p>Interval merging, pagination, and TTL/LRU caching. Every configuration passed {{CHECKS}} executable behavior checks across three repairs.</p><a href="#repair-details">See what was checked <span aria-hidden="true">↘</span></a></article>
+          <article class="finding"><span class="finding-number">02</span><h3>Verify the action.</h3><p>Flint sometimes skipped a required read in earlier runs. With unknown random file contents, all three configurations completed 10 of 10 actual reads.</p><a href="#earlier-runs">Read the earlier findings <span aria-hidden="true">↘</span></a></article>
+          <article class="finding"><span class="finding-number">03</span><h3>Effort is model-specific.</h3><p>Flint decides when to reason. Pi’s high/off labels did not establish an on/off switch. Luna medium was faster in some groups and slower in another.</p><a href="#reasoning-note">Understand the distinction <span aria-hidden="true">↘</span></a></article>
+        </div>
+      </section>
+
+      <section class="results-section section-space" id="results" aria-labelledby="results-title">
+        <div class="section-kicker"><span>02 / EXPLORE THE RESULTS</span><span>Expanded benchmark · {{CALLS}} calls</span></div>
+        <div class="section-heading"><div><h2 id="results-title">Three questions.<br>One test bench.</h2><p>Choose a test group, then compare total elapsed time or a typical request.</p></div><span class="data-chip"><span class="status-dot"></span> FROM RECORDED RESULTS</span></div>
+        <div class="suite-tabs" role="tablist" aria-label="Test group">
+          <button type="button" class="suite-tab active" id="tab-A" role="tab" aria-selected="true" aria-controls="suite-panel" data-suite="A"><span>A</span><span class="suite-tab-copy">Code repairs<small>3 tasks per configuration</small></span></button>
+          <button type="button" class="suite-tab" id="tab-B" role="tab" aria-selected="false" aria-controls="suite-panel" tabindex="-1" data-suite="B"><span>B</span><span class="suite-tab-copy">Actual tool calls<small>10 random reads each</small></span></button>
+          <button type="button" class="suite-tab" id="tab-C" role="tab" aria-selected="false" aria-controls="suite-panel" tabindex="-1" data-suite="C"><span>C</span><span class="suite-tab-copy">Luna effort<small>10 tasks per effort level</small></span></button>
+        </div>
+        <div class="chart-panel" id="suite-panel" role="tabpanel" aria-labelledby="tab-A" tabindex="0">
+          <div class="chart-header"><div><p class="small-label" id="chart-kicker">A / EXECUTED CODE REPAIRS</p><h3 id="chart-title">From buggy source to passing checks.</h3></div><div class="metric-switch" role="group" aria-label="Time metric"><button type="button" data-metric="total" aria-pressed="true">Total time</button><button type="button" data-metric="median" aria-pressed="false">Median / call</button></div></div>
+          <p class="chart-description" id="chart-description">Models read the source and returned replacement code. The harness applied each repair and ran independent Python checks.</p>
+          <div class="chart-axis"><span>ELAPSED SECONDS <span aria-hidden="true">→</span></span><span>SHORTER IS FASTER</span></div>
+          <div id="comparison-chart" class="comparison-chart" role="img" aria-label="Timing comparison loading"></div>
+          <p class="chart-note" id="chart-note">Timing includes Pi startup, network, inference and tool round trips. Verification time is recorded separately.</p>
+          <div class="table-scroll"><table class="result-table"><caption class="visually-hidden">Exact results for the selected test group</caption><thead><tr><th scope="col">Configuration</th><th scope="col">Passed</th><th scope="col">Total</th><th scope="col">Median / call</th><th scope="col">Reported cost</th></tr></thead><tbody id="results-table"></tbody></table></div>
+          <p class="metric-summary" id="metric-summary" aria-live="polite" aria-atomic="true"></p>
+        </div>
+        <noscript><p class="notice">Enable JavaScript to explore the interactive comparison. The <a href="https://github.com/yapweijun1996/Recursive-Flint-Test/blob/main/benchmarks/expanded-20261026/results.md">complete results are available as a text report</a>.</p></noscript>
+      </section>
+
+      <section class="repair-section section-space" id="repair-details" aria-labelledby="repair-title">
+        <div class="section-kicker"><span>03 / WHAT THE CODE HAD TO PROVE</span><span>Executed in Python</span></div>
+        <div class="section-heading"><div><h2 id="repair-title">A correct-looking patch<br>still has to run.</h2><p>Known defective baselines failed. Reference implementations passed. Each returned repair faced the same independent checks.</p></div></div>
+        <div class="repair-grid">
+          <article class="repair-card"><div class="repair-card-top"><span class="mono">01 / INTERVALS</span><span>{{MERGE_INTERVALS_CHECKS}} checks</span></div><h3>Keep the boundaries.</h3><div class="code-example"><code>[1, 2] + [2, 4]<br><span>→ [1, 4]</span></code></div><p>Merge shared endpoints, preserve real gaps, and leave the input unchanged. Generated cases also check coverage and repeated application.</p><span class="pass-label">✓ All configurations passed</span></article>
+          <article class="repair-card"><div class="repair-card-top"><span class="mono">02 / PAGINATION</span><span>{{PAGINATION_CHECKS}} checks</span></div><h3>Make the edges work.</h3><div class="code-example"><code>page = 1, size = 4<br><span>→ items[0:4]</span></code></div><p>One-based pages, empty lists, partial final pages, out-of-range requests, and explicit validation of invalid types and values.</p><span class="pass-label">✓ All configurations passed</span></article>
+          <article class="repair-card"><div class="repair-card-top"><span class="mono">03 / TTL + LRU</span><span>{{TTL_LRU_CHECKS}} scenarios</span></div><h3>Respect time and order.</h3><div class="code-example"><code>now ≥ expires_at<br><span>→ cache miss</span></code></div><p>Expiration boundaries, hit-based recency and safe eviction. Includes 15 generated sequences of 150 operations each.</p><span class="pass-label">✓ All configurations passed</span></article>
+        </div>
+      </section>
+
+      <section class="history-section section-space" id="earlier-runs" aria-labelledby="history-title">
+        <div class="section-kicker"><span>04 / KEEP THE EARLIER EVIDENCE</span><span>Repeated original tasks</span></div>
+        <div class="history-layout"><div class="history-copy"><h2 id="history-title">The earlier misses<br>belong in the report.</h2><p>On the original ten tasks, repeated three times, both models answered every answer-only task correctly. Flint skipped one required file read.</p><p>The expanded random-read test changed both the prompt and context policy. Its perfect result does not explain away the earlier miss.</p><a class="text-link" href="https://github.com/yapweijun1996/Recursive-Flint-Test/blob/main/benchmarks/luna-vs-flint-20261026/results.md">Inspect the original comparison <span aria-hidden="true">↗</span></a></div><div class="history-scores"><div class="history-score-row"><div><span class="model-dot luna-high"></span><strong>GPT-6 Luna</strong><small>high effort</small></div><span class="history-value" id="history-luna">30/30</span></div><div class="trial-dots" id="luna-dots" aria-hidden="true"></div><div class="history-score-row"><div><span class="model-dot flint"></span><strong>Flint</strong><small>autonomous reasoning</small></div><span class="history-value" id="history-flint">29/30</span></div><div class="trial-dots" id="flint-dots" aria-hidden="true"></div><p class="history-legend"><span class="legend-square"></span> Passed <span class="legend-square missed"></span> Required read skipped</p><p class="history-small">Equivalent absolute and relative read paths are accepted in the corrected scoring.</p></div></div>
+      </section>
+
+      <aside class="reasoning-note" id="reasoning-note" aria-labelledby="reasoning-title"><div class="reasoning-mark" aria-hidden="true">↳</div><div><p class="small-label">A MODEL-SPECIFIC DETAIL</p><h2 id="reasoning-title">Flint owns its thinking.</h2><p>Recursive documents no reasoning switch or budget: Flint decides whether to reason each turn. Our Pi <code>off</code> trials still produced thinking content. The high/off experiment compared requested labels, not verified reasoning-on and reasoning-off conditions.</p><a href="https://huggingface.co/RecursiveSI/flint/blob/main/sglang/README.md#chat-format-and-api-usage">Read Recursive’s serving documentation <span aria-hidden="true">↗</span></a></div></aside>
+
+      <section class="method-section section-space" id="method" aria-labelledby="method-title">
+        <div class="section-kicker"><span>05 / METHOD & LIMITS</span><span>Enough detail to check the claims</span></div>
+        <div class="method-layout"><div><h2 id="method-title">What “passed”<br>actually means.</h2><ol class="method-steps"><li><span>01</span><div><h3>Start a fresh session</h3><p>Pi, OpenRouter, no persisted conversation. The expanded tests disable project context, skills, extensions and MCP.</p></div></li><li><span>02</span><div><h3>Check execution records</h3><p>A read must actually occur against the correct file, succeed, and produce the required answer.</p></div></li><li><span>03</span><div><h3>Run the returned code</h3><p>The harness applies replacements to isolated files and checks behavior in a separate Python process.</p></div></li><li><span>04</span><div><h3>Keep every scored attempt</h3><p>One attempt per repair or effort task; ten random reads per configuration. No automatic retries.</p></div></li></ol></div><div class="method-details"><details open><summary>This is a small custom benchmark.</summary><p>These are isolated seeded defects and short tasks. They are not SWE-bench results, production-repository repairs, or proof of general coding-agent reliability.</p></details><details><summary>Timing includes more than inference.</summary><p>Wall time includes CLI startup, network, generation and tool round trips. Three configurations may use different upstream infrastructure. Total time preserves slow requests; the median describes a typical observed call.</p></details><details><summary>Reasoning budgets were not matched.</summary><p>Luna received high or medium effort requests. Flint reasons autonomously. Sampling defaults, tokenization, caching and provider behavior can differ. A higher effort label does not establish an equivalent amount of work across models.</p></details><details><summary>Corrections are recorded, not hidden.</summary><p>An early scorer rejected valid absolute file paths; scoring now compares the resolved target file. A pilot had ambiguous interval-adjacency wording. That pilot was retained separately and excluded before the scored run. Expected behavior and tests were not relaxed.</p></details><details><summary>Execution is intentionally bounded.</summary><p>Only the read tool was exposed for repair and reading tasks. The harness applies code and runs trusted tests with AST/import restrictions, restricted builtins and a five-second verification timeout. This is not a general-purpose operating-system sandbox.</p></details></div></div>
+      </section>
+
+      <section class="evidence-section section-space" id="evidence" aria-labelledby="evidence-title"><div class="section-kicker"><span>06 / TAKE THE EVIDENCE WITH YOU</span><span>Open files, reproducible runs</span></div><div class="evidence-heading"><h2 id="evidence-title">Read it. Check it.<br>Run it again.</h2><a class="button button-primary" href="downloads/FLINT_TESTING_KNOWLEDGE.md" download>Download Markdown <span aria-hidden="true">↓</span></a></div><div class="evidence-grid"><a href="https://github.com/yapweijun1996/Recursive-Flint-Test/blob/main/benchmarks/expanded-20261026/results.md"><span class="small-label">THE FULL REPORT</span><h3>Results & limitations <span aria-hidden="true">↗</span></h3><p>All three expanded suites, exact timings and methodology.</p></a><a href="downloads/benchmark-summary.json" download><span class="small-label">THE PAGE’S DATA</span><h3>Machine-readable summary <span aria-hidden="true">↓</span></h3><p>The same recorded values used in these comparisons.</p></a><a href="https://github.com/yapweijun1996/Recursive-Flint-Test/tree/main/benchmarks/expanded-20261026"><span class="small-label">THE REPRODUCTION</span><h3>Scripts & test fixtures <span aria-hidden="true">↗</span></h3><p>Runner, independent checks, candidates and recorded outcomes.</p></a></div><div class="reproduce-block"><div><span class="small-label">REPRODUCE WITH YOUR CONFIGURED PI ACCOUNT</span><button type="button" id="copy-command" class="copy-button">Copy command</button></div><pre><code id="reproduce-command">python benchmarks/expanded-20261026/run.py --output benchmarks/expanded-20261026/rerun.json</code></pre><p id="copy-status" role="status" class="copy-status"></p></div></section>
+    </main>
+
+    <footer class="site-footer"><a class="brand" href="#main"><img src="favicon.svg" alt="" width="26" height="26"><span>flint<span class="brand-divider">/</span><span class="brand-light">field notes</span></span></a><p>Independent observations · 26 October 2026 · Source <code>{{REVISION}}</code><br>Not affiliated with Recursive, OpenAI or Pi.</p><a href="https://github.com/yapweijun1996/Recursive-Flint-Test">Evidence on GitHub <span aria-hidden="true">↗</span></a></footer>
+  </div>
+</body>
+</html>

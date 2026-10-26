@@ -1,5 +1,16 @@
 # Flint: Verified Testing Knowledge for Another AI Agent
 
+## Interactive web report
+
+The static web report presents the recorded results, interactive timing comparisons, methodology, and downloadable agent notes. Build it without installing dependencies or making model API calls:
+
+```powershell
+python scripts/build_site.py --check
+python -m http.server 8766 --bind 127.0.0.1 --directory dist
+```
+
+Open `http://127.0.0.1:8766/`. Source files live in `site/`; the builder reads scored benchmark records and writes the ignored `dist/` directory. The GitHub Pages workflow deploys that directory when relevant changes are pushed to `main`, or when manually dispatched. Configure the repository's Pages source as GitHub Actions. No local Pi configuration is included in the deployment artifact.
+
 Test date: 2026-10-26. Environment: Windows, Python 3.13, Pi 1.4.0, OpenRouter.
 
 ## Model identity
